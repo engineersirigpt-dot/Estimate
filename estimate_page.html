@@ -1,0 +1,1804 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Estimate Packaging</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Cache-control" content="no-cache" />
+
+<script>
+  const hostname = window.location.hostname;
+  const SYSTEM_VERSION = "3.1";
+  const api_url = "http://192.168.5.3/estimate_packaging".replace("hostname", hostname);
+  const node_api = "http://192.168.5.3:3010".replace("hostname", hostname);
+  const base_url = "http://192.168.5.3:3040".replace("hostname", hostname);
+  const report_url = "http://192.168.5.3:3051/estimate".replace("hostname", hostname);
+  const wizard_api = "http://192.168.5.3:3060".replace("hostname", hostname);
+  const COSTING_URL = "".replace("hostname", hostname);
+
+  document.write(`<base href=${base_url}>`);
+  console.log(`hostname:`, hostname, base_url);
+</script>
+<link
+  rel="stylesheet"
+  href="./js/library/font-awesome-4.7.0/css/font-awesome.min.css"
+/>
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="./js/DataTables/datatables.min.css"
+/>
+<link rel="stylesheet" href="./css/datepicker.css" />
+<link rel="stylesheet" href="./css/jquery-ui-1.12.1.min.css" />
+
+<!-- <link rel="stylesheet"  href="./css/style_estimate.css"> -->
+<!-- <link rel="stylesheet"  href="./css/style.css"> -->
+<script src="./js/library/jquery-3.5.1.min.js"></script>
+<script src="./js/commonFunction.js"></script>
+<script src="./js/prepare_data.js"></script>
+<script src="./js/library/jquery.blockUI.js"></script>
+<script src="./js/library/jquery.inputmask.min.js"></script>
+<script src="./js/library/jquery-ui-1.12.1.min.js"></script>
+<script src="./js/library/html2canvas_1.3.2.min.js"></script>
+
+<script type="text/javascript" src="./js/DataTables/datatables.min.js"></script>
+<script src="./js/library/numeral.js"></script>
+<script src="./js/library/moment.min.js"></script>
+<script src="./js/library/xlsx.core.min.js"></script>
+<script src="./js/library/FileSaver.min.js"></script>
+<script src="./js/library/tableexport.min.js"></script>
+<script src="./js/library/sweetalert2@11.min.js"></script>
+<script src="./js/function_pdf_estimate_spec.js"></script>
+<!-- <script src="https://unpkg.com/json5@^2.0.0/dist/index.min.js"></script> -->
+
+<script src="./js/library/bootstrap-datepicker.js"></script>
+
+<!-- <script src="./js/library/thaibath.js" type="text/javascript" charset="utf-8"></script> -->
+<script
+  src="./js/library/thai-baht-text-js-master/thai-baht-text.js"
+  type="text/javascript"
+  charset="utf-8"
+></script>
+
+<link rel="stylesheet" type="text/css" href="./css/snackbar.css" />
+<script src="./js/library/snackbar.js"></script>
+<script src="./js/library/lodash.min.js"></script>
+
+<!-- Auth Interceptor for JWT Token Management -->
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<!-- <script src="./js/auth-interceptor.js"></script> -->
+
+<style>
+  @font-face {
+    font-family: "Prompt";
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src: url("./js/library/fonts/-W_8XJnvUD7dzB2Cy_gIfWMuUZctdhow.woff2")
+      format("woff2");
+    unicode-range: U+0E01-0E5B, U+200C-200D, U+25CC;
+  }
+  /* latin */
+  @font-face {
+    font-family: "Prompt";
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src: url("./js/library/fonts/-W_8XJnvUD7dzB2Cy_gIaWMuUZctdg.woff2")
+      format("woff2");
+    unicode-range:
+      U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+      U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+      U+FEFF, U+FFFD;
+  }
+
+  /* thai */
+  @font-face {
+    font-family: "Sarabun";
+    font-style: normal;
+    font-weight: 200;
+    font-display: swap;
+    src: url("./js/library/fonts/DtVmJx26TKEr37c9YNpoik8s6zDX.woff2")
+      format("woff2");
+    unicode-range: U+0E01-0E5B, U+200C-200D, U+25CC;
+  }
+
+  /* latin */
+  @font-face {
+    font-family: "Sarabun";
+    font-style: normal;
+    font-weight: 200;
+    font-display: swap;
+    src: url("./js/library/fonts/DtVmJx26TKEr37c9YNpoilss6w.woff2")
+      format("woff2");
+    unicode-range:
+      U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+      U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+      U+FEFF, U+FFFD;
+  }
+</style>
+    <link rel="icon" href="./img/estimate.png" type="image/png" sizes="16x16" />
+    <link rel="stylesheet" href="./css/style_estimate.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./css/document_status_manager.css"
+    />
+    <link rel="stylesheet" type="text/css" href="./css/estimate_history.css" />
+    <link rel="stylesheet" href="./css/wizard.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    />
+
+    <script src="./js/includes/config.js"></script>
+
+    <script src="./js/data/default.js"></script>
+    <script src="./js/data/mockup.js"></script>
+    <script src="./js/function_estimate_calculation.js"></script>
+    <script src="./js/function_estimate_readyFunction.js"></script>
+    <script src="./js/function_estimate.js"></script>
+    <script src="./js/function_estimate_fetchData.js"></script>
+    <script src="./js/function_estimate_getMasterData.js"></script>
+    <script src="./js/function_estimate_validate.js"></script>
+    <script src="./js/function_estimate_database.js"></script>
+    <script src="./js/function_estimate_displayData2UI.js"></script>
+    <script src="./js/function_estimate_layout.js"></script>
+    <script src="./js/documentStatusManagerClass.js"></script>
+    <script src="./js/estimateHistoryClass.js"></script>
+
+    <link rel="stylesheet" href="./css/estimate_print.css" />
+
+    <script src="./js/library/pdfmake.js"></script>
+    <script src="./js/library/vfs_fonts.js"></script>
+    <script src="./js/print-pdf.js"></script>
+    <script src="./js/library/imageBase64.js"></script>
+    <script src="./js/function_estimate_processInfo.js"></script>
+  </head>
+
+  <body>
+    <div id="estimate_form">
+      <div class="loading">
+        <div>
+          <div class="loader"></div>
+          <h2 class="loader-message"></h2>
+        </div>
+      </div>
+      <div class="estimate-header">
+        <h1 id="jobInfo" class="position-relative" style="margin-left: 30px">
+          <div>Estimate Packaging</div>
+        </h1>
+        <div id="flex-menu">
+          <div id="home-bttn" class="child-menu position-relative">
+            <i class="fa fa-home" style="font-size: 30px"></i
+            >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RFQ Search
+          </div>
+          <!-- <div id="view-wizard" class="child-menu">
+            <img
+              src="./img/magic-wand.png"
+              alt=""
+              style="width: 18px; height: 18px"
+            />
+            Wizard
+          </div> -->
+          <div id="job-info-bttn" class="child-menu">ข้อมูล Job</div>
+          <div id="spec-info-bttn" class="child-menu">Spec</div>
+          <div
+            id="layout-bttn"
+            class="child-menu"
+            id="layout-bttn"
+            style="display: none"
+          >
+            Layout
+          </div>
+          <div
+            id="summary-bttn"
+            class="child-menu"
+            id="summary-bttn"
+            style="display: none"
+          >
+            Summary
+          </div>
+          <div id="right-menu">
+            <!-- <div id="excel-bttn" style="display:none;"><button tableexport-id="18a3ec26-xlsx" style="font-size:16px">Excel</button></div> -->
+            <div id="save-bttn" style="display: none">Save RFQ</div>
+            <div id="print-bttn" style="width: 80px; text-align: center">
+              Print
+            </div>
+            <div
+              id="print"
+              style="width: 80px; text-align: center; display: none"
+            >
+              PDF
+            </div>
+            <div id="login-bttn" style="text-align: center">
+              Log in as guest
+            </div>
+            <div id="logout-bttn" style="text-align: center">
+              <i class="fa fa-sign-out" style="font-size: 25px"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="inputInfo">
+        <div id="job_info">
+          <div class="ml-1">
+            <b>Last Updated :</b> <span id="updated_by">-</span>
+          </div>
+          <table cellspacing="8">
+            <tr>
+              <td>
+                <span class="bold">Ref Copy. ID</span>
+              </td>
+              <td>
+                <div class="w-lg">
+                  <span id="ref_copy_rfq">-</span>
+                </div>
+              </td>
+              <td class="text-center">
+                <span class="bold"> Created By </span>
+              </td>
+              <td colspan="3">
+                <div class="w-xl">
+                  <span id="created_by">-</span>
+                </div>
+              </td>
+              <td>
+                <span class="bold">Date</span>
+              </td>
+              <td>
+                <div id="date">
+                  <input
+                    id="date"
+                    class="required text-rightd datepicker"
+                    type="text"
+                    placeholder="dd/mm/yyyy"
+                    style="width: 130px; text-align: center"
+                    readonly
+                  />
+                </div>
+              </td>
+              <td colspan="2" style="min-width: 275px">
+                <div style="z-index: 4; position: relative">
+                  <input
+                    id="is_estimate_checked"
+                    type="checkbox"
+                    class="d-none"
+                  />
+                  <label for="status_id" class="bold mr-1"
+                    >Document Status</label
+                  >
+                  <select
+                    id="status_id"
+                    class="text-center w-md3 mr-1"
+                  ></select>
+                  <span id="rejectRemarkLabel" class="warning bold btn">
+                    <u>Remark</u>
+                  </span>
+                  <span id="approve_checked" class="estimate_check d-none"
+                    >ตรวจสอบราคาแล้ว</span
+                  >
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="10">
+                <hr />
+              </td>
+            </tr>
+            <tr>
+              <td><b>RFQ ID</b></td>
+              <td style="width: 110px">
+                <div id="rfqID">
+                  <input class="w-100" style="min-width: 80px" readonly />
+                </div>
+              </td>
+              <td style="display: none; width: 110px">
+                <div id="refCopyID"><input readonly /></div>
+              </td>
+              <td style="text-align: center">
+                <b>AE Name</b><strong style="color: red">*</strong>
+              </td>
+              <td colspan="3">
+                <div id="div-ae">
+                  <input id="aeID" type="hidden" />
+                  <input id="aeName" type="hidden" />
+                  <input
+                    id="aeLabel"
+                    class="required"
+                    style="width: 218px"
+                    onKeyup="autocomplete_employee(this,'ae');"
+                    autocomplete="off"
+                  />
+                  <div id="snackbar-ae" class="snackbar">
+                    Please fill AE name
+                  </div>
+                </div>
+              </td>
+              <td style="text-align: center"><b>Estimator</b></td>
+              <td colspan="3">
+                <div>
+                  <input id="estID" type="hidden" />
+                  <input id="estName" type="hidden" />
+                  <input id="estLabel" style="width: 200px" readonly />
+                  <input type="checkbox" id="request_for_approve" />
+                  <label for="request_for_approve">Request for approve</label>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td><b>Job Name</b><strong style="color: red">*</strong></td>
+              <td colspan="9">
+                <div id="jobName">
+                  <input class="required" style="width: 100%" />
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td><b>Customer</b><strong style="color: red">*</strong></td>
+              <td colspan="11">
+                <div id="div-customer">
+                  <input id="custID" type="hidden" />
+                  <input id="custName" type="hidden" />
+                  <input
+                    id="customerLabel"
+                    class="required"
+                    style="width: 300px"
+                  />
+                  <input type="checkbox" id="is_newCustomer" />
+                  <span class="mr-2">ลูกค้าใหม่</span>
+                  <input type="hidden" id="credit_term_id" />
+                  <span id="credit_term_desc">
+                    <b>Credit Term :</b>
+                    <span id="credit_term_name">-- ไม่พบข้อมูล --</span>
+                  </span>
+                  <div id="snackbar-customer" class="snackbar">
+                    Please fill customer
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="6">
+                <input type="checkbox" id="is_multiple_f" /> <b>งานมีหลาย F</b>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <!-- <div class="mt-1 mb-1 ml-1">
+				
+			</div> -->
+        <div id="qty_info">
+          <div id="add-remove-qty-bttn">
+            <table>
+              <tr>
+                <td>
+                  <button id="addQty" type="button">
+                    เพิ่ม จำนวนยอด (Quantity)
+                  </button>
+                </td>
+                <td style="text-align: center">
+                  <button id="removeQty" type="button">
+                    ลด จำนวนยอด (Quantity)
+                  </button>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div id="qtyInput">
+            <table cellspacing="8">
+              <tr>
+                <td>Quantity<strong style="color: red">*</strong></td>
+                <td style="width: 100px; text-align: center">
+                  <div class="inputQty">
+                    <input
+                      class="required"
+                      style="width: 60px; text-align: center"
+                      value=""
+                    />
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Run-On
+                  <input
+                    style="width: 20px; text-align: center"
+                    class="runonPercent"
+                  />
+                  %
+                </td>
+                <td style="width: 100px; text-align: center">
+                  <div class="runonQty">
+                    <input style="width: 60px; text-align: center" />
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>AE Qty</td>
+                <td style="width: 100px; text-align: center">
+                  <div class="aeQty">
+                    <input style="width: 60px; text-align: center" />
+                  </div>
+                </td>
+                <td style="text-align: center">Customer Qty</td>
+                <td style="width: 100px; text-align: center">
+                  <div class="customerQty">
+                    <input style="width: 60px; text-align: center" />
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <div id="multiple_f_qty_info" class="d-none mt-1 mb-2">
+          <div id="add-remove-qty-bttn">
+            <table>
+              <tr>
+                <td>
+                  <button id="addFQty" type="button">เพิ่ม จำนวน F</button>
+                </td>
+                <td style="text-align: center">
+                  <button id="removeFQty" type="button">ลด จำนวน F</button>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div id="qtyInput" class="f_qtyInput">
+            <div class="d-flex flex-row f-container">
+              <table cellspacing="8" class="f_table" style="width: 250px">
+                <tr>
+                  <td colspan="2">
+                    <input placeholder="F Code" class="f-code required w-100" />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Quantity<strong style="color: red">*</strong></td>
+                  <td style="width: 100px; text-align: center">
+                    <div class="inputQty">
+                      <input
+                        class="required"
+                        style="width: 60px; text-align: center"
+                        value=""
+                      />
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Run-On
+                    <input
+                      style="width: 20px; text-align: center"
+                      class="runonPercent"
+                    />
+                    %
+                  </td>
+                  <td style="width: 100px; text-align: center">
+                    <div class="runonQty">
+                      <input style="width: 60px; text-align: center" />
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>AE Qty</td>
+                  <td style="width: 100px; text-align: center">
+                    <div class="aeQty">
+                      <input style="width: 60px; text-align: center" />
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Customer Qty</td>
+                  <td style="width: 100px; text-align: center">
+                    <div class="customerQty">
+                      <input style="width: 60px; text-align: center" />
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Total Qty.</td>
+                  <td style="width: 100px; text-align: center">
+                    <div class="f-totalQty">
+                      <input
+                        readonly
+                        style="width: 60px; text-align: center"
+                        value=""
+                      />
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    ลิมิตสี <input class="chk_color_limit" type="checkbox" />
+                  </td>
+                  <td
+                    class="color_limit color_limit_f"
+                    style="display: none; text-align: center"
+                  >
+                    <input
+                      class="required"
+                      style="width: 60px; text-align: center"
+                      placeholder="เล่ม"
+                    />
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div>
+            <table>
+              <tr>
+                <td>Total Qty.</td>
+                <td>
+                  <input
+                    class="f-sumTotalQty"
+                    readonly
+                    style="width: 80px; text-align: center"
+                    value=""
+                  />
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <div id="add-remove-component-bttn">
+          <table cellspacing="8">
+            <tr>
+              <td>
+                <button id="addComp" type="button">
+                  เพิ่ม ชิ้นส่วน (Component)
+                </button>
+              </td>
+              <td style="text-align: center">
+                <button id="removeComp" type="button">
+                  ลด ชิ้นส่วน (Component)
+                </button>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div id="job_detail">
+          <table cellpadding="5px" style="margin: 5px">
+            <tr>
+              <td style="width: 80px">ประเภทงาน :</td>
+              <td id="is_reprinted" style="width: 120px">
+                <select style="text-align-last: center">
+                  <option value="0">งานใหม่</option>
+                  <option value="1">งาน Reprint</option>
+                </select>
+              </td>
+              <td style="width: 80px">ประเภทหมึก :</td>
+              <td id="ink_type" style="width: 80px">
+                <select style="text-align-last: center">
+                  <option value="conventional">ธรรมดา</option>
+                  <option value="UV">UV</option>
+                </select>
+              </td>
+
+              <td style="width: 80px">ประเภทพิมพ์ :</td>
+              <td id="print_type" style="width: 70px">
+                <select style="text-align-last: center">
+                  <option value="Offset">Offset</option>
+                  <option value="Flexo">Flexo</option>
+                  <option value="Jet Press">Jet Press</option>
+                  <option value="Konica">Konica</option>
+                </select>
+              </td>
+
+              <td id="flexo_size" style="display: none">
+                Size (in²)
+                <input
+                  class="required"
+                  style="width: 45px; text-align: center"
+                />
+                x
+                <input
+                  class="required"
+                  style="width: 45px; text-align: center"
+                />
+              </td>
+              <td
+                style="width: 80px; text-align: right"
+                class="color_limit_normal"
+              >
+                <input class="chk_color_limit" type="checkbox" /> ลิมิตสี
+              </td>
+              <td class="color_limit color_limit_normal" style="display: none">
+                <input
+                  class="required"
+                  style="width: 70px; text-align: center"
+                />
+                เล่ม
+              </td>
+              <td
+                style="width: 120px; text-align: right"
+                class="use_prev_plate d-none"
+              >
+                <input id="is_use_previous_plate" type="checkbox" /> ใช้ Plate
+                เก่า
+              </td>
+              <td style="text-align: right" class="profit_sharing">
+                <input class="chk_profit_sharing" type="checkbox" disabled />
+                Profit Sharing
+                <span class="warning"
+                  >(ยกเลิกใช้งาน มีผลตั้งแต่ 03/01/2025 เป็นต้นไป)</span
+                >
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div id="component">
+          <div class="component" index="0">
+            <div class="componentSpec flex-row" index="0" style="margin: 5px">
+              <div class="nameComponent w-100 mb-1" index="0">
+                <div index="0">
+                  <table cellspacing="8">
+                    <tr>
+                      <td colspan="3">
+                        <h2 class="componentIndex">Component ที่ 1</h2>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <input
+                          class="nameComp required"
+                          style="text-align: center"
+                          placeholder="Component name"
+                          value=""
+                        />
+                      </td>
+                      <td>
+                        <select
+                          class="componentType"
+                          style="text-align-last: center"
+                        >
+                          <option value="1">ไม่ประกบลูกฟูก</option>
+                          <option value="2">ประกบลูกฟูก</option>
+                          <option value="3">เฉพาะลูกฟูก</option>
+                        </select>
+                      </td>
+                      <td>
+                        <div class="deleteComponent">ลบ</div>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+
+              <div index="0" class="detailComp">
+                <div class="specialInkSection w-100 color-section" index="0">
+                  <div class="section-description">
+                    <b>- สี และสีพิเศษ</b>
+                  </div>
+                  <div class="component-color-section">
+                    <div class="f-section w-100">
+                      <div class="speicalInk-button d-flex flex-row">
+                        <div class="addSpeInk-f speInk-btn">เพิ่ม</div>
+                        <div class="deleteSpeInk-f speInk-btn ml-2">ลด</div>
+                        <div class="copySpeInk-f speInk-btn ml-2">copy</div>
+                      </div>
+                    </div>
+                    <div class="specialInk-list d-flex flex-row flex-wrap">
+                      <div class="specialInk-container">
+                        <table>
+                          <tr>
+                            <td style="text-align: center; width: 252px">
+                              <div>
+                                <select
+                                  class="specialInkFCode f-code-select f-input required"
+                                  style="text-align: center; width: 80%"
+                                >
+                                  <option value="">- F Code -</option>
+                                </select>
+                              </div>
+                              <div class="group_check_special_ink">
+                                <input
+                                  class="has_speInk mt-1"
+                                  type="checkbox"
+                                  data-f_index="0"
+                                />
+                                มีสีพิเศษ
+                              </div>
+                            </td>
+                            <td style="width: 303px">
+                              <div index="0" class="ml-5">
+                                <table cellspacing="8">
+                                  <tr>
+                                    <td class="d-flex align-center">
+                                      <div
+                                        class="group_check_black_printing on-konica d-flex align-center mr-1"
+                                      >
+                                        <input
+                                          class="is_black_printing outside"
+                                          data-color_side="outside"
+                                          type="checkbox"
+                                          data-f_index="0"
+                                        />
+                                        พิมพ์สีดำ
+                                      </div>
+                                      <div style="width: 80px">
+                                        : Outside
+                                        <strong style="color: red" class="mr-1"
+                                          >*</strong
+                                        >
+                                      </div>
+                                      <input
+                                        class="colorOutside required mr-1"
+                                        style="
+                                          text-align: center;
+                                          width: 20px;
+                                          text-align: center;
+                                        "
+                                        value=""
+                                      />
+                                      cols
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td class="d-flex align-center">
+                                      <div
+                                        class="group_check_black_printing on-konica d-flex align-center mr-1"
+                                      >
+                                        <input
+                                          class="is_black_printing inside"
+                                          data-color_side="inside"
+                                          type="checkbox"
+                                          data-f_index="0"
+                                        />
+                                        พิมพ์สีดำ
+                                      </div>
+                                      <div style="width: 80px">
+                                        : Inside
+                                        <strong style="color: red" class="mr-1"
+                                          >*</strong
+                                        >
+                                      </div>
+                                      <input
+                                        class="colorInside required mr-1"
+                                        style="
+                                          text-align: center;
+                                          width: 20px;
+                                          text-align: center;
+                                        "
+                                        value="0"
+                                      />
+                                      cols
+                                    </td>
+                                  </tr>
+                                </table>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td colspan="2">
+                              <div
+                                class="div-speInk"
+                                index="0"
+                                style="margin: 5px; display: none"
+                                f_index="0"
+                              >
+                                <div>
+                                  <table cellspacing="5px">
+                                    <tr>
+                                      <td style="width: 120px">
+                                        <strong>Special Ink (สีพิเศษ)</strong>
+                                      </td>
+                                      <td>
+                                        <div class="addSpeInk speInk-btn ml-1">
+                                          เพิ่ม
+                                        </div>
+                                      </td>
+                                    </tr>
+                                  </table>
+                                  <table
+                                    cellspacing="5px"
+                                    cellpadding="5px"
+                                    class="table_speInk"
+                                  >
+                                    <thead>
+                                      <th></th>
+                                      <th>สี</th>
+                                      <th>ชนิดหมึก</th>
+                                      <th>ลักษณะการพิมพ์สี</th>
+                                    </thead>
+                                    <tbody></tbody>
+                                  </table>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="section paper-section">
+                  <div class="section-description d-flex flex-row align-center">
+                    <b>- ประเภทกระดาษ</b>
+                    <div
+                      class="paperMarkup"
+                      style="margin: 5px; margin-left: 80px"
+                      index="0"
+                    >
+                      <div>
+                        mark-up
+                        <input
+                          class="required"
+                          style="text-align: center; width: 60px"
+                          value="7"
+                        />
+                        %
+                      </div>
+                    </div>
+                  </div>
+                  <div class="section-detail d-flex flex-wrap w-100">
+                    <div index="0" class="paperInput">
+                      <table cellspacing="8">
+                        <tr>
+                          <td style="text-align: center">
+                            Paper<strong style="color: red">*</strong>
+                          </td>
+                          <td style="text-align: center" colspan="2">
+                            <select
+                              class="paperType required"
+                              style="text-align-last: center; width: 100%"
+                            >
+                              <option value="">-select type-</option>
+                            </select>
+                            <span
+                              class="paperCode-custom"
+                              style="display: none"
+                            ></span>
+                            <span
+                              class="paperType-custom"
+                              style="display: none"
+                            ></span>
+                          </td>
+                          <td style="text-align: center">
+                            <select
+                              class="paperGram required"
+                              style="text-align-last: center"
+                            >
+                              <option value="">-</option>
+                            </select>
+                            <span
+                              class="paperGram-custom"
+                              style="display: none"
+                            ></span>
+                            <span
+                              class="paperThickness-custom"
+                              style="display: none"
+                            ></span>
+                            Gsm
+                          </td>
+                          <!-- <td style="text-align:center;"></td> -->
+                          <td>
+                            <input
+                              class="sheet_unit_price"
+                              type="checkbox"
+                            />ราคา/แผ่น
+                            <span class="custom-paper" custom="0"
+                              ><i
+                                class="fa fa-exchange"
+                                style="font-size: 22px"
+                              ></i
+                            ></span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td colspan="4">
+                            <span class="">Paper Brand : </span>
+                            <span class="paper_brand_supplier">-</span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="text-align: center">
+                            กระดาษ<strong style="color: red">*</strong>
+                          </td>
+                          <td style="text-align: center; width: 80px">
+                            <select class="select_paper_source required">
+                              <option value="">-select-</option>
+                              <option value="1">ในประเทศ</option>
+                              <option value="2">ต่างประเทศ</option>
+                            </select>
+                          </td>
+                          <td style="text-align: right">ตัดม้วน(บาท)</td>
+                          <td style="text-align: left">
+                            <input
+                              class="paperPercent required"
+                              style="width: 80px; text-align: center"
+                              title="% ค่าตัดกระดาษม้วน"
+                            />
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="text-align: center">
+                            Cost<strong style="color: red">*</strong>
+                          </td>
+                          <td style="text-align: center">
+                            <input
+                              class="paperCost required"
+                              style="width: 80px; text-align: center"
+                              value=""
+                            />
+                          </td>
+                          <td style="text-align: right">Sale</td>
+                          <td style="text-align: left">
+                            <input
+                              class="paperSale"
+                              style="width: 80px; text-align: center"
+                              value=""
+                              readonly
+                            />
+                            <span class="paper_unit_price">B/Kg</span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td colspan="5">
+                            <div>
+                              <span class="require"
+                                ><b>*</b> หากใช้กระดาษแบรนด์อื่น
+                                กรุณาตรวจสอบราคากับฝ่ายจัดซื้อก่อนประเมินราคา
+                                !!!</span
+                              >
+                            </div>
+                            <div>
+                              <span class="require"
+                                ><b>*</b> กรณีเปิด Job กรุณาตรวจสอบ Stock
+                                กับฝ่ายจัดซื้ออีกครั้งก่อนดำเนินการ !!!</span
+                              >
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td colspan="5">
+                            <textarea
+                              class="remark-paper"
+                              rows="1"
+                              placeholder="พิมพ์รายละเอียดเพิ่มเติมที่นี่"
+                            ></textarea>
+                          </td>
+                        </tr>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+                <div class="section other-section">
+                  <div class="section-description d-flex flex-row align-center">
+                    <b>- ส่วนประกอบอื่นๆ</b>
+                    <!-- * add tool -->
+                    <div class="add-addon" index="0" style="margin-left: 80px">
+                      <table cellspacing="8">
+                        <tr>
+                          <td>
+                            <select style="text-align-last: center">
+                              <option value="">-process-</option>
+                              <option value="coating">Coating</option>
+                              <option value="foilstamp">Foil Stamp</option>
+                              <option value="emboss">Emboss</option>
+                              <option value="deboss">Deboss</option>
+                            </select>
+                          </td>
+                          <td style="text-align: center">
+                            <button class="add-addon-bttn">เพิ่ม</button>
+                          </td>
+                        </tr>
+                      </table>
+                    </div>
+                  </div>
+                  <div class="section-detail d-flex flex-wrap w-100">
+                    <!-- * coating -->
+                    <div class="section-addon coating-section">
+                      <div
+                        index="0"
+                        class="coatingInput addonInput"
+                        process-index="0"
+                      >
+                        <table cellspacing="8" class="tbAddonInput">
+                          <tr>
+                            <td style="text-align: center">Coating</td>
+                            <td>
+                              <select
+                                class="coatingOption"
+                                style="text-align-last: center; width: 70px"
+                              >
+                                <option value="">-select-</option>
+                                <option value="Gloss">Gloss</option>
+                                <option value="Matt">Matt</option>
+                                <option value="Other">อื่นๆ</option>
+                              </select>
+                            </td>
+                            <td>
+                              <select
+                                class="coatingType"
+                                style="text-align-last: center; width: 230px"
+                              >
+                                <option value="">-</option>
+                              </select>
+                            </td>
+                          </tr>
+                        </table>
+                      </div>
+                    </div>
+
+                    <!-- * foilstamp -->
+                    <div class="section-addon foilstamp-section">
+                      <div
+                        index="0"
+                        class="foilstampInput addonInput"
+                        process-index="0"
+                      >
+                        <table cellspacing="8" class="tbAddonInput">
+                          <tr>
+                            <td style="text-align: center">
+                              <input
+                                type="checkbox"
+                                class="foilstampCheck"
+                              />Foil stamp
+                            </td>
+                            <td class="tdInput" style="text-align: center">
+                              Size (in²)
+                            </td>
+                            <td
+                              class="tdInput"
+                              style="text-align: center"
+                              colspan="2"
+                            >
+                              <table class="tb_foilstampSize w-100">
+                                <tr>
+                                  <td style="text-align: center">
+                                    <input
+                                      class="foilstampSize required"
+                                      style="width: 45px; text-align: center"
+                                    />
+                                    x
+                                    <input
+                                      class="foilstampSize required"
+                                      style="width: 45px; text-align: center"
+                                    />
+                                  </td>
+                                  <td>
+                                    <div class="add-addon-size">เพิ่ม</div>
+                                  </td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td class="tdInput" style="text-align: right">
+                              สี
+                            </td>
+                            <td class="tdInput" style="text-align: center">
+                              <select
+                                class="foilColor required"
+                                style="text-align-last: center"
+                              ></select>
+                              <span class="foilColor-custom d-none"></span>
+                            </td>
+                            <td class="tdInput">
+                              <select
+                                class="foilCode required"
+                                style="text-align-last: center; width: 100%"
+                              >
+                                <option value="">-</option>
+                              </select>
+                              <span class="Code-custom d-none">Code</span>
+                              <span class="foilCode-custom d-none"></span>
+                            </td>
+                            <td
+                              class="tdInput custom-foil"
+                              custom="0"
+                              style="text-align: center"
+                            >
+                              <i
+                                class="fa fa-exchange"
+                                style="font-size: 22px"
+                              ></i>
+                              <input
+                                class="foilRollWidth-custom"
+                                type="hidden"
+                              />
+                              <input
+                                class="foilRollLength-custom"
+                                type="hidden"
+                              />
+                              <input
+                                class="foilRollPrice-custom"
+                                type="hidden"
+                              />
+                              <!-- <input class="foilRollMinPrice-custom" type="hidden"> -->
+                            </td>
+                          </tr>
+
+                          <!-- FOR F -->
+                          <tr class="trInputF f-addon">
+                            <td></td>
+                            <td style="text-align: center">F Code</td>
+                            <td>
+                              <select
+                                class="foilstampFCode f-code-select required"
+                                style="text-align-last: center; width: 120px"
+                              >
+                                <option value="">- F Code -</option>
+                              </select>
+                            </td>
+                            <td>
+                              <div
+                                class="add-addon-f-code"
+                                data-name="foilstamp"
+                              >
+                                เพิ่ม
+                              </div>
+                            </td>
+                          </tr>
+                        </table>
+                      </div>
+                    </div>
+
+                    <!-- * emboss -->
+                    <div class="section-addon emboss-section">
+                      <div
+                        index="0"
+                        class="embossInput addonInput"
+                        process-index="0"
+                      >
+                        <table cellspacing="8" class="tbAddonInput">
+                          <tr>
+                            <td style="text-align: center">
+                              <input
+                                type="checkbox"
+                                class="embossCheck"
+                              />Emboss
+                            </td>
+                            <td class="tdInput" style="text-align: right">
+                              Size (in²)
+                            </td>
+                            <td class="tdInput" colspan="2">
+                              <table class="tb_embossSize w-100">
+                                <tr>
+                                  <td style="text-align: center">
+                                    <input
+                                      class="embossSize required"
+                                      style="width: 45px; text-align: center"
+                                    />
+                                    x
+                                    <input
+                                      class="embossSize required"
+                                      style="width: 45px; text-align: center"
+                                    />
+                                  </td>
+                                  <td>
+                                    <div class="add-addon-size">เพิ่ม</div>
+                                  </td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="tdInput"></td>
+                            <td class="tdInput" style="text-align: right">
+                              ความนูน
+                            </td>
+                            <td class="tdInput" style="text-align: left">
+                              <select
+                                class="embossDepth"
+                                style="text-align-last: center; width: 100%"
+                              >
+                                <option value="1.25">1.25 mm</option>
+                                <option value="1.65">1.65 mm</option>
+                              </select>
+                            </td>
+                            <td></td>
+                          </tr>
+
+                          <!-- FOR F -->
+                          <tr class="trInputF f-addon">
+                            <td></td>
+                            <td style="text-align: center">F Code</td>
+                            <td>
+                              <select
+                                class="embossFCode f-code-select required"
+                                style="text-align-last: center; width: 120px"
+                              >
+                                <option value="">- F Code -</option>
+                              </select>
+                            </td>
+                            <td>
+                              <div class="add-addon-f-code" data-name="emboss">
+                                เพิ่ม
+                              </div>
+                            </td>
+                          </tr>
+                        </table>
+                      </div>
+                    </div>
+
+                    <!-- * deboss -->
+                    <div class="section-addon deboss-section">
+                      <div
+                        index="0"
+                        class="debossInput addonInput"
+                        process-index="0"
+                      >
+                        <table cellspacing="8" class="tbAddonInput">
+                          <tr>
+                            <td style="text-align: center">
+                              <input
+                                type="checkbox"
+                                class="debossCheck"
+                              />Deboss
+                            </td>
+                            <td class="tdInput" style="text-align: right">
+                              Size (in²)
+                            </td>
+                            <td class="tdInput" colspan="2">
+                              <table class="tb_debossSize w-100">
+                                <tr>
+                                  <td style="text-align: center">
+                                    <input
+                                      class="debossSize required"
+                                      style="width: 45px; text-align: center"
+                                    />
+                                    x
+                                    <input
+                                      class="debossSize required"
+                                      style="width: 45px; text-align: center"
+                                    />
+                                  </td>
+                                  <td>
+                                    <div class="add-addon-size">เพิ่ม</div>
+                                  </td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="tdInput"></td>
+                            <td class="tdInput" style="text-align: right">
+                              ความลึก
+                            </td>
+                            <td class="tdInput" style="text-align: left">
+                              <select
+                                class="debossDepth"
+                                style="text-align-last: center; width: 100%"
+                              >
+                                <option value="1.25">1.25 mm</option>
+                                <option value="1.65">1.65 mm</option>
+                              </select>
+                            </td>
+                            <td></td>
+                          </tr>
+
+                          <!-- FOR F -->
+                          <tr class="trInputF f-addon">
+                            <td></td>
+                            <td style="text-align: center">F Code</td>
+                            <td>
+                              <select
+                                class="debossFCode f-code-select required"
+                                style="text-align-last: center; width: 120px"
+                              >
+                                <option value="">- F Code -</option>
+                              </select>
+                            </td>
+                            <td>
+                              <div class="add-addon-f-code" data-name="deboss">
+                                เพิ่ม
+                              </div>
+                            </td>
+                          </tr>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="componentTemplate" index="0" style="margin: 20px">
+              <span>Component ที่ 1</span>
+              <select
+                class="boxType required"
+                index="0"
+                style="text-align-last: center"
+              >
+                <option value="">-Select Template-</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="section-other-detail">
+          <div id="other">
+            <div>
+              <table cellspacing="5px">
+                <tr>
+                  <td><strong>Other Process:</strong></td>
+                  <td><div class="addProcess">เพิ่ม</div></td>
+                </tr>
+              </table>
+            </div>
+            <div style="display: none">
+              <table cellspacing="5px">
+                <tr>
+                  <td>
+                    <div id="trim"><input type="checkbox" />Trim</div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div style="display: none">
+              <table cellspacing="5px">
+                <tr>
+                  <td>
+                    <div id="bag"><input type="checkbox" />ใส่ถุง</div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div style="display: none">
+              <table cellspacing="5px">
+                <tr>
+                  <td>
+                    <div id="shrinkwrap">
+                      <input type="checkbox" />Shrinkwrap
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div id="otherProcess" style="margin-left: 5px">
+              <table cellspacing="10px">
+                <tbody></tbody>
+              </table>
+            </div>
+          </div>
+          <div id="handwork">
+            <div>
+              <table cellspacing="5px">
+                <tr>
+                  <td><strong>Handwork Process:</strong></td>
+                  <td><div class="addProcess">เพิ่ม</div></td>
+                </tr>
+              </table>
+            </div>
+            <div id="handworkProcess" style="margin-left: 5px">
+              <table cellspacing="10px">
+                <tbody></tbody>
+              </table>
+            </div>
+          </div>
+          <div id="custom">
+            <div>
+              <table cellspacing="5px">
+                <tr>
+                  <td><strong>จัดจ้าง :</strong></td>
+                  <td><div class="addProcess">เพิ่ม</div></td>
+                </tr>
+              </table>
+            </div>
+            <div id="customProcess" style="margin-left: 5px">
+              <table cellspacing="10px">
+                <tbody></tbody>
+              </table>
+            </div>
+          </div>
+          <div id="material">
+            <div>
+              <table cellspacing="5px">
+                <tr>
+                  <td><strong>Materials:</strong></td>
+                  <td><div class="addProcess">เพิ่ม</div></td>
+                </tr>
+              </table>
+            </div>
+            <div id="materialProcess" style="margin-left: 5px">
+              <table cellspacing="10px">
+                <tbody></tbody>
+              </table>
+            </div>
+          </div>
+          <div id="otherCost">
+            <div>
+              <table cellspacing="5px">
+                <tr>
+                  <td><strong>Other:</strong></td>
+                  <td><div class="addProcess">เพิ่ม</div></td>
+                </tr>
+              </table>
+            </div>
+            <div id="otherCostProcess" style="margin-left: 5px">
+              <table cellspacing="10px">
+                <tbody></tbody>
+              </table>
+            </div>
+          </div>
+          <div id="file_upload">
+            <div>
+              <table cellspacing="5px">
+                <tr>
+                  <td><strong>Attach File :</strong></td>
+                  <td><div class="addFile">เพิ่ม</div></td>
+                </tr>
+              </table>
+            </div>
+            <div id="file_upload_table" style="margin-left: 5px">
+              <table cellspacing="10px">
+                <tbody></tbody>
+              </table>
+            </div>
+          </div>
+          <div id="delivery">
+            <div>
+              <table cellspacing="5px">
+                <tr class="deliveryProcess" index="0">
+                  <td><strong>Delivery :</strong></td>
+                  <td class="oneTimeDelivery">
+                    <div class="deliveryQty" style="display: none">
+                      จำนวน <input class="required" style="width: 100px" />
+                    </div>
+                    <input class="deliveryComponentId" type="hidden" value="" />
+                    จังหวัด
+                    <input class="deliveryDestinationId" type="hidden" />
+                    <input
+                      class="required deliveryDestinationName"
+                      style="width: 200px; margin-right: 10px"
+                      onKeyup="autocomplete_delivery_destination(this,'deliveryDestination');"
+                      autocomplete="off"
+                    />
+                    วันที่ส่ง
+                    <input
+                      type="text"
+                      class="deliveryDate datepicker required"
+                      style="width: 120px; text-align: center"
+                    />
+                  </td>
+                  <td>
+                    <input type="checkbox" class="chk_split_delivery" /> แบ่งส่ง
+                  </td>
+                  <td>
+                    <div
+                      class="addProcess splitDelivery"
+                      style="margin-left: 10px"
+                    >
+                      เพิ่ม
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div id="deliveryProcess" style="margin-left: 5px">
+              <table cellspacing="10px">
+                <tbody></tbody>
+              </table>
+            </div>
+          </div>
+          <div
+            id="price_difference"
+            class="d-flex flex-row flex-wrap align-center"
+          >
+            <div>
+              <table cellspacing="5px">
+                <tr>
+                  <td>
+                    <input type="checkbox" class="chk_price_difference" />
+                  </td>
+                  <td><strong>ส่วนต่างลูกค้า(บาท/หน่วย) : </strong></td>
+                </tr>
+              </table>
+            </div>
+            <div id="price_difference_table" style="margin-left: 5px">
+              <table cellspacing="10px">
+                <tbody>
+                  <tr class="price_difference_tr"></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div
+            id="customer_gift"
+            class="d-flex flex-row flex-wrap align-center"
+          >
+            <div>
+              <table cellspacing="5px">
+                <tr>
+                  <td><input type="checkbox" class="chk_customer_gift" /></td>
+                  <td><strong>ของขวัญลูกค้า(บาท) : </strong></td>
+                </tr>
+              </table>
+            </div>
+            <div id="customer_gift_table" style="margin-left: 5px">
+              <table cellspacing="10px">
+                <tbody>
+                  <tr class="customer_gift_tr"></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="div_bttn">
+        <div style="text-align: center">
+          <button id="calc_layout" type="button">คำนวณ Layout</button>
+          <button id="calc_price" type="button" style="display: none">
+            คำนวณ Price
+          </button>
+          <button
+            id="calc_price_after_change"
+            type="button"
+            style="display: none"
+          >
+            คำนวณ Price
+          </button>
+          <button
+            id="calc_price_after_packing"
+            type="button"
+            style="display: none"
+          >
+            คำนวณ Price
+          </button>
+        </div>
+        <br />
+      </div>
+      <div id="popup">
+        <div id="info-popup">
+          <input id="index" /><input id="process-index" />
+        </div>
+        <div id="foilstamp-popup">
+          <p style="font-size: 15px; margin-left: 5px">
+            <strong>Custom: Foil Roll</strong>
+          </p>
+          <table cellpadding="5px" style="margin: auto">
+            <tr>
+              <td style="width: 100px">Foil Color</td>
+              <td><input id="foilColor-custom" style="width: 100px" /></td>
+              <td style="width: 120px">Foil Code</td>
+              <td><input id="foilCode-custom" style="width: 100px" /></td>
+            </tr>
+
+            <tr>
+              <td>หน้าม้วน (นิ้ว)</td>
+              <td><input id="foilRollWidth-custom" style="width: 100px" /></td>
+              <td>ความยาวม้วน (ฟุต)</td>
+              <td><input id="foilRollLength-custom" style="width: 100px" /></td>
+            </tr>
+            <tr>
+              <td style="width: 100px">ราคา (บาท)</td>
+              <td><input id="foilRollPrice-custom" style="width: 100px" /></td>
+            </tr>
+            <tr>
+              <td colspan="4" style="text-align: center">
+                <button id="foil-custom-save" style="width: 70px">
+                  <i class="fa fa-check" style="font-size: 20px"></i></button
+                >&nbsp;&nbsp;&nbsp;&nbsp;
+                <button id="foil-custom-cancel" style="width: 70px">
+                  <i class="fa fa-times" style="font-size: 20px"></i>
+                </button>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div id="paper-popup">
+          <p style="font-size: 15px; margin-left: 5px">
+            <strong>Custom: Paper</strong>
+          </p>
+          <table cellpadding="5px" style="margin: auto">
+            <tr>
+              <td style="width: 100px">Paper Type</td>
+              <td>
+                <select id="paperCode-custom" style="width: 100px">
+                  <option value="">- Select -</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td style="width: 100px">Paper Name</td>
+              <td><input id="paperType-custom" style="width: 100px" /></td>
+            </tr>
+            <tr>
+              <td>Gram</td>
+              <td><input id="paperGram-custom" style="width: 100px" /></td>
+            </tr>
+            <tr>
+              <td style="width: 100px">ความหนา (mm)</td>
+              <td><input id="paperThickness-custom" style="width: 100px" /></td>
+            </tr>
+            <tr>
+              <td colspan="4" style="text-align: center">
+                <button id="paper-custom-save" style="width: 70px">
+                  <i class="fa fa-check" style="font-size: 20px"></i></button
+                >&nbsp;&nbsp;&nbsp;&nbsp;
+                <button id="paper-custom-cancel" style="width: 70px">
+                  <i class="fa fa-times" style="font-size: 20px"></i>
+                </button>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div id="remark-popup">
+          <button
+            id="remark-close"
+            style="width: 30px; height: 30px; border-radius: 50%; float: right"
+          >
+            <i class="fa fa-times" style="font-size: 20px"></i>
+          </button>
+          <p style="font-size: 15px; margin-left: 5px">
+            <strong>Remark</strong>
+          </p>
+          <table cellpadding="5px" style="margin: auto">
+            <tr>
+              <td>
+                <div style="text-align: center">
+                  Reject 1:<br />20/06/2023 10.30
+                </div>
+              </td>
+              <td style="width: 600px">
+                <textarea
+                  id="reject-remark-popup"
+                  rows="4"
+                  placeholder="พิมพ์รายละเอียดเพิ่มเติมที่นี่"
+                  style="width: 100%"
+                ></textarea>
+              </td>
+            </tr>
+            <tr id="remark-button-row">
+              <td colspan="4" style="text-align: center">
+                <button id="remark-save" style="width: 70px">
+                  <i class="fa fa-check" style="font-size: 20px"></i></button
+                >&nbsp;&nbsp;&nbsp;&nbsp;
+                <button id="remark-cancel" style="width: 70px">
+                  <i class="fa fa-times" style="font-size: 20px"></i>
+                </button>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div id="corrugated-popup">
+          <p style="font-size: 15px; margin-left: 5px">
+            <strong>Custom: Corrugated</strong>
+          </p>
+          <table cellpadding="5px" style="margin: auto">
+            <tr>
+              <td>Layer</td>
+              <td>
+                <div>
+                  <select
+                    id="corrugated-layer-custom"
+                    class="required"
+                    style="width: 100px"
+                  >
+                    <option value="">- Select layer -</option>
+                  </select>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>ลอน</td>
+              <td>
+                <div>
+                  <select
+                    id="corrugated-flute-custom"
+                    class="required"
+                    style="width: 100px"
+                  >
+                    <option value="">-</option>
+                  </select>
+                  <span id="flute-custom" style="display: none">
+                    <input
+                      id="flute-info-custom"
+                      class="required"
+                      style="width: 30px"
+                    />
+                    ความหนา
+                    <input
+                      id="thickness-custom-p"
+                      class="required"
+                      style="width: 30px"
+                    />
+                    mm
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>Grade</td>
+              <td>
+                <div id="corrugated-grade-custom">
+                  <input id="" class="required" style="width: 30px" />
+                  <input id="" class="required" style="width: 30px" />
+                  /
+                  <input id="" class="required" style="width: 30px" />
+                  <input id="" class="required" style="width: 30px" />
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>ราคา</td>
+              <td>
+                <div>
+                  <input
+                    id="corrugated-cost-custom"
+                    class="required"
+                    style="width: 50px"
+                  />
+                  <span id="unit-price">B/ตร.ฟุต</span>
+                  <input type="checkbox" id="corrugated-bath-sheet" />
+                  ราคา/แผ่น
+                </div>
+              </td>
+            </tr>
+            <tr id="corrugated-size-row" style="display: none">
+              <td>Size</td>
+              <td>
+                <div>
+                  ลอนขนานด้าน
+                  <input
+                    id="flute-side-custom"
+                    class="required"
+                    style="width: 45px"
+                  />
+                  x Cut off
+                  <input
+                    id="cut-off-custom"
+                    class="required"
+                    style="width: 45px"
+                  />
+                  นิ้ว
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="4" style="text-align: center">
+                <button id="corrugated-custom-save" style="width: 70px">
+                  <i class="fa fa-check" style="font-size: 20px"></i></button
+                >&nbsp;&nbsp;&nbsp;&nbsp;
+                <button id="corrugated-custom-cancel" style="width: 70px">
+                  <i class="fa fa-times" style="font-size: 20px"></i>
+                </button>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="dev-tool-box">
+        <div class="check-data-tool">
+          <button id="mockup-est-data">Mockup Data แบ่ง F</button>
+          <button id="mockup-est-data2">Mockup Data ปกติ</button>
+          <!-- <button id="check-validate-data">Validate</button> -->
+          <button id="reset-est-data">Reset</button>
+          <button id="check-est-data">Check Data</button>
+          <!-- <button id="print">Print</button> -->
+          <!-- <button id="check-component-data">Check Component</button> -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal-overlay" id="wizardModal">
+      <div class="modal-container">
+        <div class="modal-header">
+          <h3><i class="fa fa-history mr-1 mb-2"></i>ประวัติการประเมินราคา</h3>
+          <span class="modal-close" id="closeModal">X</span>
+        </div>
+        <div class="modal-search">
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="ค้นหาจากชื่อ งาน ประเภทกล่อง หรือวันที่..."
+          />
+          <span id="create-wizard"><i class="fa fa-plus mr-1"></i> Wizard</span>
+        </div>
+        <div class="modal-list" id="modalList">
+          <!-- รายการจะถูกเติมด้วย jQuery -->
+        </div>
+        <div class="modal-footer">
+          <button id="closeBtn">ปิด</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="view-only"></div>
+  </body>
+</html>

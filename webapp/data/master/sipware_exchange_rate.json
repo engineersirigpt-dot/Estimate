@@ -1,0 +1,88 @@
+{
+  "rates": {
+    "USD": {
+      "currency": "USD",
+      "export": 31.17,
+      "import": 30.87,
+      "mid": 31.02,
+      "per_100": false,
+      "update_date": "01-06-2026",
+      "created": "01-06-2026 09:00"
+    },
+    "GBP": {
+      "currency": "GBP",
+      "export": 42.55,
+      "import": 41.67,
+      "mid": 42.11,
+      "per_100": false,
+      "update_date": "01-06-2026",
+      "created": "01-06-2026 09:00"
+    },
+    "EUR": {
+      "currency": "EUR",
+      "export": 37.03,
+      "import": 36.3,
+      "mid": 36.665,
+      "per_100": false,
+      "update_date": "01-06-2026",
+      "created": "01-06-2026 09:00"
+    },
+    "YEN": {
+      "currency": "YEN",
+      "export": 20.23,
+      "import": 19.65,
+      "mid": 19.94,
+      "per_100": true,
+      "update_date": "01-06-2026",
+      "created": "01-06-2026 09:00",
+      "export_per_unit": 0.2023,
+      "import_per_unit": 0.1965,
+      "mid_per_unit": 0.1994
+    },
+    "JPY": {
+      "currency": "JPY",
+      "export": 20.23,
+      "import": 19.65,
+      "mid": 19.94,
+      "per_100": true,
+      "update_date": "01-06-2026",
+      "created": "01-06-2026 09:00",
+      "export_per_unit": 0.2023,
+      "import_per_unit": 0.1965,
+      "mid_per_unit": 0.1994
+    },
+    "AUD": {
+      "currency": "AUD",
+      "export": 22.6,
+      "import": 21.66,
+      "mid": 22.13,
+      "per_100": false,
+      "update_date": "01-06-2026",
+      "created": "01-06-2026 09:00"
+    },
+    "NZD": {
+      "currency": "NZD",
+      "export": 18.96,
+      "import": 18.38,
+      "mid": 18.67,
+      "per_100": false,
+      "update_date": "01-06-2026",
+      "created": "01-06-2026 09:00"
+    },
+    "SGD": {
+      "currency": "SGD",
+      "export": 24.95,
+      "import": 24.23,
+      "mid": 24.59,
+      "per_100": false,
+      "update_date": "01-06-2026",
+      "created": "01-06-2026 09:00"
+    }
+  },
+  "date": "01-06-2026",
+  "time": "09:00",
+  "source": "sipware",
+  "source_url": "http://192.168.5.40/sipware/index.php",
+  "synced_at": "2026-06-02T06:23:23.967Z",
+  "raw_count": 7
+}

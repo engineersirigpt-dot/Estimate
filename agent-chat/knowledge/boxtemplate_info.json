@@ -1,0 +1,126 @@
+{
+  "_source": "Extracted from legacy system - box_template definitions",
+  "_note": "type_name and type_name_th from DB, formulas from js_function_estimate_calculation.js",
+  "box_templates": [
+    {
+      "type_id": 1,
+      "type_name": "Reverse Tuck End (RTE)",
+      "type_name_th": "ฝาเสียบกลับ",
+      "dust_default_mm": null,
+      "glued_spot": "from_db",
+      "packing_layer": "from_db",
+      "open_size_formula": { "W": "2*(w + t) + d", "L": "2*(w + l) + g" },
+      "fold_size": { "W": "w", "L": "l", "D": "d" },
+      "packing_size": { "W": "d + 2*(w+t)", "L": "l + w" }
+    },
+    {
+      "type_id": 2,
+      "type_name": "Straight Tuck End (STE)",
+      "type_name_th": "ฝาเสียบตรง",
+      "dust_default_mm": null,
+      "open_size_formula": { "W": "2*(w + t) + d", "L": "2*(w + l) + g" },
+      "fold_size": { "W": "w", "L": "l", "D": "d" },
+      "packing_size": { "W": "d + 2*(w+t)", "L": "l + w" }
+    },
+    {
+      "type_id": 3,
+      "type_name": "Tuck Top Snap Lock Bottom (TTSLB)",
+      "type_name_th": "ออโต้ล็อคหูขัด",
+      "dust_default_mm": null,
+      "open_size_formula": { "W": "t + w + d + w/2 + ol", "L": "2*(w + l) + g" },
+      "fold_size": { "W": "w", "L": "l", "D": "d" },
+      "packing_size": { "W": "d + w + t + ol + w/2", "L": "l + w" }
+    },
+    {
+      "type_id": 4,
+      "type_name": "Tuck Top Auto Bottom (TTAB)",
+      "type_name_th": "ออโต้ล็อคทากาว",
+      "dust_default_mm": null,
+      "open_size_formula": { "W": "t + w + d + w/2 + ol", "L": "2*(w + l) + g" },
+      "fold_size": { "W": "w", "L": "l", "D": "d" },
+      "packing_size": { "W": "d + w + t", "L": "l + w" }
+    },
+    {
+      "type_id": 5,
+      "type_name": "Double Glue Side Wall / Simplex Tray",
+      "type_name_th": "ฝาครอบ",
+      "dust_default_mm": 25,
+      "open_size_formula": { "W": "w + 4*d", "L": "l + 4*d + 2*dust" },
+      "fold_size": { "W": "w", "L": "l", "D": "d" },
+      "packing_size": { "W": "4*d + w", "L": "2*dust + 4*d + l" }
+    },
+    {
+      "type_id": 6,
+      "type_name": "Frame-Vue Tray",
+      "type_name_th": "ถาดหูพับ",
+      "dust_default_mm": 25,
+      "open_size_formula": { "W": "w + 4*d + 2*dust + 2*ol", "L": "l + 4*d + 2*dust + 2*ol" },
+      "fold_size": { "W": "w", "L": "l", "D": "d" },
+      "packing_size": { "W": "2*dust + 4*d + 2*ol + w", "L": "2*dust + 4*d + 2*ol + l" }
+    },
+    {
+      "type_id": 7,
+      "type_name": "Four Corner Beers Tray with Lid",
+      "type_name_th": "ถาด 4 มุม",
+      "dust_default_mm": null,
+      "open_size_formula": { "W": "2*(l + dust) + w", "L": "3*l + 2*d" },
+      "fold_size": { "W": "w", "L": "l", "D": "d" },
+      "packing_size": { "W": "w", "L": "l + d" }
+    },
+    {
+      "type_id": 8,
+      "type_name": "Gable Top with Auto Bottom",
+      "type_name_th": "จั่ว",
+      "dust_default_mm": null,
+      "open_size_formula": { "W": "t + 2*d + w/2 + ol", "L": "2*(w + l) + g" },
+      "fold_size": { "W": "2*w + t", "L": "l", "D": "d" },
+      "packing_size": { "W": "t + 2*d", "L": "l + w" }
+    },
+    {
+      "type_id": 9,
+      "type_name": "Sleeve",
+      "type_name_th": "ปลอก",
+      "dust_default_mm": null,
+      "open_size_formula": { "W": "d", "L": "2*(w + l) + g" },
+      "fold_size": { "W": "w", "L": "l", "D": "d" },
+      "packing_size": { "W": "d", "L": "l + w" }
+    },
+    {
+      "type_id": 10,
+      "type_name": "Pillow Box",
+      "type_name_th": "หมอน",
+      "dust_default_mm": null,
+      "open_size_formula": { "W": "l + d", "L": "2*w + g" },
+      "fold_size": { "W": "w", "L": "l", "D": "d" },
+      "packing_size": { "W": "l + d", "L": "w" }
+    },
+    {
+      "type_id": 11,
+      "type_name": "Seal End",
+      "type_name_th": "ทากาว",
+      "dust_default_mm": null,
+      "open_size_formula": { "W": "2*w + d", "L": "2*(w + l) + g" },
+      "fold_size": { "W": "w", "L": "l", "D": "d" },
+      "packing_size": { "W": "d + 2*w", "L": "l + w" }
+    },
+    {
+      "type_id": 12,
+      "type_name": "Custom",
+      "type_name_th": "กำหนดเอง",
+      "dust_default_mm": null,
+      "open_size_formula": { "W": "user input or 2*d + w + g", "L": "user input or 2*d + l" },
+      "fold_size": { "W": "w", "L": "l", "D": "d" },
+      "packing_size": "user input"
+    }
+  ],
+  "dimension_variables": {
+    "w": "width (mm)",
+    "l": "length (mm)",
+    "d": "depth/height (mm)",
+    "g": "glue_flap (mm)",
+    "t": "tuck_flap (mm)",
+    "dust": "dust_flap (mm) - ปีกกล่อง",
+    "ol": "overlap (mm)",
+    "b": "bleed (mm, default 3)"
+  }
+}

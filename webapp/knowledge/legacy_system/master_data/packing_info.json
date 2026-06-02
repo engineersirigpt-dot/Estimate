@@ -1,0 +1,49 @@
+{
+  "_source": "Extracted from js_data_default.js",
+  "pallet": [
+    { "id": 1, "size_inch": [40.00, 48.00, 6.50] },
+    { "id": 2, "size_inch": [39.37, 47.24, 6.50] },
+    { "id": 3, "size_inch": [45.90, 45.90, 6.50] },
+    { "id": 4, "size_inch": [42.00, 45.00, 6.50] },
+    { "id": 5, "size_inch": [43.30, 43.30, 6.50] },
+    { "id": 6, "size_inch": [31.50, 47.24, 6.50] }
+  ],
+  "pallet_delivery": [
+    { "id": 1, "type": "domestic", "pallet_price": 400 },
+    { "id": 2, "type": "abroad", "pallet_price": 700 }
+  ],
+  "pallet_info": {
+    "limit_pallet_weight": 750,
+    "empty_pallet_weight": 25,
+    "limit_pallet_height": 44,
+    "mif_unit_price": 1100
+  },
+  "kraftwrap_info": {
+    "kraftwrap_price": 5,
+    "kraftwrap_thickness": 0.5,
+    "limit_kraftwrap_weight": 5,
+    "limit_kraftwrap_height": 300
+  },
+  "paperband_info": {
+    "paperband_price": 0.5,
+    "qty_per_paperband": 100,
+    "paperband_allowance": 25.4
+  },
+  "carton_info": {
+    "carton_price": 5,
+    "carton_printing_price": 3,
+    "markup_price": 15,
+    "limit_carton_weight": 15,
+    "corrugated_marking": 10
+  },
+  "paperband_types": [
+    { "type": "white_paper", "price": 100, "length_m": 100, "width_mm": 30, "thickness_mm": 0.2 },
+    { "type": "brown_paper", "price": 100, "length_m": 100, "width_mm": 30, "thickness_mm": 0.2 },
+    { "type": "plastic", "price": 100, "length_m": 100, "width_mm": 30, "thickness_mm": 0.2 }
+  ],
+  "assembly_size_brackets": [
+    { "width_inch": 9, "length_inch": 11, "type": "assembly_S" },
+    { "width_inch": 21, "length_inch": 31, "type": "assembly_M" },
+    { "width_inch": 27, "length_inch": 39, "type": "assembly_L" }
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "_source": "Extracted from js_data_default.js (legacy system hardcoded defaults)",
+  "_note": "These are the default configuration values used across the Estimate system",
+
+  "tolerance": {
+    "bleed": 3,
+    "color_bar": 8,
+    "gripper": 12,
+    "paper_edge": 4
+  },
+
+  "color_limit": {
+    "max_color": 4,
+    "paper_waste": 300,
+    "paper_waste_per_color": 50,
+    "jetpress_paper_waste": 150,
+    "jetpress_paper_waste_per_color": 20
+  },
+
+  "markup": {
+    "special_customer_marking": 7,
+    "paper_price_marking": 10,
+    "import_paper_price_marking": 13,
+    "addon_labor_price_marking": 20,
+    "afterpress_price_marking": 0,
+    "material_price_marking": 0,
+    "outsouce_price_marking": 0,
+    "packing_marking": 0,
+    "delivery_marking": 0,
+    "marking_total_price": {
+      "min": 0,
+      "percent": 0
+    }
+  },
+
+  "profit_sharing": {
+    "plate_price": 1875,
+    "paper": {
+      "marking_price": 18
+    },
+    "print": {
+      "min_paper_qty": 10000,
+      "print_rate": 0.14,
+      "print_min_price": 1400
+    },
+    "afterpress_price_marking": 20,
+    "material_price_marking": 25,
+    "outsouce_price_marking": 25,
+    "total_price_marking": 5,
+    "corrugated_markup": 20,
+    "packing_marking": 25,
+    "delivery_marking": 20,
+    "marking_total_price": {
+      "min": 5000,
+      "percent": 5
+    }
+  },
+
+  "default_marking": {
+    "plate_price": 800,
+    "paper": {
+      "marking_price": 10,
+      "import_marking_price": 13
+    },
+    "addon_labor_price_marking": 20,
+    "afterpress_price_marking": 0,
+    "material_price_marking": 0,
+    "outsouce_price_marking": 0,
+    "total_price_marking": 0,
+    "corrugated_markup": 10,
+    "packing_marking": 0,
+    "delivery_marking": 0,
+    "marking_total_price": {
+      "min": 0,
+      "percent": 0
+    }
+  },
+
+  "plate_and_film": {
+    "cut_1_plate_markup": 50,
+    "plate_price": 800,
+    "plate_polymer_price": 6.53,
+    "reprint_plate_polymer_price": 5.94,
+    "block_polymer_min_price": 50,
+    "reprintReducePlateCostPercent": 50,
+    "film_rate": 1.25,
+    "film_min_cost": 120
+  },
+
+  "foil_stamp": {
+    "foil_width_tolerance": 0.5,
+    "foil_length_tolerance": 1,
+    "foilstamp_price": 0.8,
+    "block_foilstamp_min_cost": 70,
+    "bossing_price": 0.8
+  },
+
+  "other_constants": {
+    "formula_value": 1550000,
+    "corrugated_tolerance": 0.375,
+    "corrugated_markup": 10,
+    "corrugated_glued_cost": 0.0015,
+    "corrugated_assembly_markup_price": 0.1,
+    "coating_opp_cold_film_cost_sqin": 0.0103,
+    "coating_opp_cold_film_min_price": 0,
+    "reprinted_block": 500,
+    "tax": 0.03,
+    "tax_percent": 3,
+    "delivery_rate": 1500
+  },
+
+  "a3_size_reference": {
+    "width_inch": 11.7,
+    "length_inch": 16.54,
+    "width_mm": 297,
+    "length_mm": 420
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "_source": "Extracted from js_data_default.js",
+  "component_types": [
+    {
+      "type": 1,
+      "is_default": true,
+      "type_name": "ไม่ประกบลูกฟูก",
+      "type_name_en": "No corrugated (paper only)",
+      "print_type": ["Offset", "Jet Press", "Konica"],
+      "corrugated_layer": [2, 3, 5],
+      "tolerance": { "paper_edge": 4, "bleed": 3, "gripper": 12, "color_bar": 8 }
+    },
+    {
+      "type": 2,
+      "is_default": false,
+      "type_name": "ประกบลูกฟูก",
+      "type_name_en": "With corrugated (paper + corrugated lamination)",
+      "print_type": ["Offset", "Jet Press"],
+      "corrugated_layer": [2, 3, 5],
+      "tolerance": { "paper_edge": 4, "bleed": 3, "gripper": 12, "color_bar": 8 }
+    },
+    {
+      "type": 3,
+      "is_default": true,
+      "type_name": "เฉพาะลูกฟูก",
+      "type_name_en": "Corrugated only (direct print on corrugated)",
+      "print_type": ["Flexo"],
+      "corrugated_layer": [2, 3, 5],
+      "tolerance": { "paper_edge": 10, "bleed": 3, "gripper": 0, "color_bar": 0 }
+    }
+  ]
+}

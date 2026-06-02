@@ -1,0 +1,116 @@
+================================================================
+  PRICE CALCULATION FIX PLAN
+  วันที่: 30/03/2026
+  สถานะ: รอแก้ไข
+================================================================
+
+จากเปรียบเทียบระบบเก่า vs ระบบใหม่ (spec: Type 12 Custom 384x252x0, Dup GBB 300, 4/0, ประกบลูกฟูก E 2ชั้น CA125/CA125, 10000 ชิ้น)
+
+================================================================
+1. CORRUGATED BOARD COST — ขาดทั้งหมด (ต่าง 10,632 บาท)
+================================================================
+สถานะ: ❌ ไม่มีในระบบเรา
+
+สูตรระบบเก่า:
+  1) หา rate จาก corrugated_info: match grade + flute_type + min_qty/max_qty
+     - CA125/CA125 E 2ชั้น, after_ups=3334 → rate = 0.81 B/ตร.นิ้ว (per 144 sq.inch)
+  2) unit_inch = rate / 144 * (1 + corrugated_markup%)
+     - = 0.81 / 144 * (1 + 0%) = 0.005625 B/sq.inch
+  3) ขนาดลูกฟูก: flute_side × cut_off (inch) จาก layout size - tolerance
+     - corrugated_tolerance = 0.375 inch
+     - flute_side = laySize_W - 0.375 = 16.15 - 0.375 = 15.775"
+     - cut_off = laySize_L - 0.375 = 30.79 - 0.375 = 30.415"
+  4) unit_price = unit_inch × flute_side × cut_off
+     - = 0.005625 × 15.775 × 30.415 = 2.70 (ประมาณ, legacy แสดง 2.97)
+  5) qty = after_ups + waste_corrugated_board → roundCorrugated
+  6) total = unit_price × qty
+
+ต้องทำ:
+  - [ ] เพิ่ม calcCorrugatedBoardCost() ใน calc.js
+  - [ ] ดึง rate จาก corrugated_info ตาม grade + qty tier
+  - [ ] คำนวณ corrugated board size (flute_side × cut_off) จาก layout - tolerance
+  - [ ] แสดงใน price table เป็นแถวแยก "Corrugated Board"
+
+
+================================================================
+2. CORRUGATED GLUING COST — ขาดทั้งหมด (ต่าง 2,580 บาท)
+================================================================
+สถานะ: ❌ ไม่มีในระบบเรา
+
+สูตรระบบเก่า:
+  - unit_price = flute_side × cut_off × corrugated_glued_cost
+  - corrugated_glued_cost = 0.0015 (จาก defaultData)
+  - = 15.775 × 30.415 × 0.0015 = 0.72 B/แผ่น
+  - qty = after_ups + waste_corrugated_board
+  - total = unit_price × qty × (1 + afterpress_price_marking%)
+
+ต้องทำ:
+  - [ ] เพิ่ม corrugated_glued_cost ใน calc.js
+  - [ ] แสดงในตาราง "ทากาวประกบลูกฟูกกับกระดาษ"
+
+
+================================================================
+3. PLATE COST — ราคาครึ่งเดียว (ต่าง 1,600 บาท)
+================================================================
+สถานะ: ❌ ราคาผิด
+
+ระบบเก่า: plate_price = 3,200 บาท/สี (defaultData.plate_price)
+ระบบเรา: 1,600 บาท/สี
+
+ต้องทำ:
+  - [ ] ตรวจสอบ CALC.plate_price ใน calc.js
+  - [ ] อาจต้องดึงจาก defaultData หรือ price_info API
+
+
+================================================================
+4. BLOCK DIECUT — ขาดทั้งหมด (ต่าง 2,500 บาท)
+================================================================
+สถานะ: ❌ ไม่มีในระบบเรา
+
+ระบบเก่า: block_price = 2,500 (จาก defaultData หรือ user input)
+  - แสดงเป็น "Block Diecut" ราคาคงที่ต่อ component
+
+ต้องทำ:
+  - [ ] เพิ่ม block_diecut cost ใน calcAfterPressCost
+  - [ ] แสดงในตาราง
+
+
+================================================================
+5. COATING COST — ราคาเกิน ~976 บาท
+================================================================
+สถานะ: ❌ ราคาเกิน
+
+ระบบเก่า: 0.25 × 3,864 = 966
+ระบบเรา: 1,942.59
+
+ต้องทำ:
+  - [ ] ตรวจสอบ coating rate ใน calc.js
+  - [ ] เทียบกับ legacy coating formula
+
+
+================================================================
+6. KRAFTWRAP QTY — จำนวนผิดมาก (154 vs 20 packs)
+================================================================
+สถานะ: ❌ จำนวน pack ผิด
+
+ระบบเก่า: 154 packs (qty 10000, kraftwrap 100 pcs/pack → แต่ได้ 154 เพราะคิดจาก packing size)
+ระบบเรา: 20 packs
+
+สูตรระบบเก่า:
+  - คำนวณจาก packing_size (ขนาด stack)
+  - จำนวน stack ต่อ pack จากขนาดจริง
+  - ไม่ใช่แค่ qty / pcs_per_pack
+
+ต้องทำ:
+  - [ ] ตรวจสอบ calcPackingCost สูตร kraftwrap
+  - [ ] เทียบกับ legacy setCalculatePackingSize + qty
+
+
+================================================================
+สรุป: ต่าง ~19,248 บาท (56,076 - 36,828)
+================================================================
+
+แผนแก้ไข:
+  Phase 1 (สำคัญมาก): #1 Corrugated Board + #2 Gluing = ต่าง 13,212
+  Phase 2 (สำคัญ): #3 Plate + #4 Block Diecut = ต่าง 4,100
+  Phase 3 (ปานกลาง): #5 Coating + #6 Kraftwrap = ต่าง ~1,246+

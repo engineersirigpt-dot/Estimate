@@ -1,0 +1,13 @@
+{
+  "_status": "PENDING - Needs live API connection to 192.168.5.3:3010",
+  "_api_call": "GET /estimate/master_data?type=coating_info&estimate_type=packaging",
+  "_schema": {
+    "coating_option": "string - coating category/option name",
+    "coating_code": "string - specific coating code",
+    "coating_type": "string - coating type classification",
+    "pages": "number - 1 or 2 (number of sides to coat)",
+    "condition_key": "string - conditional availability key",
+    "coating_size": "string - comma-separated size values (parsed to number array)"
+  },
+  "data": []
+}

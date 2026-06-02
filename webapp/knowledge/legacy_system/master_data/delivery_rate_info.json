@@ -1,0 +1,13 @@
+{
+  "_status": "PENDING - Needs live API connection to 192.168.5.3:3010",
+  "_api_call": "GET /estimate/master_data?type=delivery_rate_info",
+  "_schema": {
+    "destination_id": "number",
+    "destination_name": "string - province/area name in Thai",
+    "min_weight_kg": "number",
+    "max_weight_kg": "number",
+    "rate": "number - delivery rate THB"
+  },
+  "_default_delivery_rate": 1500,
+  "data": []
+}

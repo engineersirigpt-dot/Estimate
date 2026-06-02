@@ -1,0 +1,114 @@
+{
+  "_source": "Extracted from js_data_default.js - machine array",
+  "_note": "All machine specifications used in layout calculation",
+  "machines": [
+    {
+      "machine_id": 9998,
+      "machine_name": "-",
+      "machine_size": { "id": 9998, "name": "-", "split": 1 },
+      "max_size": [99, 99, 2514.6, 2514.6],
+      "min_size": [0, 0, 0, 0],
+      "w_range": [0, 99, 0, 2514.6],
+      "l_range": [0, 99, 0, 2514.6],
+      "print_type": ["Offset", "Flexo", "Jet Press", "Konica"],
+      "compType": [1, 2, 3],
+      "color": { "min": 0, "max": 0 },
+      "description": "Universal/Any machine (fallback)"
+    },
+    {
+      "machine_id": 3422,
+      "machine_name": "L444SP",
+      "machine_size": { "id": 1, "name": "Cut 1", "split": 1 },
+      "max_size": [33, 45.275, 840, 1150],
+      "min_size": [18.11, 24.41, 460, 620.01],
+      "w_range": [18.11, 33, 460, 840],
+      "l_range": [24.41, 45.275, 620.01, 1150],
+      "print_type": ["Offset"],
+      "compType": [1, 2],
+      "color": { "min": 0, "max": 8 },
+      "description": "Offset Cut 1 - L444SP (largest Offset)"
+    },
+    {
+      "machine_id": 3407,
+      "machine_name": "L440",
+      "machine_size": { "id": 2, "name": "Cut 2", "split": 2 },
+      "max_size": [28.35, 40.56, 720.09, 1030.22],
+      "min_size": [14.18, 20.48, 360.17, 520.19],
+      "w_range": [14.18, 28.35, 360.17, 720.09],
+      "l_range": [20.48, 40.56, 520.19, 1030.22],
+      "print_type": ["Offset"],
+      "compType": [1, 2],
+      "color": { "min": 0, "max": 6 },
+      "description": "Offset Cut 2 - L440 (default for compType 1,2)"
+    },
+    {
+      "machine_id": 3507,
+      "machine_name": "LS1029",
+      "machine_size": { "id": 3, "name": "Cut 3", "split": 3 },
+      "max_size": [20.87, 29.53, 530.1, 750.06],
+      "min_size": [10.24, 14.18, 260.09, 360.17],
+      "w_range": [10.24, 20.87, 260.09, 530.1],
+      "l_range": [14.18, 29.53, 360.17, 750.06],
+      "print_type": ["Offset"],
+      "compType": [1, 2],
+      "color": { "min": 0, "max": 8 },
+      "description": "Offset Cut 3 - LS1029 (smallest Offset)"
+    },
+    {
+      "machine_id": 5518,
+      "machine_name": "เครื่องทำกล่องบรรจุสินค้า",
+      "machine_size": { "id": 4, "name": "Flexo", "split": 1 },
+      "max_size": [0, 0, 0, 0],
+      "min_size": [0, 0, 0, 0],
+      "w_range": [0, 0, 0, 0],
+      "l_range": [0, 0, 0, 0],
+      "size_options": [
+        {
+          "corrugated_layer": [2],
+          "max_size": [57, 50, 1447.8, 1270],
+          "min_size": [15.75, 21, 400.05, 533.4],
+          "w_range": [15.75, 57, 400.05, 1447.8],
+          "l_range": [21, 50, 533.4, 1270]
+        },
+        {
+          "corrugated_layer": [3, 5],
+          "max_size": [57, 94.4, 1447.8, 2397.76],
+          "min_size": [15.75, 21, 400.05, 533.4],
+          "w_range": [15.75, 57, 400.05, 1447.8],
+          "l_range": [21, 94.4, 533.4, 2397.76]
+        }
+      ],
+      "print_type": ["Offset", "Flexo"],
+      "compType": [3],
+      "color": { "min": 0, "max": 8 },
+      "description": "Flexo printing machine (corrugated only)"
+    },
+    {
+      "machine_id": 5527,
+      "machine_name": "Jet Press",
+      "machine_size": { "id": 5, "name": "Jet Press", "split": 1 },
+      "max_size": [23.03, 29.52, 585, 750],
+      "min_size": [15.5, 21.5, 393, 546],
+      "w_range": [15.5, 23.03, 393, 585],
+      "l_range": [21.5, 29.52, 546, 750],
+      "print_type": ["Jet Press"],
+      "compType": [1, 2],
+      "color": { "min": 0, "max": 8 },
+      "description": "Fujifilm Jet Press (digital)"
+    },
+    {
+      "machine_id": 5528,
+      "machine_name": "Konica",
+      "machine_size": { "id": 6, "name": "Konica", "split": 1 },
+      "max_size": [13.00, 19.17, 330.2, 487],
+      "min_size": [5.51, 7.16, 140, 182],
+      "w_range": [5.51, 13.00, 140, 330.2],
+      "l_range": [7.16, 19.17, 182, 487],
+      "print_type": ["Konica"],
+      "compType": [1],
+      "color": { "min": 0, "max": 8 },
+      "description": "Konica Minolta (digital, small format)"
+    }
+  ],
+  "size_format_note": "[w_inch, l_inch, w_mm, l_mm] for max_size, min_size; [min_inch, max_inch, min_mm, max_mm] for w_range, l_range"
+}

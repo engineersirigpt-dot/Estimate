@@ -1,0 +1,9 @@
+{
+  "_status": "PENDING - Needs live API connection to 192.168.5.3:3010",
+  "_api_call": "GET /estimate/master_data?type=paper_code_type",
+  "_schema": {
+    "paper_code": "string",
+    "paper_type": "string - display name"
+  },
+  "data": []
+}

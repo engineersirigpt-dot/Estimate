@@ -1,0 +1,9 @@
+{
+  "_status": "PENDING - Needs live API connection to 192.168.5.3:3010",
+  "_api_call": "GET /estimate/master_data?type=foilstamp_info",
+  "_schema": {
+    "color_th": "string - Thai color name e.g. 'ทอง', 'เงิน', 'แดง'",
+    "code": "string - foil code"
+  },
+  "data": []
+}

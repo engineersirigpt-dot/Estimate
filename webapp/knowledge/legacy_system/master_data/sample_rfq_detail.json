@@ -1,0 +1,4182 @@
+{
+  "job_id": "E26030017",
+  "job_data": {
+    "job": {
+      "color_limit": [
+        {
+          "is_color_limit": true,
+          "qty": 2
+        },
+        {
+          "is_color_limit": false,
+          "qty": 0
+        },
+        {
+          "is_color_limit": false,
+          "qty": 0
+        },
+        {
+          "is_color_limit": true,
+          "qty": 3
+        },
+        {
+          "is_color_limit": false,
+          "qty": 0
+        }
+      ],
+      "job_name": "Test งานหลาย F",
+      "job_id": "E26030017",
+      "ref_copy_rfq": "E26030012",
+      "is_reprinted": 0,
+      "ink_type": "conventional",
+      "print_type": "Offset",
+      "flexo_size": null,
+      "is_multiple_f": true,
+      "is_use_previous_plate": false,
+      "is_profit_sharing": false,
+      "is_cancel_total_profit_sharing": true,
+      "credit_term_id": "QT000008",
+      "credit_term_name": "ให้เครดิต 30 วัน",
+      "is_different_packing": true,
+      "is_loss": false
+    },
+    "ae": {
+      "ae_id": "2640038",
+      "ae_name": "ศรวณีย์ อ่อนน้อม"
+    },
+    "customer": {
+      "customer_id": "C2014019",
+      "customer_name": "ลานนาเกษตรอุตสาหกรรม"
+    },
+    "qty": {
+      "main": [
+        6000
+      ],
+      "runon": [
+        0
+      ],
+      "customer": 0,
+      "ae": 0,
+      "runon_percent": 0,
+      "totalqty": [
+        6000
+      ]
+    },
+    "remark": "",
+    "delivery": [
+      {
+        "round": 1,
+        "destinationId": 57,
+        "destinationName": "กรุงเทพ",
+        "dueDate": "2026-03-20",
+        "detail": [
+          {
+            "componentId": 0,
+            "f_code": "F001",
+            "fIndex": 0,
+            "qty": 250,
+            "totalqty": [
+              6000
+            ],
+            "total_weight": []
+          },
+          {
+            "componentId": 0,
+            "f_code": "F002",
+            "fIndex": 1,
+            "qty": 850,
+            "totalqty": [
+              6000
+            ],
+            "total_weight": []
+          }
+        ],
+        "net_weight": 41.36,
+        "qty_rate": [
+          [
+            {
+              "net_weight": 41.36,
+              "rate_id": 1245,
+              "unit_price": 1700,
+              "qty": 1,
+              "additional_price": 0,
+              "price": 1700
+            }
+          ]
+        ],
+        "rate_line": [
+          [
+            {
+              "net_weight": 41.36,
+              "rate_id": 1245,
+              "unit_price": 1700,
+              "qty": 1,
+              "additional_price": 0,
+              "price": 1700
+            }
+          ]
+        ]
+      },
+      {
+        "round": 2,
+        "destinationId": 56,
+        "destinationName": "ปทุมธานี",
+        "dueDate": "2026-03-20",
+        "detail": [
+          {
+            "componentId": 0,
+            "f_code": "F001",
+            "fIndex": 0,
+            "qty": 750,
+            "totalqty": [
+              6000
+            ],
+            "total_weight": []
+          },
+          {
+            "componentId": 0,
+            "f_code": "F003",
+            "fIndex": 2,
+            "qty": 450,
+            "totalqty": [
+              6000
+            ],
+            "total_weight": []
+          },
+          {
+            "componentId": 0,
+            "f_code": "F005",
+            "fIndex": 4,
+            "qty": 650,
+            "totalqty": [
+              6000
+            ],
+            "total_weight": []
+          }
+        ],
+        "net_weight": 66.8,
+        "qty_rate": [
+          [
+            {
+              "net_weight": 66.8,
+              "rate_id": 1243,
+              "unit_price": 1800,
+              "qty": 1,
+              "additional_price": 0,
+              "price": 1800
+            }
+          ]
+        ],
+        "rate_line": [
+          [
+            {
+              "net_weight": 66.8,
+              "rate_id": 1243,
+              "unit_price": 1800,
+              "qty": 1,
+              "additional_price": 0,
+              "price": 1800
+            }
+          ]
+        ]
+      },
+      {
+        "round": 3,
+        "destinationId": 29,
+        "destinationName": "ลพบุรี",
+        "dueDate": "2026-03-27",
+        "detail": [
+          {
+            "componentId": 0,
+            "f_code": "F002",
+            "fIndex": 1,
+            "qty": 650,
+            "totalqty": [
+              6000
+            ],
+            "total_weight": []
+          },
+          {
+            "componentId": 0,
+            "f_code": "F004",
+            "fIndex": 3,
+            "qty": 1500,
+            "totalqty": [
+              6000
+            ],
+            "total_weight": []
+          }
+        ],
+        "net_weight": 94.56,
+        "qty_rate": [
+          [
+            {
+              "net_weight": 94.56,
+              "rate_id": 1189,
+              "unit_price": 2600,
+              "qty": 1,
+              "additional_price": 0,
+              "price": 2600
+            }
+          ]
+        ],
+        "rate_line": [
+          [
+            {
+              "net_weight": 94.56,
+              "rate_id": 1189,
+              "unit_price": 2600,
+              "qty": 1,
+              "additional_price": 0,
+              "price": 2600
+            }
+          ]
+        ]
+      },
+      {
+        "round": 4,
+        "destinationId": 48,
+        "destinationName": "สมุทรสงคราม",
+        "dueDate": "2026-04-03",
+        "detail": [
+          {
+            "componentId": 0,
+            "f_code": "F003",
+            "fIndex": 2,
+            "qty": 400,
+            "totalqty": [
+              6000
+            ],
+            "total_weight": []
+          },
+          {
+            "componentId": 0,
+            "f_code": "F004",
+            "fIndex": 3,
+            "qty": 500,
+            "totalqty": [
+              6000
+            ],
+            "total_weight": []
+          }
+        ],
+        "net_weight": 46.28,
+        "qty_rate": [
+          [
+            {
+              "net_weight": 46.28,
+              "rate_id": 1227,
+              "unit_price": 2100,
+              "qty": 1,
+              "additional_price": 0,
+              "price": 2100
+            }
+          ]
+        ],
+        "rate_line": [
+          [
+            {
+              "net_weight": 46.28,
+              "rate_id": 1227,
+              "unit_price": 2100,
+              "qty": 1,
+              "additional_price": 0,
+              "price": 2100
+            }
+          ]
+        ]
+      }
+    ],
+    "date": {
+      "create_date": "2026-03-06"
+    },
+    "estimator": {
+      "estimator_id": "2640038",
+      "estimator_name": "ศรวณีย์ อ่อนน้อม",
+      "estimate_check": true,
+      "approve_status": "3"
+    },
+    "process": [
+      {
+        "type_id": 7,
+        "process_id": 22,
+        "type": "afterpress",
+        "name": "chip",
+        "info": {},
+        "line": [
+          {
+            "qty": 6000,
+            "unit_price": 0.14145,
+            "price": 848.7
+          }
+        ]
+      },
+      {
+        "type_id": 7,
+        "process_id": 23,
+        "type": "afterpress",
+        "name": "inspection",
+        "info": {},
+        "line": [
+          {
+            "qty": 6000,
+            "unit_price": 0.04,
+            "price": 240
+          }
+        ]
+      }
+    ],
+    "material": [],
+    "component1": [
+      {
+        "box_type": {
+          "type_id": 8,
+          "glued_spot": 3,
+          "is_digital_diecut": false,
+          "type_name": "กล่องทรงจั่ว : Gable Top with Auto Bottom",
+          "packing_layer": 4
+        },
+        "component_name": "BOX",
+        "color": [
+          {
+            "outside": 5,
+            "inside": 0,
+            "f_code": "F001",
+            "is_special_ink": true,
+            "black_printing_outside": false,
+            "black_printing_inside": false,
+            "all": 5,
+            "special_ink": [
+              {
+                "type": "material",
+                "type_id": 10,
+                "process_id": 47,
+                "name": "หมึก UV",
+                "info": {
+                  "ink_name": "PMS001",
+                  "print_style": "solid",
+                  "paper_code": "Dup",
+                  "is_custom_paper_code": false
+                },
+                "line": [
+                  {
+                    "qty": 1,
+                    "unit_price": 1300,
+                    "price": 1300
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "outside": 4,
+            "inside": 0,
+            "f_code": "F002",
+            "is_special_ink": false,
+            "black_printing_outside": false,
+            "black_printing_inside": false,
+            "all": 4,
+            "special_ink": []
+          },
+          {
+            "outside": 4,
+            "inside": 0,
+            "f_code": "F003",
+            "is_special_ink": false,
+            "black_printing_outside": false,
+            "black_printing_inside": false,
+            "all": 4,
+            "special_ink": []
+          },
+          {
+            "outside": 4,
+            "inside": 0,
+            "f_code": "F004",
+            "is_special_ink": false,
+            "black_printing_outside": false,
+            "black_printing_inside": false,
+            "all": 4,
+            "special_ink": []
+          },
+          {
+            "outside": 5,
+            "inside": 0,
+            "f_code": "F005",
+            "is_special_ink": true,
+            "black_printing_outside": false,
+            "black_printing_inside": false,
+            "all": 5,
+            "special_ink": [
+              {
+                "type": "material",
+                "type_id": 10,
+                "process_id": 41,
+                "name": "หมึกสะท้อนแสง",
+                "info": {
+                  "ink_name": "PMS005",
+                  "print_style": "solid",
+                  "paper_code": "Dup",
+                  "is_custom_paper_code": false
+                },
+                "line": [
+                  {
+                    "qty": 1,
+                    "unit_price": 1000,
+                    "price": 1000
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "packaging_size": {
+          "width": 65,
+          "length": 85,
+          "depth": 115,
+          "glue_flap": 15,
+          "tuck_flap": 15,
+          "dust_flap": 0,
+          "ol": 15,
+          "fold_size": [
+            5.71,
+            3.35,
+            4.53,
+            145,
+            85,
+            115
+          ],
+          "open_size": [
+            11.52,
+            12.41,
+            292.5,
+            315
+          ],
+          "packing_size": [
+            9.65,
+            5.91,
+            245,
+            150
+          ]
+        },
+        "packing": [
+          [
+            {
+              "type": "packing",
+              "name": "kraftwrap",
+              "type_id": 11,
+              "process_id": 26,
+              "info": {
+                "unit_price": 5,
+                "num_side": [
+                  1,
+                  1
+                ],
+                "cube_size": [
+                  9.65,
+                  5.91,
+                  245.11,
+                  150.11
+                ],
+                "bulk_size": [
+                  9.65,
+                  5.91,
+                  245,
+                  150
+                ],
+                "num_bulk_per_layer": 1,
+                "qty_per_kraftwrap": "",
+                "is_editKraftwrapQty": false,
+                "num_per_layer": 1,
+                "weight_per_layer": 0.03073,
+                "layer_per_pack": 160,
+                "qty_per_pack": 160,
+                "bulk_height": [
+                  0.08189,
+                  2.08
+                ],
+                "net_weight": 4.92,
+                "gross_weight": 4.92,
+                "inner_size": [
+                  9.65,
+                  5.91,
+                  13.1,
+                  245.11,
+                  150.11,
+                  332.8
+                ],
+                "outer_size": [
+                  9.69,
+                  5.95,
+                  13.14,
+                  246.11,
+                  151.11,
+                  333.8
+                ]
+              },
+              "line": [
+                {
+                  "qty": 38,
+                  "unit_price": 5,
+                  "price": 190
+                }
+              ],
+              "detail": [
+                {
+                  "roundId": 1,
+                  "unit_price": 5,
+                  "detail": [
+                    {
+                      "qty": 2,
+                      "unit_price": 5,
+                      "price": 10,
+                      "compQty": 250,
+                      "gross_weight": 4.92,
+                      "total_weight": 9.84,
+                      "packArr": [
+                        2
+                      ],
+                      "qtyArr": [
+                        250
+                      ],
+                      "packQty": 2
+                    }
+                  ]
+                },
+                {
+                  "roundId": 2,
+                  "unit_price": 5,
+                  "detail": [
+                    {
+                      "qty": 5,
+                      "unit_price": 5,
+                      "price": 25,
+                      "compQty": 750,
+                      "gross_weight": 4.92,
+                      "total_weight": 24.6,
+                      "packArr": [
+                        5
+                      ],
+                      "qtyArr": [
+                        750
+                      ],
+                      "packQty": 5
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "packing",
+              "name": "kraftwrap",
+              "type_id": 11,
+              "process_id": 26,
+              "info": {
+                "unit_price": 5,
+                "num_side": [
+                  1,
+                  1
+                ],
+                "cube_size": [
+                  9.65,
+                  5.91,
+                  245.11,
+                  150.11
+                ],
+                "bulk_size": [
+                  9.65,
+                  5.91,
+                  245,
+                  150
+                ],
+                "num_bulk_per_layer": 1,
+                "qty_per_kraftwrap": "",
+                "is_editKraftwrapQty": false,
+                "num_per_layer": 1,
+                "weight_per_layer": 0.03073,
+                "layer_per_pack": 160,
+                "qty_per_pack": 160,
+                "bulk_height": [
+                  0.08189,
+                  2.08
+                ],
+                "net_weight": 4.92,
+                "gross_weight": 4.92,
+                "inner_size": [
+                  9.65,
+                  5.91,
+                  13.1,
+                  245.11,
+                  150.11,
+                  332.8
+                ],
+                "outer_size": [
+                  9.69,
+                  5.95,
+                  13.14,
+                  246.11,
+                  151.11,
+                  333.8
+                ]
+              },
+              "line": [
+                {
+                  "qty": 38,
+                  "unit_price": 5,
+                  "price": 190
+                }
+              ],
+              "detail": [
+                {
+                  "roundId": 1,
+                  "unit_price": 5,
+                  "detail": [
+                    {
+                      "qty": 6,
+                      "unit_price": 5,
+                      "price": 30,
+                      "compQty": 850,
+                      "gross_weight": 4.92,
+                      "total_weight": 29.52,
+                      "packArr": [
+                        6
+                      ],
+                      "qtyArr": [
+                        850
+                      ],
+                      "packQty": 6
+                    }
+                  ]
+                },
+                {
+                  "roundId": 3,
+                  "unit_price": 5,
+                  "detail": [
+                    {
+                      "qty": 5,
+                      "unit_price": 5,
+                      "price": 25,
+                      "compQty": 650,
+                      "gross_weight": 4.92,
+                      "total_weight": 24.6,
+                      "packArr": [
+                        5
+                      ],
+                      "qtyArr": [
+                        650
+                      ],
+                      "packQty": 5
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type_id": 11,
+              "type": "packing",
+              "process_id": 27,
+              "name": "carton",
+              "info": {
+                "inner_size": [
+                  10.44,
+                  13.89,
+                  18.6,
+                  265.18,
+                  352.81,
+                  472.44
+                ],
+                "layer_carton": 1,
+                "corrugated": {
+                  "flute_type": "BC",
+                  "grade": "CA125/CA125/CA125",
+                  "gram": [
+                    125,
+                    125,
+                    125
+                  ],
+                  "all_gram": 375,
+                  "thickness": 7,
+                  "corrugated_layer": 5,
+                  "price": 1.98,
+                  "size": [
+                    753.616,
+                    1307.964,
+                    29.67,
+                    51.495
+                  ],
+                  "area_corrugated": 10.61,
+                  "length_metre": 0.05,
+                  "price_inch": 0.0138,
+                  "board_price_per_carton": 23.11
+                },
+                "bulk": {
+                  "unit": "kraftwrap",
+                  "bulk_size": [
+                    9.69,
+                    5.95,
+                    13.14,
+                    246.11,
+                    151.11,
+                    333.8
+                  ],
+                  "qty_per_bulk": 160,
+                  "weight_per_bulk": 4.92
+                },
+                "custom_info": {
+                  "is_custom_inner_size": false,
+                  "is_custom_qty_per_carton": false,
+                  "is_carton_printing": false,
+                  "carton_layer": 1,
+                  "layout": [
+                    0,
+                    0
+                  ]
+                },
+                "size": {
+                  "cube": [
+                    9.69,
+                    13.14,
+                    17.85,
+                    246.13,
+                    333.76,
+                    453.33000000000004
+                  ],
+                  "inner_size": [
+                    10.44,
+                    13.89,
+                    18.6,
+                    265.18,
+                    352.81,
+                    472.38
+                  ],
+                  "outer_size": [
+                    10.94,
+                    14.39,
+                    19.1,
+                    259.58,
+                    347.21,
+                    466.78
+                  ]
+                },
+                "dummy_size": {
+                  "cube": [
+                    9.69,
+                    13.14,
+                    17.85,
+                    246.13,
+                    333.76,
+                    453.33000000000004
+                  ],
+                  "inner_size": [
+                    10.44,
+                    13.89,
+                    18.6,
+                    265.18,
+                    352.81,
+                    472.38
+                  ],
+                  "outer_size": [
+                    10.94,
+                    14.39,
+                    19.1,
+                    259.58,
+                    347.21,
+                    466.78
+                  ]
+                },
+                "carton": {
+                  "layer_per_carton": 3,
+                  "qty_per_layer": 160,
+                  "bulk_per_layer": 1,
+                  "num_layout": [
+                    1,
+                    1
+                  ],
+                  "weight_per_layer": 4.92,
+                  "qty_per_carton": 480
+                },
+                "net_weight": 14.76,
+                "gross_weight": 15.76,
+                "outer_size": [
+                  10.94,
+                  14.39,
+                  19.1,
+                  23.14,
+                  26.59,
+                  31.3
+                ]
+              },
+              "line": [
+                {
+                  "qty": 13,
+                  "unit_price": 43.11,
+                  "price": 560.43
+                }
+              ],
+              "detail": [
+                {
+                  "roundId": 1,
+                  "detail": [
+                    {
+                      "qty": 2,
+                      "unit_price": 43.11,
+                      "price": 86.22,
+                      "compQty": 850,
+                      "gross_weight": 15.76,
+                      "total_weight": 31.52,
+                      "packArr": [
+                        2
+                      ],
+                      "qtyArr": [
+                        850
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "roundId": 3,
+                  "detail": [
+                    {
+                      "qty": 2,
+                      "unit_price": 43.11,
+                      "price": 86.22,
+                      "compQty": 650,
+                      "gross_weight": 15.76,
+                      "total_weight": 31.52,
+                      "packArr": [
+                        2
+                      ],
+                      "qtyArr": [
+                        650
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "packing",
+              "name": "kraftwrap",
+              "type_id": 11,
+              "process_id": 26,
+              "info": {
+                "unit_price": 5,
+                "num_side": [
+                  1,
+                  1
+                ],
+                "cube_size": [
+                  9.65,
+                  5.91,
+                  245.11,
+                  150.11
+                ],
+                "bulk_size": [
+                  9.65,
+                  5.91,
+                  245,
+                  150
+                ],
+                "num_bulk_per_layer": 1,
+                "qty_per_kraftwrap": "",
+                "is_editKraftwrapQty": false,
+                "num_per_layer": 1,
+                "weight_per_layer": 0.03073,
+                "layer_per_pack": 160,
+                "qty_per_pack": 160,
+                "bulk_height": [
+                  0.08189,
+                  2.08
+                ],
+                "net_weight": 4.92,
+                "gross_weight": 4.92,
+                "inner_size": [
+                  9.65,
+                  5.91,
+                  13.1,
+                  245.11,
+                  150.11,
+                  332.8
+                ],
+                "outer_size": [
+                  9.69,
+                  5.95,
+                  13.14,
+                  246.11,
+                  151.11,
+                  333.8
+                ]
+              },
+              "line": [
+                {
+                  "qty": 38,
+                  "unit_price": 5,
+                  "price": 190
+                }
+              ],
+              "detail": [
+                {
+                  "roundId": 2,
+                  "unit_price": 5,
+                  "detail": [
+                    {
+                      "qty": 3,
+                      "unit_price": 5,
+                      "price": 15,
+                      "compQty": 450,
+                      "gross_weight": 4.92,
+                      "total_weight": 14.76,
+                      "packArr": [
+                        3
+                      ],
+                      "qtyArr": [
+                        450
+                      ],
+                      "packQty": 3
+                    }
+                  ]
+                },
+                {
+                  "roundId": 4,
+                  "unit_price": 5,
+                  "detail": [
+                    {
+                      "qty": 3,
+                      "unit_price": 5,
+                      "price": 15,
+                      "compQty": 400,
+                      "gross_weight": 4.92,
+                      "total_weight": 14.76,
+                      "packArr": [
+                        3
+                      ],
+                      "qtyArr": [
+                        400
+                      ],
+                      "packQty": 3
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type_id": 11,
+              "type": "packing",
+              "process_id": 28,
+              "name": "pallet",
+              "info": {
+                "delivery_id": 1,
+                "pallet_id": 1,
+                "is_mif_pallet": false,
+                "pallet_size": [
+                  40,
+                  48,
+                  6.5
+                ],
+                "delivery_type": "domestic",
+                "pallet_price": 400,
+                "bulk_size": [
+                  9.69,
+                  5.95,
+                  13.14,
+                  246.11,
+                  151.11,
+                  333.8
+                ],
+                "laying": {
+                  "laying": [
+                    {
+                      "laying": "horizontal",
+                      "pcs_per_row": 4,
+                      "row": 8
+                    },
+                    {
+                      "laying": "vertical",
+                      "pcs_per_row": 6,
+                      "row": 0
+                    }
+                  ],
+                  "qty_layer": 32,
+                  "cube_size": [
+                    38.76,
+                    47.6
+                  ]
+                },
+                "weight_per_layer": 157.44,
+                "layer_per_pallet": 3,
+                "pallet_weight": 472.32,
+                "pallet_height": 39.42,
+                "bulk_qty_pallet": 96,
+                "qty_pallet": 15360
+              },
+              "line": [
+                {
+                  "qty": 1,
+                  "unit_price": 400,
+                  "price": 400
+                }
+              ],
+              "detail": [
+                {
+                  "roundId": 2,
+                  "unit_price": 400,
+                  "detail": [
+                    {
+                      "qty": 1,
+                      "unit_price": 400,
+                      "price": 400,
+                      "compQty": 450,
+                      "gross_weight": 472.32,
+                      "total_weight": 472.32,
+                      "packArr": [
+                        1
+                      ],
+                      "qtyArr": [
+                        450
+                      ],
+                      "packQty": 1
+                    }
+                  ]
+                },
+                {
+                  "roundId": 4,
+                  "unit_price": 400,
+                  "detail": [
+                    {
+                      "qty": 1,
+                      "unit_price": 400,
+                      "price": 400,
+                      "compQty": 400,
+                      "gross_weight": 472.32,
+                      "total_weight": 472.32,
+                      "packArr": [
+                        1
+                      ],
+                      "qtyArr": [
+                        400
+                      ],
+                      "packQty": 1
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "packing",
+              "name": "kraftwrap",
+              "type_id": 11,
+              "process_id": 26,
+              "info": {
+                "unit_price": 5,
+                "num_side": [
+                  1,
+                  1
+                ],
+                "cube_size": [
+                  9.65,
+                  5.91,
+                  245.11,
+                  150.11
+                ],
+                "bulk_size": [
+                  9.65,
+                  5.91,
+                  245,
+                  150
+                ],
+                "num_bulk_per_layer": 1,
+                "qty_per_kraftwrap": "",
+                "is_editKraftwrapQty": false,
+                "num_per_layer": 1,
+                "weight_per_layer": 0.03073,
+                "layer_per_pack": 160,
+                "qty_per_pack": 160,
+                "bulk_height": [
+                  0.08189,
+                  2.08
+                ],
+                "net_weight": 4.92,
+                "gross_weight": 4.92,
+                "inner_size": [
+                  9.65,
+                  5.91,
+                  13.1,
+                  245.11,
+                  150.11,
+                  332.8
+                ],
+                "outer_size": [
+                  9.69,
+                  5.95,
+                  13.14,
+                  246.11,
+                  151.11,
+                  333.8
+                ]
+              },
+              "line": [
+                {
+                  "qty": 38,
+                  "unit_price": 5,
+                  "price": 190
+                }
+              ],
+              "detail": [
+                {
+                  "roundId": 3,
+                  "unit_price": 5,
+                  "detail": [
+                    {
+                      "qty": 10,
+                      "unit_price": 5,
+                      "price": 50,
+                      "compQty": 1500,
+                      "gross_weight": 4.92,
+                      "total_weight": 49.2,
+                      "packArr": [
+                        10
+                      ],
+                      "qtyArr": [
+                        1500
+                      ],
+                      "packQty": 10
+                    }
+                  ]
+                },
+                {
+                  "roundId": 4,
+                  "unit_price": 5,
+                  "detail": [
+                    {
+                      "qty": 4,
+                      "unit_price": 5,
+                      "price": 20,
+                      "compQty": 500,
+                      "gross_weight": 4.92,
+                      "total_weight": 19.68,
+                      "packArr": [
+                        4
+                      ],
+                      "qtyArr": [
+                        500
+                      ],
+                      "packQty": 4
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type_id": 11,
+              "type": "packing",
+              "process_id": 27,
+              "name": "carton",
+              "info": {
+                "inner_size": [
+                  10.44,
+                  13.89,
+                  18.6,
+                  265.18,
+                  352.81,
+                  472.44
+                ],
+                "layer_carton": 1,
+                "corrugated": {
+                  "flute_type": "BC",
+                  "grade": "CA125/CA125/CA125",
+                  "gram": [
+                    125,
+                    125,
+                    125
+                  ],
+                  "all_gram": 375,
+                  "thickness": 7,
+                  "corrugated_layer": 5,
+                  "price": 1.98,
+                  "size": [
+                    753.616,
+                    1307.964,
+                    29.67,
+                    51.495
+                  ],
+                  "area_corrugated": 10.61,
+                  "length_metre": 0.05,
+                  "price_inch": 0.0138,
+                  "board_price_per_carton": 23.11
+                },
+                "bulk": {
+                  "unit": "kraftwrap",
+                  "bulk_size": [
+                    9.69,
+                    5.95,
+                    13.14,
+                    246.11,
+                    151.11,
+                    333.8
+                  ],
+                  "qty_per_bulk": 160,
+                  "weight_per_bulk": 4.92
+                },
+                "custom_info": {
+                  "is_custom_inner_size": false,
+                  "is_custom_qty_per_carton": false,
+                  "is_carton_printing": false,
+                  "carton_layer": 1,
+                  "layout": [
+                    0,
+                    0
+                  ]
+                },
+                "size": {
+                  "cube": [
+                    9.69,
+                    13.14,
+                    17.85,
+                    246.13,
+                    333.76,
+                    453.33000000000004
+                  ],
+                  "inner_size": [
+                    10.44,
+                    13.89,
+                    18.6,
+                    265.18,
+                    352.81,
+                    472.38
+                  ],
+                  "outer_size": [
+                    10.94,
+                    14.39,
+                    19.1,
+                    259.58,
+                    347.21,
+                    466.78
+                  ]
+                },
+                "dummy_size": {
+                  "cube": [
+                    9.69,
+                    13.14,
+                    17.85,
+                    246.13,
+                    333.76,
+                    453.33000000000004
+                  ],
+                  "inner_size": [
+                    10.44,
+                    13.89,
+                    18.6,
+                    265.18,
+                    352.81,
+                    472.38
+                  ],
+                  "outer_size": [
+                    10.94,
+                    14.39,
+                    19.1,
+                    259.58,
+                    347.21,
+                    466.78
+                  ]
+                },
+                "carton": {
+                  "layer_per_carton": 3,
+                  "qty_per_layer": 160,
+                  "bulk_per_layer": 1,
+                  "num_layout": [
+                    1,
+                    1
+                  ],
+                  "weight_per_layer": 4.92,
+                  "qty_per_carton": 480
+                },
+                "net_weight": 14.76,
+                "gross_weight": 15.76,
+                "outer_size": [
+                  10.94,
+                  14.39,
+                  19.1,
+                  23.14,
+                  26.59,
+                  31.3
+                ]
+              },
+              "line": [
+                {
+                  "qty": 13,
+                  "unit_price": 43.11,
+                  "price": 560.43
+                }
+              ],
+              "detail": [
+                {
+                  "roundId": 3,
+                  "detail": [
+                    {
+                      "qty": 4,
+                      "unit_price": 43.11,
+                      "price": 172.44,
+                      "compQty": 1500,
+                      "gross_weight": 15.76,
+                      "total_weight": 63.04,
+                      "packArr": [
+                        4
+                      ],
+                      "qtyArr": [
+                        1500
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "roundId": 4,
+                  "detail": [
+                    {
+                      "qty": 2,
+                      "unit_price": 43.11,
+                      "price": 86.22,
+                      "compQty": 500,
+                      "gross_weight": 15.76,
+                      "total_weight": 31.52,
+                      "packArr": [
+                        2
+                      ],
+                      "qtyArr": [
+                        500
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type_id": 11,
+              "type": "packing",
+              "process_id": 28,
+              "name": "pallet",
+              "info": {
+                "delivery_id": 1,
+                "pallet_id": 1,
+                "is_mif_pallet": false,
+                "pallet_size": [
+                  40,
+                  48,
+                  6.5
+                ],
+                "delivery_type": "domestic",
+                "pallet_price": 400,
+                "bulk_size": [
+                  10.94,
+                  14.39,
+                  19.1,
+                  259.58,
+                  347.21,
+                  466.78
+                ],
+                "laying": {
+                  "laying": [
+                    {
+                      "laying": "horizontal",
+                      "pcs_per_row": 2,
+                      "row": 4
+                    },
+                    {
+                      "laying": "vertical",
+                      "pcs_per_row": 1,
+                      "row": 3
+                    }
+                  ],
+                  "qty_layer": 11,
+                  "cube_size": [
+                    39.72,
+                    43.76
+                  ]
+                },
+                "weight_per_layer": 173.36,
+                "layer_per_pallet": 2,
+                "pallet_weight": 346.72,
+                "pallet_height": 38.2,
+                "bulk_qty_pallet": 22,
+                "qty_pallet": 10560
+              },
+              "line": [
+                {
+                  "qty": 1,
+                  "unit_price": 400,
+                  "price": 400
+                }
+              ],
+              "detail": [
+                {
+                  "roundId": 3,
+                  "unit_price": 400,
+                  "detail": [
+                    {
+                      "qty": 1,
+                      "unit_price": 400,
+                      "price": 400,
+                      "compQty": 1500,
+                      "gross_weight": 346.72,
+                      "total_weight": 346.72,
+                      "packArr": [
+                        1
+                      ],
+                      "qtyArr": [
+                        1500
+                      ],
+                      "packQty": 1
+                    }
+                  ]
+                },
+                {
+                  "roundId": 4,
+                  "unit_price": 400,
+                  "detail": [
+                    {
+                      "qty": 1,
+                      "unit_price": 400,
+                      "price": 400,
+                      "compQty": 500,
+                      "gross_weight": 346.72,
+                      "total_weight": 346.72,
+                      "packArr": [
+                        1
+                      ],
+                      "qtyArr": [
+                        500
+                      ],
+                      "packQty": 1
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type_id": 11,
+              "type": "packing",
+              "process_id": 27,
+              "name": "carton",
+              "info": {
+                "inner_size": [
+                  10.4,
+                  17.7,
+                  12.57,
+                  264.16,
+                  449.58,
+                  319.28
+                ],
+                "layer_carton": 3,
+                "corrugated": {
+                  "flute_type": "BC",
+                  "grade": "CA125/CA125/CA125",
+                  "gram": [
+                    125,
+                    125,
+                    125
+                  ],
+                  "all_gram": 375,
+                  "thickness": 7,
+                  "corrugated_layer": 5,
+                  "price": 1.98,
+                  "size": [
+                    599.438,
+                    1499.48,
+                    23.6,
+                    59.035
+                  ],
+                  "area_corrugated": 9.675,
+                  "length_metre": 0.06,
+                  "price_inch": 0.0138,
+                  "board_price_per_carton": 21.08
+                },
+                "bulk": {
+                  "unit": "piece",
+                  "bulk_size": [
+                    9.65,
+                    5.91,
+                    0.08189,
+                    245,
+                    150,
+                    2.08
+                  ],
+                  "qty_per_bulk": 1,
+                  "weight_per_bulk": 0.03073
+                },
+                "custom_info": {
+                  "is_custom_inner_size": false,
+                  "is_custom_qty_per_carton": false,
+                  "is_carton_printing": false,
+                  "carton_layer": 3,
+                  "layout": [
+                    1,
+                    1
+                  ]
+                },
+                "size": {
+                  "cube": [
+                    9.65,
+                    16.95,
+                    11.82,
+                    245.11,
+                    430.53,
+                    300
+                  ],
+                  "inner_size": [
+                    10.4,
+                    17.7,
+                    12.57,
+                    264.16,
+                    449.58,
+                    319.05
+                  ],
+                  "outer_size": [
+                    10.9,
+                    18.2,
+                    13.07,
+                    258.56,
+                    443.98,
+                    313.45
+                  ]
+                },
+                "dummy_size": {
+                  "cube": [
+                    9.65,
+                    16.95,
+                    11.82,
+                    245.11,
+                    430.53,
+                    300
+                  ],
+                  "inner_size": [
+                    10.4,
+                    17.7,
+                    12.57,
+                    264.16,
+                    449.58,
+                    319.05
+                  ],
+                  "outer_size": [
+                    10.9,
+                    18.2,
+                    13.07,
+                    258.56,
+                    443.98,
+                    313.45
+                  ]
+                },
+                "carton": {
+                  "layer_per_carton": 2,
+                  "qty_per_layer": 207,
+                  "bulk_per_layer": 207,
+                  "num_layout": [
+                    1,
+                    207
+                  ],
+                  "weight_per_layer": 6.36,
+                  "qty_per_carton": 414
+                },
+                "net_weight": 12.72,
+                "gross_weight": 13.72,
+                "outer_size": [
+                  10.9,
+                  18.2,
+                  13.07,
+                  23.1,
+                  30.4,
+                  25.27
+                ]
+              },
+              "line": [
+                {
+                  "qty": 15,
+                  "unit_price": 41.08,
+                  "price": 616.1999999999999
+                }
+              ],
+              "detail": [
+                {
+                  "roundId": 2,
+                  "detail": [
+                    {
+                      "qty": 2,
+                      "unit_price": 41.08,
+                      "price": 82.16,
+                      "compQty": 650,
+                      "gross_weight": 13.72,
+                      "total_weight": 27.44,
+                      "packArr": [
+                        2
+                      ],
+                      "qtyArr": [
+                        650
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type_id": 11,
+              "type": "packing",
+              "process_id": 28,
+              "name": "pallet",
+              "info": {
+                "delivery_id": 1,
+                "pallet_id": 1,
+                "is_mif_pallet": false,
+                "pallet_size": [
+                  40,
+                  48,
+                  6.5
+                ],
+                "delivery_type": "domestic",
+                "pallet_price": 400,
+                "bulk_size": [
+                  10.9,
+                  18.2,
+                  13.07,
+                  258.56,
+                  443.98,
+                  313.45
+                ],
+                "laying": {
+                  "laying": [
+                    {
+                      "laying": "horizontal",
+                      "pcs_per_row": 3,
+                      "row": 2
+                    },
+                    {
+                      "laying": "vertical",
+                      "pcs_per_row": 2,
+                      "row": 1
+                    }
+                  ],
+                  "qty_layer": 8,
+                  "cube_size": [
+                    36.4,
+                    47.3
+                  ]
+                },
+                "weight_per_layer": 109.76,
+                "layer_per_pallet": 3,
+                "pallet_weight": 329.28,
+                "pallet_height": 39.21,
+                "bulk_qty_pallet": 24,
+                "qty_pallet": 9936
+              },
+              "line": [
+                {
+                  "qty": 1,
+                  "unit_price": 400,
+                  "price": 400
+                }
+              ],
+              "detail": [
+                {
+                  "roundId": 2,
+                  "unit_price": 400,
+                  "detail": [
+                    {
+                      "qty": 1,
+                      "unit_price": 400,
+                      "price": 400,
+                      "compQty": 650,
+                      "gross_weight": 329.28,
+                      "total_weight": 329.28,
+                      "packArr": [
+                        1
+                      ],
+                      "qtyArr": [
+                        650
+                      ],
+                      "packQty": 1
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        ],
+        "paper": {
+          "paper_source_id": 2,
+          "paper_markup": 13,
+          "paper_percent": 0,
+          "sheet_unit_price": false,
+          "paper_cost": 20,
+          "paper_code": "Dup GBB",
+          "paper_name": "Duplex GBB",
+          "paper_thickness": 0.52,
+          "is_custom": 0,
+          "remark": "",
+          "paper_gram": 400,
+          "brand": "Klean nara",
+          "paper_total_price": 22.6
+        },
+        "gram": 400,
+        "component_type": {
+          "type": 1,
+          "type_name": "paper",
+          "detail": "only paper",
+          "detail_th": "ไม่ประกบลูกฟูก"
+        },
+        "process": [
+          {
+            "type": "afterpress",
+            "name": "diecut",
+            "type_id": 7,
+            "process_id": 21,
+            "info": {},
+            "line": [
+              {
+                "block": {
+                  "qty": 1,
+                  "unit_price": 3000,
+                  "price": 3000
+                },
+                "labor": {
+                  "qty": 6000,
+                  "unit_price": 0.34167,
+                  "price": 2050.02
+                }
+              }
+            ]
+          },
+          {
+            "type": "afterpress",
+            "name": "assembly",
+            "type_id": 7,
+            "process_id": 20,
+            "info": {},
+            "line": [
+              {
+                "qty": 6000,
+                "unit_price": 0.9485000000000001,
+                "price": 5691
+              }
+            ]
+          }
+        ],
+        "paper_source_id": 2,
+        "special_ink": [],
+        "addon": [
+          {
+            "type_id": 3,
+            "type": "coating",
+            "process_id": 10,
+            "name": "gloss OPP",
+            "info": {
+              "code": "OPP",
+              "type": "OPP",
+              "name": "Gloss",
+              "side": 1,
+              "width": 34.39,
+              "length": 14.02,
+              "material_type": "",
+              "f_code": [],
+              "coating_price": 0.003,
+              "min_cost": 1,
+              "unit_min_cost": "sheet"
+            },
+            "line": [
+              {
+                "qty": 4812,
+                "unit_price": 1.45,
+                "price": 6977.4
+              }
+            ]
+          },
+          {
+            "type_id": 3,
+            "type": "coating",
+            "process_id": 16,
+            "name": "กันซึม (Water Proof)",
+            "info": {
+              "code": "WP",
+              "type": "กันซึม (Water Proof)",
+              "name": "Other",
+              "side": 1,
+              "width": 34.39,
+              "length": 14.02,
+              "material_type": "",
+              "f_code": [],
+              "coating_price": 0.0012,
+              "min_cost": 0.4,
+              "unit_min_cost": "sheet"
+            },
+            "line": [
+              {
+                "qty": 4812,
+                "unit_price": 0.58,
+                "price": 2790.96
+              }
+            ]
+          }
+        ],
+        "layout_manual": false,
+        "f_detail": {
+          "f_qty": [
+            1000,
+            1500,
+            850,
+            2000,
+            650
+          ],
+          "f_total_qty": 6000,
+          "f_list": [
+            {
+              "f_code": "F001",
+              "f_qty": 1000,
+              "runon_percent": 0,
+              "runon_qty": 0,
+              "ae_qty": 0,
+              "customer_qty": 0,
+              "total_qty": 1000
+            },
+            {
+              "f_code": "F002",
+              "f_qty": 1500,
+              "runon_percent": 0,
+              "runon_qty": 0,
+              "ae_qty": 0,
+              "customer_qty": 0,
+              "total_qty": 1500
+            },
+            {
+              "f_code": "F003",
+              "f_qty": 850,
+              "runon_percent": 0,
+              "runon_qty": 0,
+              "ae_qty": 0,
+              "customer_qty": 0,
+              "total_qty": 850
+            },
+            {
+              "f_code": "F004",
+              "f_qty": 2000,
+              "runon_percent": 0,
+              "runon_qty": 0,
+              "ae_qty": 0,
+              "customer_qty": 0,
+              "total_qty": 2000
+            },
+            {
+              "f_code": "F005",
+              "f_qty": 650,
+              "runon_percent": 0,
+              "runon_qty": 0,
+              "ae_qty": 0,
+              "customer_qty": 0,
+              "total_qty": 650
+            }
+          ]
+        },
+        "layout": {
+          "layout_manual": false,
+          "layout_grain": "horizontal",
+          "layout": {
+            "laying": [
+              {
+                "laying_type": "straight",
+                "laying": "vertical",
+                "grain_box_type": "horizontal",
+                "layout": [
+                  3,
+                  1
+                ],
+                "printing": [
+                  865.5,
+                  336
+                ],
+                "num_laying": 3,
+                "paper_size": [
+                  35,
+                  43
+                ],
+                "laying_paper_size": [
+                  881,
+                  343.22,
+                  34.68,
+                  13.51
+                ],
+                "layout_size": [
+                  34.39,
+                  14.02,
+                  873.5,
+                  356
+                ],
+                "pass_laying": true,
+                "is_less": false,
+                "is_more": false
+              }
+            ],
+            "gripper": 12,
+            "color_bar": 8,
+            "paper_edge": 4
+          },
+          "selected_layout": {
+            "laying_type": "straight",
+            "laying": "vertical",
+            "grain_box_type": "horizontal",
+            "layout": [
+              3,
+              1
+            ],
+            "printing": [
+              865.5,
+              336
+            ],
+            "num_laying": 3,
+            "paper_size": [
+              35,
+              43
+            ],
+            "laying_paper_size": [
+              881,
+              343.22,
+              34.68,
+              13.51
+            ],
+            "layout_size": [
+              34.39,
+              14.02,
+              873.5,
+              356
+            ],
+            "pass_laying": true,
+            "is_less": false,
+            "is_more": false
+          },
+          "paper_align": "short",
+          "laySize": [
+            34.39,
+            14.02,
+            873.5,
+            356
+          ]
+        },
+        "paper_tolerance": {
+          "gripper": 12,
+          "color_bar": 8,
+          "paper_edge": 4,
+          "bleed": 3
+        },
+        "machine": {
+          "machine_id": 3407,
+          "machine_name": "L440",
+          "max_size": [
+            28.35,
+            40.56,
+            720.09,
+            1030.22
+          ],
+          "min_size": [
+            14.18,
+            20.48,
+            360.17,
+            520.19
+          ],
+          "w_range": [
+            14.18,
+            28.35,
+            360.17,
+            720.09
+          ],
+          "l_range": [
+            20.48,
+            40.56,
+            520.19,
+            1030.22
+          ],
+          "size_options": [],
+          "machine_size": {
+            "id": 2,
+            "name": "Cut 2",
+            "split": 2
+          },
+          "std_paper": [],
+          "print_type": [
+            "Offset"
+          ],
+          "compType": [
+            1,
+            2
+          ],
+          "color": {
+            "min": 0,
+            "max": 6
+          }
+        },
+        "paperSize": [
+          889,
+          363.22,
+          35,
+          14.3
+        ],
+        "paper_info": {
+          "std_paper_id": 38,
+          "paper_align": "short",
+          "parallel_roll_width": "WSize",
+          "is_switchDisplay": 0,
+          "roll_width": 35,
+          "cut_off": 43,
+          "paper_grain": "horizontal"
+        },
+        "paper_usage": {
+          "ups": 3,
+          "sig": 1,
+          "line": [
+            {
+              "qty": 1000,
+              "after_ups": 334,
+              "paper_waste": 800,
+              "waste": 800,
+              "after_waste": 1134,
+              "paper_print": 1134,
+              "paper_qty": 378,
+              "paper_net": 400,
+              "kilogram": 155.35,
+              "ton": 0.155,
+              "price": {
+                "paper": {
+                  "type_id": 10,
+                  "process_id": 31,
+                  "type": "material",
+                  "name": "paper",
+                  "qty": 400,
+                  "unit_price": 8.78,
+                  "price": 3512
+                },
+                "plate": {
+                  "type_id": 1,
+                  "process_id": 1,
+                  "type": "plate",
+                  "name": "plate",
+                  "reprint": {
+                    "outside": {
+                      "unit_price": 0,
+                      "qty": 0,
+                      "price": 0
+                    },
+                    "inside": {
+                      "unit_price": 0,
+                      "qty": 0,
+                      "price": 0
+                    }
+                  },
+                  "outside": {
+                    "unit_price": 4000,
+                    "qty": 1,
+                    "price": 4000
+                  },
+                  "inside": {
+                    "unit_price": 0,
+                    "qty": 1,
+                    "price": 0
+                  }
+                },
+                "print": {
+                  "type_id": 2,
+                  "process_id": 2,
+                  "type": "print",
+                  "name": "print-sheet",
+                  "outside": {
+                    "unit_price": 4000,
+                    "qty": 1,
+                    "price": 4000
+                  },
+                  "inside": {
+                    "unit_price": 0,
+                    "qty": 1,
+                    "price": 0
+                  },
+                  "all": {
+                    "unit_price": 0,
+                    "qty": 0,
+                    "price": 0
+                  }
+                }
+              }
+            },
+            {
+              "qty": 1500,
+              "after_ups": 500,
+              "paper_waste": 400,
+              "waste": 400,
+              "after_waste": 900,
+              "paper_print": 900,
+              "paper_qty": 300,
+              "paper_net": 300,
+              "kilogram": 116.52,
+              "ton": 0.117,
+              "price": {
+                "paper": {
+                  "type_id": 10,
+                  "process_id": 31,
+                  "type": "material",
+                  "name": "paper",
+                  "qty": 300,
+                  "unit_price": 8.78,
+                  "price": 2634
+                },
+                "plate": {
+                  "type_id": 1,
+                  "process_id": 1,
+                  "type": "plate",
+                  "name": "plate",
+                  "reprint": {
+                    "outside": {
+                      "unit_price": 0,
+                      "qty": 0,
+                      "price": 0
+                    },
+                    "inside": {
+                      "unit_price": 0,
+                      "qty": 0,
+                      "price": 0
+                    }
+                  },
+                  "outside": {
+                    "unit_price": 3200,
+                    "qty": 1,
+                    "price": 3200
+                  },
+                  "inside": {
+                    "unit_price": 0,
+                    "qty": 1,
+                    "price": 0
+                  }
+                },
+                "print": {
+                  "type_id": 2,
+                  "process_id": 2,
+                  "type": "print",
+                  "name": "print-sheet",
+                  "outside": {
+                    "unit_price": 2800,
+                    "qty": 1,
+                    "price": 2800
+                  },
+                  "inside": {
+                    "unit_price": 0,
+                    "qty": 1,
+                    "price": 0
+                  },
+                  "all": {
+                    "unit_price": 0,
+                    "qty": 0,
+                    "price": 0
+                  }
+                }
+              }
+            },
+            {
+              "qty": 850,
+              "after_ups": 284,
+              "paper_waste": 400,
+              "waste": 400,
+              "after_waste": 684,
+              "paper_print": 684,
+              "paper_qty": 228,
+              "paper_net": 300,
+              "kilogram": 116.52,
+              "ton": 0.117,
+              "price": {
+                "paper": {
+                  "type_id": 10,
+                  "process_id": 31,
+                  "type": "material",
+                  "name": "paper",
+                  "qty": 300,
+                  "unit_price": 8.78,
+                  "price": 2634
+                },
+                "plate": {
+                  "type_id": 1,
+                  "process_id": 1,
+                  "type": "plate",
+                  "name": "plate",
+                  "reprint": {
+                    "outside": {
+                      "unit_price": 0,
+                      "qty": 0,
+                      "price": 0
+                    },
+                    "inside": {
+                      "unit_price": 0,
+                      "qty": 0,
+                      "price": 0
+                    }
+                  },
+                  "outside": {
+                    "unit_price": 3200,
+                    "qty": 1,
+                    "price": 3200
+                  },
+                  "inside": {
+                    "unit_price": 0,
+                    "qty": 1,
+                    "price": 0
+                  }
+                },
+                "print": {
+                  "type_id": 2,
+                  "process_id": 2,
+                  "type": "print",
+                  "name": "print-sheet",
+                  "outside": {
+                    "unit_price": 2800,
+                    "qty": 1,
+                    "price": 2800
+                  },
+                  "inside": {
+                    "unit_price": 0,
+                    "qty": 1,
+                    "price": 0
+                  },
+                  "all": {
+                    "unit_price": 0,
+                    "qty": 0,
+                    "price": 0
+                  }
+                }
+              }
+            },
+            {
+              "qty": 2000,
+              "after_ups": 667,
+              "paper_waste": 760,
+              "waste": 760,
+              "after_waste": 1427,
+              "paper_print": 1427,
+              "paper_qty": 476,
+              "paper_net": 500,
+              "kilogram": 194.19,
+              "ton": 0.194,
+              "price": {
+                "paper": {
+                  "type_id": 10,
+                  "process_id": 31,
+                  "type": "material",
+                  "name": "paper",
+                  "qty": 500,
+                  "unit_price": 8.78,
+                  "price": 4390
+                },
+                "plate": {
+                  "type_id": 1,
+                  "process_id": 1,
+                  "type": "plate",
+                  "name": "plate",
+                  "reprint": {
+                    "outside": {
+                      "unit_price": 0,
+                      "qty": 0,
+                      "price": 0
+                    },
+                    "inside": {
+                      "unit_price": 0,
+                      "qty": 0,
+                      "price": 0
+                    }
+                  },
+                  "outside": {
+                    "unit_price": 3200,
+                    "qty": 1,
+                    "price": 3200
+                  },
+                  "inside": {
+                    "unit_price": 0,
+                    "qty": 1,
+                    "price": 0
+                  }
+                },
+                "print": {
+                  "type_id": 2,
+                  "process_id": 2,
+                  "type": "print",
+                  "name": "print-sheet",
+                  "outside": {
+                    "unit_price": 2800,
+                    "qty": 1,
+                    "price": 2800
+                  },
+                  "inside": {
+                    "unit_price": 0,
+                    "qty": 1,
+                    "price": 0
+                  },
+                  "all": {
+                    "unit_price": 0,
+                    "qty": 0,
+                    "price": 0
+                  }
+                }
+              }
+            },
+            {
+              "qty": 650,
+              "after_ups": 217,
+              "paper_waste": 450,
+              "waste": 450,
+              "after_waste": 667,
+              "paper_print": 667,
+              "paper_qty": 223,
+              "paper_net": 300,
+              "kilogram": 116.52,
+              "ton": 0.117,
+              "price": {
+                "paper": {
+                  "type_id": 10,
+                  "process_id": 31,
+                  "type": "material",
+                  "name": "paper",
+                  "qty": 300,
+                  "unit_price": 8.78,
+                  "price": 2634
+                },
+                "plate": {
+                  "type_id": 1,
+                  "process_id": 1,
+                  "type": "plate",
+                  "name": "plate",
+                  "reprint": {
+                    "outside": {
+                      "unit_price": 0,
+                      "qty": 0,
+                      "price": 0
+                    },
+                    "inside": {
+                      "unit_price": 0,
+                      "qty": 0,
+                      "price": 0
+                    }
+                  },
+                  "outside": {
+                    "unit_price": 4000,
+                    "qty": 1,
+                    "price": 4000
+                  },
+                  "inside": {
+                    "unit_price": 0,
+                    "qty": 1,
+                    "price": 0
+                  }
+                },
+                "print": {
+                  "type_id": 2,
+                  "process_id": 2,
+                  "type": "print",
+                  "name": "print-sheet",
+                  "outside": {
+                    "unit_price": 4000,
+                    "qty": 1,
+                    "price": 4000
+                  },
+                  "inside": {
+                    "unit_price": 0,
+                    "qty": 1,
+                    "price": 0
+                  },
+                  "all": {
+                    "unit_price": 0,
+                    "qty": 0,
+                    "price": 0
+                  }
+                }
+              }
+            }
+          ],
+          "split": 3,
+          "is_useReprintPlate": 0
+        },
+        "waste": {
+          "waste": [
+            800,
+            400,
+            400,
+            760,
+            450
+          ],
+          "waste_print": [
+            200,
+            200,
+            200,
+            200,
+            200
+          ],
+          "waste_afterpress": [
+            100,
+            100,
+            100,
+            150,
+            100
+          ],
+          "waste_print_col_add": [
+            50,
+            50,
+            50,
+            55,
+            50
+          ],
+          "waste_coating": [
+            50,
+            50,
+            50,
+            55,
+            50
+          ],
+          "waste_coating_net": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "waste_foilstamp": [
+            50,
+            50,
+            50,
+            55,
+            50
+          ],
+          "waste_bossing": [
+            50,
+            50,
+            50,
+            55,
+            50
+          ],
+          "waste_corrugated_board": [
+            150,
+            150,
+            150,
+            200,
+            150
+          ],
+          "waste_color_limit": [
+            350,
+            0,
+            0,
+            300,
+            0
+          ],
+          "waste_reduce_percent": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "waste_afterpress_net": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "total_reduce": [
+            450,
+            450,
+            450,
+            570,
+            450
+          ]
+        },
+        "weight": {
+          "paper_weight": 0.03073,
+          "corrugated_weight": 0,
+          "weight": 0.03073
+        },
+        "thickness": {
+          "mm": {
+            "paper_thickness": 0.52,
+            "corrugated_thickness": 0,
+            "thickness": 0.52,
+            "packing_thickness": 2.08
+          },
+          "inch": {
+            "paper_thickness": 0.02048,
+            "corrugated_thickness": 0,
+            "thickness": 0.02048,
+            "packing_thickness": 0.08189
+          }
+        },
+        "delivery": [
+          {
+            "type_id": 12,
+            "type": "delivery",
+            "process_id": 20,
+            "name": "delivery",
+            "net_weight": 4.92,
+            "gross_weight": 4.92,
+            "unit_price": 7.38,
+            "price": [
+              {
+                "qty": 38,
+                "unit_price": 7.38,
+                "price": 1500
+              }
+            ],
+            "packing_detail": [
+              {
+                "roundId": 1,
+                "unit_price": 5,
+                "detail": [
+                  {
+                    "qty": 2,
+                    "unit_price": 5,
+                    "price": 10,
+                    "compQty": 250,
+                    "gross_weight": 4.92,
+                    "total_weight": 9.84,
+                    "packArr": [
+                      2
+                    ],
+                    "qtyArr": [
+                      250
+                    ],
+                    "packQty": 2
+                  }
+                ]
+              },
+              {
+                "roundId": 2,
+                "unit_price": 5,
+                "detail": [
+                  {
+                    "qty": 5,
+                    "unit_price": 5,
+                    "price": 25,
+                    "compQty": 750,
+                    "gross_weight": 4.92,
+                    "total_weight": 24.6,
+                    "packArr": [
+                      5
+                    ],
+                    "qtyArr": [
+                      750
+                    ],
+                    "packQty": 5
+                  }
+                ]
+              }
+            ],
+            "fIndex": 0
+          },
+          {
+            "type_id": 12,
+            "type": "delivery",
+            "process_id": 20,
+            "name": "delivery",
+            "net_weight": 14.76,
+            "gross_weight": 15.76,
+            "unit_price": 23.64,
+            "price": [
+              {
+                "qty": 13,
+                "unit_price": 23.64,
+                "price": 1500
+              }
+            ],
+            "packing_detail": [
+              {
+                "roundId": 1,
+                "detail": [
+                  {
+                    "qty": 2,
+                    "unit_price": 43.11,
+                    "price": 86.22,
+                    "compQty": 850,
+                    "gross_weight": 15.76,
+                    "total_weight": 31.52,
+                    "packArr": [
+                      2
+                    ],
+                    "qtyArr": [
+                      850
+                    ]
+                  }
+                ]
+              },
+              {
+                "roundId": 3,
+                "detail": [
+                  {
+                    "qty": 2,
+                    "unit_price": 43.11,
+                    "price": 86.22,
+                    "compQty": 650,
+                    "gross_weight": 15.76,
+                    "total_weight": 31.52,
+                    "packArr": [
+                      2
+                    ],
+                    "qtyArr": [
+                      650
+                    ]
+                  }
+                ]
+              }
+            ],
+            "fIndex": 1
+          },
+          {
+            "type_id": 12,
+            "type": "delivery",
+            "process_id": 20,
+            "name": "delivery",
+            "net_weight": 4.92,
+            "gross_weight": 4.92,
+            "unit_price": 7.38,
+            "price": [
+              {
+                "qty": 38,
+                "unit_price": 7.38,
+                "price": 1500
+              }
+            ],
+            "packing_detail": [
+              {
+                "roundId": 2,
+                "unit_price": 5,
+                "detail": [
+                  {
+                    "qty": 3,
+                    "unit_price": 5,
+                    "price": 15,
+                    "compQty": 450,
+                    "gross_weight": 4.92,
+                    "total_weight": 14.76,
+                    "packArr": [
+                      3
+                    ],
+                    "qtyArr": [
+                      450
+                    ],
+                    "packQty": 3
+                  }
+                ]
+              },
+              {
+                "roundId": 4,
+                "unit_price": 5,
+                "detail": [
+                  {
+                    "qty": 3,
+                    "unit_price": 5,
+                    "price": 15,
+                    "compQty": 400,
+                    "gross_weight": 4.92,
+                    "total_weight": 14.76,
+                    "packArr": [
+                      3
+                    ],
+                    "qtyArr": [
+                      400
+                    ],
+                    "packQty": 3
+                  }
+                ]
+              }
+            ],
+            "fIndex": 2
+          },
+          {
+            "type_id": 12,
+            "type": "delivery",
+            "process_id": 20,
+            "name": "delivery",
+            "net_weight": 14.76,
+            "gross_weight": 15.76,
+            "unit_price": 23.64,
+            "price": [
+              {
+                "qty": 13,
+                "unit_price": 23.64,
+                "price": 1500
+              }
+            ],
+            "packing_detail": [
+              {
+                "roundId": 3,
+                "detail": [
+                  {
+                    "qty": 4,
+                    "unit_price": 43.11,
+                    "price": 172.44,
+                    "compQty": 1500,
+                    "gross_weight": 15.76,
+                    "total_weight": 63.04,
+                    "packArr": [
+                      4
+                    ],
+                    "qtyArr": [
+                      1500
+                    ]
+                  }
+                ]
+              },
+              {
+                "roundId": 4,
+                "detail": [
+                  {
+                    "qty": 2,
+                    "unit_price": 43.11,
+                    "price": 86.22,
+                    "compQty": 500,
+                    "gross_weight": 15.76,
+                    "total_weight": 31.52,
+                    "packArr": [
+                      2
+                    ],
+                    "qtyArr": [
+                      500
+                    ]
+                  }
+                ]
+              }
+            ],
+            "fIndex": 3
+          },
+          {
+            "type_id": 12,
+            "type": "delivery",
+            "process_id": 20,
+            "name": "delivery",
+            "net_weight": 12.72,
+            "gross_weight": 13.72,
+            "unit_price": 20.58,
+            "price": [
+              {
+                "qty": 15,
+                "unit_price": 20.58,
+                "price": 1500
+              }
+            ],
+            "packing_detail": [
+              {
+                "roundId": 2,
+                "detail": [
+                  {
+                    "qty": 2,
+                    "unit_price": 41.08,
+                    "price": 82.16,
+                    "compQty": 650,
+                    "gross_weight": 13.72,
+                    "total_weight": 27.44,
+                    "packArr": [
+                      2
+                    ],
+                    "qtyArr": [
+                      650
+                    ]
+                  }
+                ]
+              }
+            ],
+            "fIndex": 4
+          }
+        ],
+        "process_info": {
+          "material": [
+            {
+              "process_id": 73,
+              "unit_id": 19,
+              "process_name": "Paper Duplex GBB 400 gram",
+              "remark": "",
+              "is_apply_all_edition": true,
+              "info": {
+                "paper_info": {
+                  "std_paper_id": 38,
+                  "paper_align": "short",
+                  "parallel_roll_width": "WSize",
+                  "is_switchDisplay": 0,
+                  "roll_width": 35,
+                  "cut_off": 43,
+                  "paper_grain": "horizontal"
+                },
+                "paper_size": [
+                  889,
+                  363.22,
+                  35,
+                  14.3
+                ],
+                "ups": 3,
+                "split": 1,
+                "sig": 1
+              },
+              "line": [
+                {
+                  "process_qty": 400,
+                  "unit_price": 8.78,
+                  "price": 3512
+                },
+                {
+                  "process_qty": 300,
+                  "unit_price": 8.78,
+                  "price": 2634
+                },
+                {
+                  "process_qty": 300,
+                  "unit_price": 8.78,
+                  "price": 2634
+                },
+                {
+                  "process_qty": 500,
+                  "unit_price": 8.78,
+                  "price": 4390
+                },
+                {
+                  "process_qty": 300,
+                  "unit_price": 8.78,
+                  "price": 2634
+                }
+              ]
+            },
+            {
+              "process_id": 78,
+              "unit_id": 15,
+              "process_name": "Special Ink หมึก UV : PMS001",
+              "remark": null,
+              "is_apply_all_edition": false,
+              "info": {
+                "ink_name": "PMS001",
+                "print_style": "solid",
+                "paper_code": "Dup",
+                "is_custom_paper_code": false,
+                "f_code": [
+                  "F001"
+                ]
+              },
+              "line": [
+                {
+                  "process_qty": 1,
+                  "unit_price": 1300,
+                  "price": 1300
+                }
+              ]
+            },
+            {
+              "process_id": 78,
+              "unit_id": 15,
+              "process_name": "Special Ink หมึกสะท้อนแสง : PMS005",
+              "remark": null,
+              "is_apply_all_edition": false,
+              "info": {
+                "ink_name": "PMS005",
+                "print_style": "solid",
+                "paper_code": "Dup",
+                "is_custom_paper_code": false,
+                "f_code": [
+                  "F005"
+                ]
+              },
+              "line": [
+                {
+                  "process_qty": 1,
+                  "unit_price": 1000,
+                  "price": 1000
+                }
+              ]
+            }
+          ],
+          "plate": [
+            {
+              "process_id": 74,
+              "unit_id": 20,
+              "process_name": "Plate  Inside 0 cols",
+              "remark": "Inside",
+              "is_apply_all_edition": true,
+              "info": {
+                "side": "inside",
+                "num_color": 0,
+                "f_code": []
+              },
+              "line": [
+                {
+                  "qIndex": 0,
+                  "unit_price": 0,
+                  "qty": 1,
+                  "price": 0
+                },
+                {
+                  "qIndex": 1,
+                  "unit_price": 0,
+                  "qty": 1,
+                  "price": 0
+                },
+                {
+                  "qIndex": 2,
+                  "unit_price": 0,
+                  "qty": 1,
+                  "price": 0
+                },
+                {
+                  "qIndex": 3,
+                  "unit_price": 0,
+                  "qty": 1,
+                  "price": 0
+                },
+                {
+                  "qIndex": 4,
+                  "unit_price": 0,
+                  "qty": 1,
+                  "price": 0
+                }
+              ]
+            },
+            {
+              "process_id": 74,
+              "unit_id": 20,
+              "process_name": "Plate  Outside 0 cols",
+              "remark": "Outside",
+              "is_apply_all_edition": true,
+              "info": {
+                "side": "outside",
+                "num_color": 0,
+                "f_code": []
+              },
+              "line": [
+                {
+                  "qIndex": 0,
+                  "unit_price": 4000,
+                  "qty": 1,
+                  "price": 4000
+                },
+                {
+                  "qIndex": 1,
+                  "unit_price": 3200,
+                  "qty": 1,
+                  "price": 3200
+                },
+                {
+                  "qIndex": 2,
+                  "unit_price": 3200,
+                  "qty": 1,
+                  "price": 3200
+                },
+                {
+                  "qIndex": 3,
+                  "unit_price": 3200,
+                  "qty": 1,
+                  "price": 3200
+                },
+                {
+                  "qIndex": 4,
+                  "unit_price": 4000,
+                  "qty": 1,
+                  "price": 4000
+                }
+              ]
+            }
+          ],
+          "proof": [],
+          "print": [
+            {
+              "process_id": 76,
+              "unit_id": 15,
+              "process_name": "Print  Inside 0 cols",
+              "remark": "Inside",
+              "is_apply_all_edition": true,
+              "info": {
+                "side": "inside",
+                "num_color": 0,
+                "f_code": []
+              },
+              "line": [
+                {
+                  "qIndex": 0,
+                  "unit_price": 0,
+                  "qty": 1,
+                  "price": 0
+                },
+                {
+                  "qIndex": 1,
+                  "unit_price": 0,
+                  "qty": 1,
+                  "price": 0
+                },
+                {
+                  "qIndex": 2,
+                  "unit_price": 0,
+                  "qty": 1,
+                  "price": 0
+                },
+                {
+                  "qIndex": 3,
+                  "unit_price": 0,
+                  "qty": 1,
+                  "price": 0
+                },
+                {
+                  "qIndex": 4,
+                  "unit_price": 0,
+                  "qty": 1,
+                  "price": 0
+                }
+              ]
+            },
+            {
+              "process_id": 76,
+              "unit_id": 15,
+              "process_name": "Print  Outside 0 cols",
+              "remark": "Outside",
+              "is_apply_all_edition": true,
+              "info": {
+                "side": "outside",
+                "num_color": 0,
+                "f_code": []
+              },
+              "line": [
+                {
+                  "qIndex": 0,
+                  "unit_price": 4000,
+                  "qty": 1,
+                  "price": 4000
+                },
+                {
+                  "qIndex": 1,
+                  "unit_price": 2800,
+                  "qty": 1,
+                  "price": 2800
+                },
+                {
+                  "qIndex": 2,
+                  "unit_price": 2800,
+                  "qty": 1,
+                  "price": 2800
+                },
+                {
+                  "qIndex": 3,
+                  "unit_price": 2800,
+                  "qty": 1,
+                  "price": 2800
+                },
+                {
+                  "qIndex": 4,
+                  "unit_price": 4000,
+                  "qty": 1,
+                  "price": 4000
+                }
+              ]
+            }
+          ],
+          "process": [
+            {
+              "process_id": 34,
+              "unit_id": 15,
+              "process_name": "Gloss OPP 1 s (34.39 x 14.02 in?)",
+              "remark": "OPP",
+              "is_apply_all_edition": true,
+              "info": {
+                "code": "OPP",
+                "type": "OPP",
+                "name": "Gloss",
+                "side": 1,
+                "width": 34.39,
+                "length": 14.02,
+                "material_type": "",
+                "f_code": [],
+                "coating_price": 0.003,
+                "min_cost": 1,
+                "unit_min_cost": "sheet"
+              },
+              "line": [
+                {
+                  "process_qty": 4812,
+                  "unit_price": 1.45,
+                  "price": 6977.4
+                }
+              ]
+            },
+            {
+              "process_id": 34,
+              "unit_id": 15,
+              "process_name": "Other WP 1 s (34.39 x 14.02 in?)",
+              "remark": "WP",
+              "is_apply_all_edition": true,
+              "info": {
+                "code": "WP",
+                "type": "กันซึม (Water Proof)",
+                "name": "Other",
+                "side": 1,
+                "width": 34.39,
+                "length": 14.02,
+                "material_type": "",
+                "f_code": [],
+                "coating_price": 0.0012,
+                "min_cost": 0.4,
+                "unit_min_cost": "sheet"
+              },
+              "line": [
+                {
+                  "process_qty": 4812,
+                  "unit_price": 0.58,
+                  "price": 2790.96
+                }
+              ]
+            },
+            {
+              "process_id": 104,
+              "unit_id": 15,
+              "process_name": "Assembly (ประกบ/ติดลิ้นกาว) 3 จุด",
+              "remark": null,
+              "is_apply_all_edition": true,
+              "info": {},
+              "line": [
+                {
+                  "process_qty": 6000,
+                  "unit_price": 0.9485000000000001,
+                  "price": 5691
+                }
+              ]
+            },
+            {
+              "process_id": 3,
+              "unit_id": 15,
+              "process_name": "Diecut",
+              "remark": "Labor",
+              "is_apply_all_edition": true,
+              "info": {
+                "is_reprint": false
+              },
+              "line": [
+                {
+                  "process_qty": 6000,
+                  "unit_price": 0.34167,
+                  "price": 2050.02
+                }
+              ]
+            },
+            {
+              "process_id": 98,
+              "unit_id": 23,
+              "process_name": "Block Diecut",
+              "remark": "Block",
+              "is_apply_all_edition": true,
+              "info": {
+                "is_reprint": false
+              },
+              "line": [
+                {
+                  "process_qty": 1,
+                  "unit_price": 3000,
+                  "price": 3000
+                }
+              ]
+            }
+          ],
+          "other": [],
+          "handwork": [],
+          "packing": [
+            {
+              "process_id": 39,
+              "unit_id": 12,
+              "process_name": "Kraftwrap",
+              "remark": null,
+              "is_apply_all_edition": true,
+              "info": {
+                "unit_price": 5,
+                "num_side": [
+                  1,
+                  1
+                ],
+                "cube_size": [
+                  9.65,
+                  5.91,
+                  245.11,
+                  150.11
+                ],
+                "bulk_size": [
+                  9.65,
+                  5.91,
+                  245,
+                  150
+                ],
+                "num_bulk_per_layer": 1,
+                "qty_per_kraftwrap": "",
+                "is_editKraftwrapQty": false,
+                "num_per_layer": 1,
+                "weight_per_layer": 0.03073,
+                "layer_per_pack": 160,
+                "qty_per_pack": 160,
+                "bulk_height": [
+                  0.08189,
+                  2.08
+                ],
+                "net_weight": 4.92,
+                "gross_weight": 4.92,
+                "inner_size": [
+                  9.65,
+                  5.91,
+                  13.1,
+                  245.11,
+                  150.11,
+                  332.8
+                ],
+                "outer_size": [
+                  9.69,
+                  5.95,
+                  13.14,
+                  246.11,
+                  151.11,
+                  333.8
+                ],
+                "fIndex": 0
+              },
+              "line": [
+                {
+                  "process_qty": 38,
+                  "unit_price": 5,
+                  "price": 190
+                }
+              ]
+            },
+            {
+              "process_id": 39,
+              "unit_id": 12,
+              "process_name": "Kraftwrap",
+              "remark": null,
+              "is_apply_all_edition": true,
+              "info": {
+                "unit_price": 5,
+                "num_side": [
+                  1,
+                  1
+                ],
+                "cube_size": [
+                  9.65,
+                  5.91,
+                  245.11,
+                  150.11
+                ],
+                "bulk_size": [
+                  9.65,
+                  5.91,
+                  245,
+                  150
+                ],
+                "num_bulk_per_layer": 1,
+                "qty_per_kraftwrap": "",
+                "is_editKraftwrapQty": false,
+                "num_per_layer": 1,
+                "weight_per_layer": 0.03073,
+                "layer_per_pack": 160,
+                "qty_per_pack": 160,
+                "bulk_height": [
+                  0.08189,
+                  2.08
+                ],
+                "net_weight": 4.92,
+                "gross_weight": 4.92,
+                "inner_size": [
+                  9.65,
+                  5.91,
+                  13.1,
+                  245.11,
+                  150.11,
+                  332.8
+                ],
+                "outer_size": [
+                  9.69,
+                  5.95,
+                  13.14,
+                  246.11,
+                  151.11,
+                  333.8
+                ],
+                "fIndex": 1
+              },
+              "line": [
+                {
+                  "process_qty": 38,
+                  "unit_price": 5,
+                  "price": 190
+                }
+              ]
+            },
+            {
+              "process_id": 40,
+              "unit_id": 13,
+              "process_name": "Carton",
+              "remark": null,
+              "is_apply_all_edition": true,
+              "info": {
+                "inner_size": [
+                  10.44,
+                  13.89,
+                  18.6,
+                  265.18,
+                  352.81,
+                  472.44
+                ],
+                "layer_carton": 1,
+                "corrugated": {
+                  "flute_type": "BC",
+                  "grade": "CA125/CA125/CA125",
+                  "gram": [
+                    125,
+                    125,
+                    125
+                  ],
+                  "all_gram": 375,
+                  "thickness": 7,
+                  "corrugated_layer": 5,
+                  "price": 1.98,
+                  "size": [
+                    753.616,
+                    1307.964,
+                    29.67,
+                    51.495
+                  ],
+                  "area_corrugated": 10.61,
+                  "length_metre": 0.05,
+                  "price_inch": 0.0138,
+                  "board_price_per_carton": 23.11
+                },
+                "bulk": {
+                  "unit": "kraftwrap",
+                  "bulk_size": [
+                    9.69,
+                    5.95,
+                    13.14,
+                    246.11,
+                    151.11,
+                    333.8
+                  ],
+                  "qty_per_bulk": 160,
+                  "weight_per_bulk": 4.92
+                },
+                "custom_info": {
+                  "is_custom_inner_size": false,
+                  "is_custom_qty_per_carton": false,
+                  "is_carton_printing": false,
+                  "carton_layer": 1,
+                  "layout": [
+                    0,
+                    0
+                  ]
+                },
+                "size": {
+                  "cube": [
+                    9.69,
+                    13.14,
+                    17.85,
+                    246.13,
+                    333.76,
+                    453.33000000000004
+                  ],
+                  "inner_size": [
+                    10.44,
+                    13.89,
+                    18.6,
+                    265.18,
+                    352.81,
+                    472.38
+                  ],
+                  "outer_size": [
+                    10.94,
+                    14.39,
+                    19.1,
+                    259.58,
+                    347.21,
+                    466.78
+                  ]
+                },
+                "dummy_size": {
+                  "cube": [
+                    9.69,
+                    13.14,
+                    17.85,
+                    246.13,
+                    333.76,
+                    453.33000000000004
+                  ],
+                  "inner_size": [
+                    10.44,
+                    13.89,
+                    18.6,
+                    265.18,
+                    352.81,
+                    472.38
+                  ],
+                  "outer_size": [
+                    10.94,
+                    14.39,
+                    19.1,
+                    259.58,
+                    347.21,
+                    466.78
+                  ]
+                },
+                "carton": {
+                  "layer_per_carton": 3,
+                  "qty_per_layer": 160,
+                  "bulk_per_layer": 1,
+                  "num_layout": [
+                    1,
+                    1
+                  ],
+                  "weight_per_layer": 4.92,
+                  "qty_per_carton": 480
+                },
+                "net_weight": 14.76,
+                "gross_weight": 15.76,
+                "outer_size": [
+                  10.94,
+                  14.39,
+                  19.1,
+                  23.14,
+                  26.59,
+                  31.3
+                ],
+                "fIndex": 1
+              },
+              "line": [
+                {
+                  "process_qty": 13,
+                  "unit_price": 43.11,
+                  "price": 560.43
+                }
+              ]
+            },
+            {
+              "process_id": 39,
+              "unit_id": 12,
+              "process_name": "Kraftwrap",
+              "remark": null,
+              "is_apply_all_edition": true,
+              "info": {
+                "unit_price": 5,
+                "num_side": [
+                  1,
+                  1
+                ],
+                "cube_size": [
+                  9.65,
+                  5.91,
+                  245.11,
+                  150.11
+                ],
+                "bulk_size": [
+                  9.65,
+                  5.91,
+                  245,
+                  150
+                ],
+                "num_bulk_per_layer": 1,
+                "qty_per_kraftwrap": "",
+                "is_editKraftwrapQty": false,
+                "num_per_layer": 1,
+                "weight_per_layer": 0.03073,
+                "layer_per_pack": 160,
+                "qty_per_pack": 160,
+                "bulk_height": [
+                  0.08189,
+                  2.08
+                ],
+                "net_weight": 4.92,
+                "gross_weight": 4.92,
+                "inner_size": [
+                  9.65,
+                  5.91,
+                  13.1,
+                  245.11,
+                  150.11,
+                  332.8
+                ],
+                "outer_size": [
+                  9.69,
+                  5.95,
+                  13.14,
+                  246.11,
+                  151.11,
+                  333.8
+                ],
+                "fIndex": 2
+              },
+              "line": [
+                {
+                  "process_qty": 38,
+                  "unit_price": 5,
+                  "price": 190
+                }
+              ]
+            },
+            {
+              "process_id": 41,
+              "unit_id": 14,
+              "process_name": "Pallet",
+              "remark": null,
+              "is_apply_all_edition": true,
+              "info": {
+                "delivery_id": 1,
+                "pallet_id": 1,
+                "is_mif_pallet": false,
+                "pallet_size": [
+                  40,
+                  48,
+                  6.5
+                ],
+                "delivery_type": "domestic",
+                "pallet_price": 400,
+                "bulk_size": [
+                  9.69,
+                  5.95,
+                  13.14,
+                  246.11,
+                  151.11,
+                  333.8
+                ],
+                "laying": {
+                  "laying": [
+                    {
+                      "laying": "horizontal",
+                      "pcs_per_row": 4,
+                      "row": 8
+                    },
+                    {
+                      "laying": "vertical",
+                      "pcs_per_row": 6,
+                      "row": 0
+                    }
+                  ],
+                  "qty_layer": 32,
+                  "cube_size": [
+                    38.76,
+                    47.6
+                  ]
+                },
+                "weight_per_layer": 157.44,
+                "layer_per_pallet": 3,
+                "pallet_weight": 472.32,
+                "pallet_height": 39.42,
+                "bulk_qty_pallet": 96,
+                "qty_pallet": 15360,
+                "fIndex": 2
+              },
+              "line": [
+                {
+                  "process_qty": 1,
+                  "unit_price": 400,
+                  "price": 400
+                }
+              ]
+            },
+            {
+              "process_id": 39,
+              "unit_id": 12,
+              "process_name": "Kraftwrap",
+              "remark": null,
+              "is_apply_all_edition": true,
+              "info": {
+                "unit_price": 5,
+                "num_side": [
+                  1,
+                  1
+                ],
+                "cube_size": [
+                  9.65,
+                  5.91,
+                  245.11,
+                  150.11
+                ],
+                "bulk_size": [
+                  9.65,
+                  5.91,
+                  245,
+                  150
+                ],
+                "num_bulk_per_layer": 1,
+                "qty_per_kraftwrap": "",
+                "is_editKraftwrapQty": false,
+                "num_per_layer": 1,
+                "weight_per_layer": 0.03073,
+                "layer_per_pack": 160,
+                "qty_per_pack": 160,
+                "bulk_height": [
+                  0.08189,
+                  2.08
+                ],
+                "net_weight": 4.92,
+                "gross_weight": 4.92,
+                "inner_size": [
+                  9.65,
+                  5.91,
+                  13.1,
+                  245.11,
+                  150.11,
+                  332.8
+                ],
+                "outer_size": [
+                  9.69,
+                  5.95,
+                  13.14,
+                  246.11,
+                  151.11,
+                  333.8
+                ],
+                "fIndex": 3
+              },
+              "line": [
+                {
+                  "process_qty": 38,
+                  "unit_price": 5,
+                  "price": 190
+                }
+              ]
+            },
+            {
+              "process_id": 40,
+              "unit_id": 13,
+              "process_name": "Carton",
+              "remark": null,
+              "is_apply_all_edition": true,
+              "info": {
+                "inner_size": [
+                  10.44,
+                  13.89,
+                  18.6,
+                  265.18,
+                  352.81,
+                  472.44
+                ],
+                "layer_carton": 1,
+                "corrugated": {
+                  "flute_type": "BC",
+                  "grade": "CA125/CA125/CA125",
+                  "gram": [
+                    125,
+                    125,
+                    125
+                  ],
+                  "all_gram": 375,
+                  "thickness": 7,
+                  "corrugated_layer": 5,
+                  "price": 1.98,
+                  "size": [
+                    753.616,
+                    1307.964,
+                    29.67,
+                    51.495
+                  ],
+                  "area_corrugated": 10.61,
+                  "length_metre": 0.05,
+                  "price_inch": 0.0138,
+                  "board_price_per_carton": 23.11
+                },
+                "bulk": {
+                  "unit": "kraftwrap",
+                  "bulk_size": [
+                    9.69,
+                    5.95,
+                    13.14,
+                    246.11,
+                    151.11,
+                    333.8
+                  ],
+                  "qty_per_bulk": 160,
+                  "weight_per_bulk": 4.92
+                },
+                "custom_info": {
+                  "is_custom_inner_size": false,
+                  "is_custom_qty_per_carton": false,
+                  "is_carton_printing": false,
+                  "carton_layer": 1,
+                  "layout": [
+                    0,
+                    0
+                  ]
+                },
+                "size": {
+                  "cube": [
+                    9.69,
+                    13.14,
+                    17.85,
+                    246.13,
+                    333.76,
+                    453.33000000000004
+                  ],
+                  "inner_size": [
+                    10.44,
+                    13.89,
+                    18.6,
+                    265.18,
+                    352.81,
+                    472.38
+                  ],
+                  "outer_size": [
+                    10.94,
+                    14.39,
+                    19.1,
+                    259.58,
+                    347.21,
+                    466.78
+                  ]
+                },
+                "dummy_size": {
+                  "cube": [
+                    9.69,
+                    13.14,
+                    17.85,
+                    246.13,
+                    333.76,
+                    453.33000000000004
+                  ],
+                  "inner_size": [
+                    10.44,
+                    13.89,
+                    18.6,
+                    265.18,
+                    352.81,
+                    472.38
+                  ],
+                  "outer_size": [
+                    10.94,
+                    14.39,
+                    19.1,
+                    259.58,
+                    347.21,
+                    466.78
+                  ]
+                },
+                "carton": {
+                  "layer_per_carton": 3,
+                  "qty_per_layer": 160,
+                  "bulk_per_layer": 1,
+                  "num_layout": [
+                    1,
+                    1
+                  ],
+                  "weight_per_layer": 4.92,
+                  "qty_per_carton": 480
+                },
+                "net_weight": 14.76,
+                "gross_weight": 15.76,
+                "outer_size": [
+                  10.94,
+                  14.39,
+                  19.1,
+                  23.14,
+                  26.59,
+                  31.3
+                ],
+                "fIndex": 3
+              },
+              "line": [
+                {
+                  "process_qty": 13,
+                  "unit_price": 43.11,
+                  "price": 560.43
+                }
+              ]
+            },
+            {
+              "process_id": 41,
+              "unit_id": 14,
+              "process_name": "Pallet",
+              "remark": null,
+              "is_apply_all_edition": true,
+              "info": {
+                "delivery_id": 1,
+                "pallet_id": 1,
+                "is_mif_pallet": false,
+                "pallet_size": [
+                  40,
+                  48,
+                  6.5
+                ],
+                "delivery_type": "domestic",
+                "pallet_price": 400,
+                "bulk_size": [
+                  10.94,
+                  14.39,
+                  19.1,
+                  259.58,
+                  347.21,
+                  466.78
+                ],
+                "laying": {
+                  "laying": [
+                    {
+                      "laying": "horizontal",
+                      "pcs_per_row": 2,
+                      "row": 4
+                    },
+                    {
+                      "laying": "vertical",
+                      "pcs_per_row": 1,
+                      "row": 3
+                    }
+                  ],
+                  "qty_layer": 11,
+                  "cube_size": [
+                    39.72,
+                    43.76
+                  ]
+                },
+                "weight_per_layer": 173.36,
+                "layer_per_pallet": 2,
+                "pallet_weight": 346.72,
+                "pallet_height": 38.2,
+                "bulk_qty_pallet": 22,
+                "qty_pallet": 10560,
+                "fIndex": 3
+              },
+              "line": [
+                {
+                  "process_qty": 1,
+                  "unit_price": 400,
+                  "price": 400
+                }
+              ]
+            },
+            {
+              "process_id": 40,
+              "unit_id": 13,
+              "process_name": "Carton",
+              "remark": null,
+              "is_apply_all_edition": true,
+              "info": {
+                "inner_size": [
+                  10.4,
+                  17.7,
+                  12.57,
+                  264.16,
+                  449.58,
+                  319.28
+                ],
+                "layer_carton": 3,
+                "corrugated": {
+                  "flute_type": "BC",
+                  "grade": "CA125/CA125/CA125",
+                  "gram": [
+                    125,
+                    125,
+                    125
+                  ],
+                  "all_gram": 375,
+                  "thickness": 7,
+                  "corrugated_layer": 5,
+                  "price": 1.98,
+                  "size": [
+                    599.438,
+                    1499.48,
+                    23.6,
+                    59.035
+                  ],
+                  "area_corrugated": 9.675,
+                  "length_metre": 0.06,
+                  "price_inch": 0.0138,
+                  "board_price_per_carton": 21.08
+                },
+                "bulk": {
+                  "unit": "piece",
+                  "bulk_size": [
+                    9.65,
+                    5.91,
+                    0.08189,
+                    245,
+                    150,
+                    2.08
+                  ],
+                  "qty_per_bulk": 1,
+                  "weight_per_bulk": 0.03073
+                },
+                "custom_info": {
+                  "is_custom_inner_size": false,
+                  "is_custom_qty_per_carton": false,
+                  "is_carton_printing": false,
+                  "carton_layer": 3,
+                  "layout": [
+                    1,
+                    1
+                  ]
+                },
+                "size": {
+                  "cube": [
+                    9.65,
+                    16.95,
+                    11.82,
+                    245.11,
+                    430.53,
+                    300
+                  ],
+                  "inner_size": [
+                    10.4,
+                    17.7,
+                    12.57,
+                    264.16,
+                    449.58,
+                    319.05
+                  ],
+                  "outer_size": [
+                    10.9,
+                    18.2,
+                    13.07,
+                    258.56,
+                    443.98,
+                    313.45
+                  ]
+                },
+                "dummy_size": {
+                  "cube": [
+                    9.65,
+                    16.95,
+                    11.82,
+                    245.11,
+                    430.53,
+                    300
+                  ],
+                  "inner_size": [
+                    10.4,
+                    17.7,
+                    12.57,
+                    264.16,
+                    449.58,
+                    319.05
+                  ],
+                  "outer_size": [
+                    10.9,
+                    18.2,
+                    13.07,
+                    258.56,
+                    443.98,
+                    313.45
+                  ]
+                },
+                "carton": {
+                  "layer_per_carton": 2,
+                  "qty_per_layer": 207,
+                  "bulk_per_layer": 207,
+                  "num_layout": [
+                    1,
+                    207
+                  ],
+                  "weight_per_layer": 6.36,
+                  "qty_per_carton": 414
+                },
+                "net_weight": 12.72,
+                "gross_weight": 13.72,
+                "outer_size": [
+                  10.9,
+                  18.2,
+                  13.07,
+                  23.1,
+                  30.4,
+                  25.27
+                ],
+                "fIndex": 4
+              },
+              "line": [
+                {
+                  "process_qty": 15,
+                  "unit_price": 41.08,
+                  "price": 616.1999999999999
+                }
+              ]
+            },
+            {
+              "process_id": 41,
+              "unit_id": 14,
+              "process_name": "Pallet",
+              "remark": null,
+              "is_apply_all_edition": true,
+              "info": {
+                "delivery_id": 1,
+                "pallet_id": 1,
+                "is_mif_pallet": false,
+                "pallet_size": [
+                  40,
+                  48,
+                  6.5
+                ],
+                "delivery_type": "domestic",
+                "pallet_price": 400,
+                "bulk_size": [
+                  10.9,
+                  18.2,
+                  13.07,
+                  258.56,
+                  443.98,
+                  313.45
+                ],
+                "laying": {
+                  "laying": [
+                    {
+                      "laying": "horizontal",
+                      "pcs_per_row": 3,
+                      "row": 2
+                    },
+                    {
+                      "laying": "vertical",
+                      "pcs_per_row": 2,
+                      "row": 1
+                    }
+                  ],
+                  "qty_layer": 8,
+                  "cube_size": [
+                    36.4,
+                    47.3
+                  ]
+                },
+                "weight_per_layer": 109.76,
+                "layer_per_pallet": 3,
+                "pallet_weight": 329.28,
+                "pallet_height": 39.21,
+                "bulk_qty_pallet": 24,
+                "qty_pallet": 9936,
+                "fIndex": 4
+              },
+              "line": [
+                {
+                  "process_qty": 1,
+                  "unit_price": 400,
+                  "price": 400
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "tax": 3,
+    "currency_no": "THB",
+    "exchange_rate": 1,
+    "otherCost": [],
+    "priceDiff": [],
+    "customer_gift": [],
+    "totalprice": [
+      {
+        "raw": {
+          "paper": 15804,
+          "corrugated": 0,
+          "special_ink": 2300,
+          "material": 0,
+          "plate": 17600,
+          "proof": 0,
+          "print": 16400,
+          "afterpress": 18598.08,
+          "block": 3000,
+          "delivery": 10903.26,
+          "other": 0,
+          "mark_up_percent": 0,
+          "mark_up_price": 0,
+          "mark_down_percent": 0,
+          "mark_down_price": 0,
+          "total_price": 84605.34,
+          "price_diff": 0,
+          "customer_gift": 0,
+          "sub_total_price_material": 18104,
+          "sub_total_price_production": 66501.34
+        },
+        "special_ink": 2300,
+        "material": 18104,
+        "plate": 17600,
+        "proof": 0,
+        "print": 16400,
+        "afterpress": 21598.08,
+        "block": 3000,
+        "delivery": 10903.26,
+        "other": 0,
+        "mark_up_percent": 0,
+        "mark_up_price": 0,
+        "mark_down_percent": 0,
+        "mark_down_price": 0,
+        "customer_gift": 0,
+        "price_diff": 0,
+        "total_price": 84605.34,
+        "total_with_price_diff": 84605.34,
+        "sub_total_price_material": 18104,
+        "marking_material_percent": 0,
+        "total_marking_material": 0,
+        "sub_total_price_material_marking": 18104,
+        "unit_price_material": 3.02,
+        "unit_price_material_marking": 3.02,
+        "sub_total_price_production": 66501.34,
+        "marking_production_percent": 0,
+        "total_marking_production": 0,
+        "sub_total_price_production_marking": 66501.34,
+        "unit_price_production": 11.08,
+        "unit_price_production_marking": 11.08,
+        "total_marking_material_production": 0,
+        "total_price_marking_material_production": 84605.34,
+        "tax": 2538.16,
+        "final_price": 87143.5,
+        "unit_price": 14.52,
+        "unit_price_exchange": 14.52,
+        "loss": 0
+      }
+    ],
+    "SYSTEM_VERSION": "3.1",
+    "process_info": {
+      "material": [],
+      "plate": [],
+      "proof": [],
+      "print": [],
+      "process": [
+        {
+          "process_id": 82,
+          "unit_id": 1,
+          "process_name": "Inspection",
+          "remark": null,
+          "is_apply_all_edition": true,
+          "info": {},
+          "line": [
+            {
+              "process_qty": 6000,
+              "unit_price": 0.04,
+              "price": 240
+            }
+          ]
+        }
+      ],
+      "other": [],
+      "handwork": [
+        {
+          "process_id": 17,
+          "unit_id": 1,
+          "process_name": "แกะ",
+          "remark": null,
+          "is_apply_all_edition": true,
+          "info": {},
+          "line": [
+            {
+              "process_qty": 6000,
+              "unit_price": 0.14145,
+              "price": 848.7
+            }
+          ]
+        }
+      ],
+      "packing": []
+    }
+  },
+  "log_id": 219733,
+  "created": "18/03/2026",
+  "status_id": 3,
+  "request_approve_datetime": "2026-03-18 13:23:06",
+  "estimate_check": 1,
+  "estimate_date": "2026-03-18 13:23:25",
+  "history_status_id": 3,
+  "history_remark": "",
+  "ref_copy_rfq": "E26030012",
+  "updated_by": "2640038 : ศรวณีย์ อ่อนน้อม",
+  "updated": "2026-03-18 13:23:25",
+  "created_by": "2640038 : ศรวณีย์ อ่อนน้อม",
+  "created_by_eng": "Sarawanee Onnorm",
+  "ae_name": "ศรวณีย์ อ่อนน้อม",
+  "ae_name_eng": "Sarawanee Onnorm",
+  "open_job_status": 0,
+  "mi_job_id": null,
+  "customer_name": "ลานนาเกษตรอุตสาหกรรม",
+  "customer_no_name": "C2014019: ลานนาเกษตรอุตสาหกรรม"
+}

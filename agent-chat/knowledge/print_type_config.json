@@ -1,0 +1,102 @@
+{
+  "_source": "Extracted from js_data_default.js - print_type_config",
+  "print_types": [
+    {
+      "name": "Offset",
+      "print_type_id": 1,
+      "gsm": { "min": 0, "max": 50000 },
+      "paperType_restriction": [],
+      "color_options": [[4, 0], [4, 4]],
+      "isHasSpecialInk": true,
+      "proof_price_per_component": 500,
+      "tolerance": {
+        "gripper": 12,
+        "color_bar": 8,
+        "bleed": 3,
+        "paper_edge": 4
+      },
+      "print_min_price": 0,
+      "reduce_paper_waste_percent": 0,
+      "color_limit_waste": {
+        "waste": 300,
+        "waste_per_color": 50
+      },
+      "component_type": [1, 2, 3]
+    },
+    {
+      "name": "Flexo",
+      "print_type_id": 2,
+      "gsm": { "min": 0, "max": 50000 },
+      "paperType_restriction": [],
+      "color_options": [[4, 0], [4, 4]],
+      "isHasSpecialInk": true,
+      "proof_price_per_component": 500,
+      "tolerance": {
+        "gripper": 25,
+        "color_bar": 3,
+        "bleed": 3,
+        "paper_edge": 4
+      },
+      "print_min_price": 0,
+      "reduce_paper_waste_percent": 0,
+      "color_limit_waste": {
+        "waste": 300,
+        "waste_per_color": 50
+      },
+      "component_type": [3]
+    },
+    {
+      "name": "Jet Press",
+      "print_type_id": 3,
+      "gsm": { "min": 190, "max": 500 },
+      "paperType_restriction": ["A/C C1s", "A/C C2s", "W/C", "Duplex BBB", "Duplex GBB", "Duplex WBB"],
+      "color_options": [[4, 0], [4, 4]],
+      "isHasSpecialInk": false,
+      "proof_price_per_component": 500,
+      "tolerance": {
+        "gripper": 25,
+        "color_bar": 3,
+        "bleed": 3,
+        "paper_edge": 4
+      },
+      "print_min_price": 0,
+      "reduce_paper_waste_percent": 30,
+      "color_limit_waste": {
+        "waste": 150,
+        "waste_per_color": 20
+      },
+      "component_type": [1, 2]
+    },
+    {
+      "name": "Konica",
+      "print_type_id": 4,
+      "gsm": { "min": 60, "max": 350 },
+      "paperType_restriction": [
+        "A/C C1s", "A/C C2s", "W/C",
+        "Woodfree", "Gloss Art", "Matt Art",
+        "PP Gloss K-tek ( Sticker )",
+        "PP Matt K-tek ( Sticker )",
+        "PP Clear K-tek ( Sticker )",
+        "PP Gloss SL ( Sticker )",
+        "PP Matt SL ( Sticker )"
+      ],
+      "color_options": [[4, 0], [4, 4]],
+      "isHasSpecialInk": false,
+      "proof_price_per_component": 200,
+      "tolerance": {
+        "gripper": 35,
+        "color_bar": 0,
+        "bleed": 3,
+        "paper_edge": 15
+      },
+      "print_min_price": 0,
+      "reduce_paper_waste_percent": 30,
+      "reduce_paper_waste_percent_digital_diecut": 20,
+      "color_limit_waste": {
+        "waste": 150,
+        "waste_per_color": 20
+      },
+      "component_type": [1]
+    }
+  ]
+}

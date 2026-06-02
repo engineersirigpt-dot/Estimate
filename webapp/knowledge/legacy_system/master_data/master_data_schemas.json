@@ -1,0 +1,269 @@
+{
+  "_source": "Inferred from legacy JS code usage patterns",
+  "_note": "These are the 22 master data tables loaded from the Estimate API. Schemas derived from code that reads/filters the data.",
+  "_api_status": "OFFLINE - 192.168.5.3:3010 unreachable from this machine. Data must be fetched when connected to Sirivatana network.",
+
+  "tables": {
+    "paper_info": {
+      "api_type": "paper_info&estimate_type=packaging",
+      "db_index": 0,
+      "description": "Paper types with pricing, thickness, and print compatibility",
+      "schema": {
+        "paper_code": "string - e.g. 'GAR', 'A/C C1s', 'Dup GBB'",
+        "paper_type": "string - display name e.g. 'Gloss Art'",
+        "paper_name": "string",
+        "gram": "number - GSM (grams per sqm) e.g. 300",
+        "price": "number - domestic price (THB)",
+        "price_import": "number - import price (THB)",
+        "paper_thickness": "number - mm",
+        "print_type": "string - comma-separated print_type_ids e.g. '1,3'",
+        "is_fsc": "number - 0 or 1 (FSC certified)",
+        "special_ink_paper_code": "string - paper code for special ink matching"
+      },
+      "usage": "getPaperType(), getPaperPrice(), getMasterPaperPrintType()",
+      "filters": "Filtered by print_type_id and is_fsc==0 for packaging"
+    },
+
+    "coating_info": {
+      "api_type": "coating_info&estimate_type=packaging",
+      "db_index": 1,
+      "description": "Coating options (UV, varnish, lamination, etc.)",
+      "schema": {
+        "coating_option": "string - coating category",
+        "coating_code": "string - specific coating code",
+        "coating_type": "string",
+        "pages": "number - 1 or 2 (sides)",
+        "condition_key": "string - conditional availability",
+        "coating_size": "string - comma-separated numbers (parsed to array)"
+      },
+      "usage": "get_coating_code()"
+    },
+
+    "corrugated_info": {
+      "api_type": "corrugated_info&estimate_type=packaging",
+      "db_index": 2,
+      "description": "Corrugated board specifications with layered grade/gram info",
+      "schema": {
+        "layer": "number - 2, 3, or 5 layers",
+        "flute_type": "string - e.g. 'B', 'C', 'E', 'BC'",
+        "type_1": "string - first layer type",
+        "gram_1": "number - first layer gram",
+        "type_2": "string - second layer type",
+        "gram_2": "number - second layer gram",
+        "type_3": "string - third layer type (5-layer only)",
+        "gram_3": "number - third layer gram (5-layer only)",
+        "grade": "string",
+        "total_gram": "number",
+        "flute_thickness": "number",
+        "rate": "number - price rate",
+        "is_price_per_sheet": "boolean",
+        "corrugated_size": "array"
+      },
+      "usage": "get_corrugated_type(), get_corrugated_grade_type1/gram1/type2/gram2/type3/gram3()"
+    },
+
+    "foilstamp_info": {
+      "api_type": "foilstamp_info",
+      "db_index": 3,
+      "description": "Foil stamp color and code options",
+      "schema": {
+        "color_th": "string - Thai color name e.g. 'ทอง', 'เงิน'",
+        "code": "string - foil code"
+      },
+      "usage": "get_foilstamp_code(), getFoilStampColor()"
+    },
+
+    "block_stamp_info": {
+      "api_type": "blockstamp_info",
+      "db_index": 4,
+      "description": "Block stamp (die) pricing rates",
+      "schema": "Rate table for block stamps (emboss/deboss/foilstamp blocks)"
+    },
+
+    "price_info": {
+      "api_type": "price_info",
+      "db_index": 5,
+      "description": "Price rate table by quantity range for all processes",
+      "schema": {
+        "min_qty": "number - minimum quantity for this rate",
+        "max_qty": "number - maximum quantity for this rate",
+        "print_1col": "number - 1-color print rate",
+        "print_3col": "number - 3-color print rate",
+        "print_5col": "number - 5-color print rate",
+        "print_flexo": "number - flexo print rate",
+        "trim": "number - trim rate",
+        "diecut": "number - die-cut rate",
+        "foilstamp": "number - foil stamp rate",
+        "bossing": "number - emboss/deboss rate",
+        "chip": "number - chip (stripping) rate",
+        "inspection": "number - inspection rate",
+        "assembly_S": "number - small assembly rate",
+        "assembly_M": "number - medium assembly rate",
+        "assembly_L": "number - large assembly rate"
+      },
+      "usage": "setPriceRate(type, qty, item)"
+    },
+
+    "min_price_info": {
+      "api_type": "min_price_info",
+      "db_index": 6,
+      "description": "Minimum price per process type",
+      "schema": "Minimum prices for each process (ensures jobs don't go below minimum)"
+    },
+
+    "waste_info": {
+      "api_type": "waste_info",
+      "db_index": 7,
+      "description": "Paper waste rates by print type and quantity range",
+      "schema": {
+        "print_type": "number - 1=Offset, 3=JetPress, 4=Konica",
+        "min_qty": "number",
+        "max_qty": "number",
+        "print_rate": "number - base printing waste",
+        "afterpress_rate": "number - afterpress waste",
+        "coating_rate": "number - coating waste",
+        "foilstamp_rate": "number - foil stamp waste",
+        "bossing_rate": "number - emboss/deboss waste",
+        "corrugated_board_rate": "number - corrugated board waste",
+        "print_col_add_rate": "number - additional color waste",
+        "corrugatedglued_rate": "number - corrugated glue waste",
+        "digital_diecut_rate": "number - digital die-cut waste"
+      },
+      "usage": "getMasterPaperWaste(printType, after_ups)"
+    },
+
+    "block_diecut_info": {
+      "api_type": "blockdiecut_info",
+      "db_index": 8,
+      "description": "Die-cut block pricing by size",
+      "schema": "Lookup table: short_side x long_side -> block price",
+      "usage": "setBlockDiecutRate2(layout)"
+    },
+
+    "box_template_info": {
+      "api_type": "boxtemplate_info",
+      "db_index": 9,
+      "description": "Box template definitions with glued spots and packing layers",
+      "schema": {
+        "type_id": "number - 1-12",
+        "type_name": "string - English name",
+        "type_name_th": "string - Thai name",
+        "packing_layer": "number - default packing layer count",
+        "glued_spot": "number - number of glue spots"
+      },
+      "usage": "get_box_template_arr(), getDefaultGluedSpot()"
+    },
+
+    "special_ink_info": {
+      "api_type": "specialink_info",
+      "db_index": 10,
+      "description": "Special ink types and their properties",
+      "schema": {
+        "process_id": "number",
+        "special_ink_type_th": "string - Thai name of special ink type"
+      },
+      "usage": "getSpecialInkType()"
+    },
+
+    "special_ink_factor_info": {
+      "api_type": "specialink_factor_info",
+      "db_index": 11,
+      "description": "Special ink cost factors by print style",
+      "usage": "getSpeInkInfo()"
+    },
+
+    "jetpress_waste_info": {
+      "api_type": "jetpress_waste_info",
+      "db_index": 12,
+      "description": "JetPress-specific waste rates"
+    },
+
+    "jetpress_info": {
+      "api_type": "jetpress_info",
+      "db_index": 13,
+      "description": "JetPress pricing by paper size and quantity range",
+      "schema": {
+        "paper_size": "array - [w_mm, l_mm]",
+        "min": "number - min qty",
+        "max": "number - max qty",
+        "print_price": "number - price per sheet"
+      },
+      "usage": "setPriceRate4JetPress()"
+    },
+
+    "marking_price_info": {
+      "api_type": "marking_price_info",
+      "db_index": 14,
+      "description": "Markup pricing rules"
+    },
+
+    "machine_std_paper_info": {
+      "api_type": "machine_std_paper_info",
+      "db_index": 15,
+      "description": "Standard paper sizes available per machine",
+      "schema": {
+        "std_paper_id": "number",
+        "machineSize_type": "number - machine size id (1=Cut1, 2=Cut2, etc.)",
+        "std_paper_min_color": "number",
+        "std_paper_max_color": "number",
+        "only_paper_type": "string - comma-separated paper_codes (empty = all)",
+        "is_default": "boolean"
+      },
+      "usage": "getStdPaperList(), getStdPaperSize()"
+    },
+
+    "delivery_rate_info": {
+      "api_type": "delivery_rate_info",
+      "db_index": 16,
+      "description": "Delivery rates by destination and weight range",
+      "schema": {
+        "destination_id": "number",
+        "destination_name": "string - province/area name",
+        "min_weight_kg": "number",
+        "max_weight_kg": "number",
+        "rate": "number - delivery rate"
+      },
+      "usage": "getDeliveryRate(), getDeliveryRateInfo()"
+    },
+
+    "paper_code_type": {
+      "api_type": "paper_code_type",
+      "db_index": 17,
+      "description": "Paper code to type name mapping",
+      "schema": {
+        "paper_code": "string",
+        "paper_type": "string - display name"
+      },
+      "usage": "getPaperCodeType() - populates custom paper dropdown"
+    },
+
+    "process_type": {
+      "api_type": "process_type",
+      "db_index": 18,
+      "description": "Process type definitions"
+    },
+
+    "price_type": {
+      "api_type": "price_type",
+      "db_index": 19,
+      "description": "Price type categories"
+    },
+
+    "konica_waste_info": {
+      "api_type": "konica_waste_info",
+      "db_index": 20,
+      "description": "Konica-specific waste rates"
+    },
+
+    "exchange_rate": {
+      "api_type": "exchange_rate",
+      "db_index": 21,
+      "description": "Currency exchange rates",
+      "schema": {
+        "currency_no": "string - e.g. 'THB', 'USD', 'EUR'",
+        "rate": "number - exchange rate"
+      },
+      "usage": "getExchangeRateList(), getExchangeRateInfo(currency_no)"
+    }
+  }
+}

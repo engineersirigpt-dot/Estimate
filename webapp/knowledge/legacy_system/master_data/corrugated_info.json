@@ -1,0 +1,23 @@
+{
+  "_status": "PENDING - Needs live API connection to 192.168.5.3:3010",
+  "_api_call": "GET /estimate/master_data?type=corrugated_info&estimate_type=packaging",
+  "_schema": {
+    "layer": "number - 2, 3, or 5 layers",
+    "flute_type": "string - e.g. 'B', 'C', 'E', 'BC', 'BE'",
+    "type_1": "string - first paper layer type",
+    "gram_1": "number - first paper layer gram",
+    "type_2": "string - middle layer type",
+    "gram_2": "number - middle layer gram",
+    "type_3": "string - third layer type (5-layer)",
+    "gram_3": "number - third layer gram (5-layer)",
+    "grade": "string - grade designation",
+    "total_gram": "number - total grammage",
+    "flute_thickness": "number - mm",
+    "rate": "number - price rate",
+    "is_price_per_sheet": "boolean",
+    "corrugated_size": "array - standard corrugated sizes"
+  },
+  "_known_flute_types": ["B", "C", "E", "BC", "BE", "F"],
+  "_corrugated_layers": [2, 3, 5],
+  "data": []
+}

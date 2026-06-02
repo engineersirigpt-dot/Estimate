@@ -1,0 +1,37 @@
+{
+  "_status": "PENDING - Needs live API connection to 192.168.5.3:3010",
+  "_api_call": "GET /estimate/master_data?type=paper_info&estimate_type=packaging",
+  "_schema": {
+    "paper_code": "string - e.g. 'GAR', 'A/C C1s', 'Dup GBB', 'W/C'",
+    "paper_type": "string - display name e.g. 'Gloss Art', 'Art Card C1s'",
+    "paper_name": "string",
+    "gram": "number - GSM e.g. 190, 230, 270, 300, 350, 400",
+    "price": "number - domestic price THB/ream or THB/sheet",
+    "price_import": "number - import price THB",
+    "paper_thickness": "number - mm",
+    "print_type": "string - comma-separated print_type_ids e.g. '1,3' (1=Offset,2=Flexo,3=JetPress,4=Konica)",
+    "is_fsc": "number - 0 or 1",
+    "special_ink_paper_code": "string"
+  },
+  "_known_paper_codes": [
+    "A/C C1s", "A/C C2s", "W/C",
+    "Duplex BBB", "Duplex GBB", "Duplex WBB",
+    "Dup BBB", "Dup GBB", "Dup WBB",
+    "GAR", "Gloss Art", "Matt Art",
+    "Woodfree",
+    "PP Gloss K-tek ( Sticker )",
+    "PP Matt K-tek ( Sticker )",
+    "PP Clear K-tek ( Sticker )",
+    "PP Gloss SL ( Sticker )",
+    "PP Matt SL ( Sticker )"
+  ],
+  "_default_paper": {
+    "paper_code": "GAR",
+    "paper_name": "Gloss art",
+    "paper_cost": 26.88,
+    "paper_thickness": 0.1,
+    "paper_gram": 300,
+    "paper_markup": 0
+  },
+  "data": []
+}

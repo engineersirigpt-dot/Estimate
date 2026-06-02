@@ -1,0 +1,156 @@
+================================================================
+  TEST LAYOUT SPECS — เทียบระบบเก่า vs ระบบใหม่
+  วันที่: 30/03/2026
+================================================================
+
+วิธีทดสอบ:
+1. วาง spec ในระบบเก่า (192.168.5.3:3040/estimate)
+2. เลือก Template ตามที่ระบุ
+3. กดคำนวณ Layout
+4. Screenshot: Open Size, UPS, Layout Size, Paper Size
+5. วาง spec เดียวกันในระบบใหม่ (localhost:3080)
+6. เปรียบเทียบค่าทุกจุด
+
+================================================================
+TEST 1: Type 1 RTE — กล่องฝาเสียบ ขนาดเล็ก
+================================================================
+Template: Type 1 (Reverse Tuck End)
+ระบบเรา: 4W x 2L = 8 ups (overlap) | Paper: AC 36x27
+
+Spec:
+------
+TITLE : กล่องครีม ABC 50ml
+SIZE (mm.) : 60 x 80 x 120
+COMPONENT TYPE
+   - BOX: ไม่ประกบลูกฟูก
+PAPER
+   - BOX: Art Card 350 gsm
+PRINT
+   - BOX: 4/0 Colors
+OTHER
+   - BOX: coating Gloss Waterbase 1 s
+PACKING
+   - BOX: kraftwrap 200 pcs/pack
+qty 5000
+
+ผลเปรียบเทียบ:
+| รายการ          | ระบบเก่า | ระบบใหม่ | ตรง? |
+|-----------------|---------|---------|------|
+| Open Size       |         |         |      |
+| UPS             |         |         |      |
+| Layout Size     |         |         |      |
+| Paper Size      |         |         |      |
+| Waste           |         |         |      |
+| Paper Net       |         |         |      |
+
+
+================================================================
+TEST 2: Type 5 Tray — กล่องฝาครอบ ขนาดใหญ่
+================================================================
+Template: Type 5 (Double Glue Side Wall / กล่องฝาครอบ)
+ระบบเรา: 1W x 1L = 1 ups | Paper: Dup GBB 28x40 (31x43)
+
+Spec:
+------
+TITLE : Tray ขนมปัง XL
+SIZE (mm.) : 300 x 200 x 80
+COMPONENT TYPE
+   - BOX: ไม่ประกบลูกฟูก
+PAPER
+   - BOX: Duplex GBB 350 gsm
+PRINT
+   - BOX: 6/0 Colors
+OTHER
+   - BOX: coating Gloss OPP 1 s
+PACKING
+   - BOX: kraftwrap 100 pcs/pack
+qty 3000
+
+ผลเปรียบเทียบ:
+| รายการ          | ระบบเก่า | ระบบใหม่ | ตรง? |
+|-----------------|---------|---------|------|
+| Open Size       |         |         |      |
+| UPS             |         |         |      |
+| Layout Size     |         |         |      |
+| Paper Size      |         |         |      |
+| Waste           |         |         |      |
+| Paper Net       |         |         |      |
+
+
+================================================================
+TEST 3: Type 3 TTSLB + ลูกฟูก
+================================================================
+Template: Type 3 (TTSLB ออโต้ล็อคหูขัด)
+ประกบลูกฟูก: 2 ชั้น ลอน E เกรด CA 125
+ระบบเรา: 2W x 3L = 6 ups (overlap) | Paper: Dup GBB 28x40 (31x43)
+
+Spec:
+------
+TITLE : กล่องอาหารเสริม
+SIZE (mm.) : 100 x 60 x 180
+COMPONENT TYPE
+   - BOX: ประกบลูกฟูก
+PAPER
+   - BOX: Duplex GBB 300 gsm
+PRINT
+   - BOX: 4/0 Colors
+OTHER
+   - BOX: coating Gloss Waterbase Hi-Rub 1 s
+PACKING
+   - BOX: kraftwrap 150 pcs/pack
+qty 10000
+
+ผลเปรียบเทียบ:
+| รายการ          | ระบบเก่า | ระบบใหม่ | ตรง? |
+|-----------------|---------|---------|------|
+| Open Size       |         |         |      |
+| UPS             |         |         |      |
+| Layout Size     |         |         |      |
+| Paper Size      |         |         |      |
+| Waste           |         |         |      |
+| Paper Net       |         |         |      |
+| Corrugated Board|         |         |      |
+
+
+================================================================
+TEST 4: Type 4 TTAB ขนาดกลาง
+================================================================
+Template: Type 4 (TTAB ออโต้ล็อคทากาว)
+ระบบเรา: 3W x 4L = 12 ups (overlap) | Paper: AC Cut 3
+
+Spec:
+------
+TITLE : กล่องยา
+SIZE (mm.) : 45 x 75 x 130
+COMPONENT TYPE
+   - BOX: ไม่ประกบลูกฟูก
+PAPER
+   - BOX: Art Card 300 gsm
+PRINT
+   - BOX: 5/0 Colors
+OTHER
+   - BOX: coating Gloss Waterbase 1 s
+PACKING
+   - BOX: kraftwrap 250 pcs/pack
+qty 20000
+
+ผลเปรียบเทียบ:
+| รายการ          | ระบบเก่า | ระบบใหม่ | ตรง? |
+|-----------------|---------|---------|------|
+| Open Size       |         |         |      |
+| UPS             |         |         |      |
+| Layout Size     |         |         |      |
+| Paper Size      |         |         |      |
+| Waste           |         |         |      |
+| Paper Net       |         |         |      |
+
+
+================================================================
+หมายเหตุ
+================================================================
+- ระบบเก่า: 192.168.5.3:3040/estimate (ต้อง VPN)
+- ระบบใหม่: localhost:3080
+- Template ต้องเลือกเหมือนกันทั้ง 2 ระบบ
+- ลูกฟูก (Test 3): ต้องเลือก 2 ชั้น / E Flute / CA 125 ทั้ง 2 ระบบ
+- Overlap (Test 1,3,4): ระบบเก่าอาจไม่มี overlap → UPS จะต่างกัน (ของเราดีกว่า)
+- Waste: อาจต่าง 80 ถ้าระบบเก่าไม่ได้เลือก Coating

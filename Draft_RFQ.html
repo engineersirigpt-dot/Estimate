@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<!--
+  ============================================================================
+  Draft_RFQ.html  —  แบบฟอร์ม RFQ (Request For Quotation) ฉบับสกัดสเปก
+  ============================================================================
+  ที่มา : public/estimate.ejs (ฟอร์มหลักของระบบ Estimate-Packaging)
+  วัตถุประสงค์ : ไฟล์ standalone เดียวจบ รวมโครงสร้าง/ฟิลด์/ตัวเลือกทั้งหมดของ
+                ฟอร์ม RFQ เพื่อนำไป "สกัดสเปก" ไปสร้างในโปรเจคอื่น
+
+  วิธีอ่านไฟล์นี้
+  - แต่ละ <input>/<select> มี data-attribute กำกับ:
+      data-field   = ชื่อฟิลด์เชิงตรรกะ (logical name)
+      data-main    = path ใน est.mainData ที่ฟิลด์นี้เก็บลง  (โครงสร้างข้อมูลกลาง)
+      data-ai      = ชื่อ field ใน AI parse-spec schema (router/ai.js) ที่ map กัน
+      data-req     = "1" ถ้าเป็นฟิลด์บังคับ (required)
+      data-src     = "master" ถ้า option มาจาก master data (โหลดตอน runtime)
+  - ส่วน <section> = กลุ่ม field ตาม UI จริง
+  - ตาราง "DATA DICTIONARY" ท้ายไฟล์ = สรุป schema + ค่า master data ทั้งหมด
+  - ไฟล์นี้ render ในเบราว์เซอร์ได้เลย (มี CSS inline) แต่ไม่มี business logic/คำนวณ
+
+  สรุประบบ (ดู CLAUDE/context/ สำหรับรายละเอียด)
+  - การคำนวณราคาทำฝั่ง browser ในคลาส Estimate (function_estimate_calculation.js)
+  - ฟอร์มนี้ → เก็บลง est.mainData → คำนวณ 16 cost items → save POST /estimate/save_rfq
+  - AI RFQ : ผู้ใช้วาง RFQ → /ai/parse-spec (Claude) → JSON → เติมฟอร์มนี้อัตโนมัติ
+  ============================================================================
+-->
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Draft RFQ — Estimate Packaging Spec</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: "Segoe UI", Tahoma, sans-serif; font-size: 14px; color: #222; background: #f4f6f9; margin: 0; padding: 24px; }
+    h1 { font-size: 22px; }
+    h2 { font-size: 17px; margin: 0; }
+    .form { max-width: 1100px; margin: 0 auto; }
+    section { background: #fff; border: 1px solid #d7dce3; border-radius: 8px; margin-bottom: 18px; }
+    section > header { background: #2c3e50; color: #fff; padding: 10px 16px; border-radius: 8px 8px 0 0; display: flex; justify-content: space-between; align-items: center; }
+    section > header .meta { font-size: 12px; opacity: .8; font-weight: normal; }
+    .body { padding: 16px; }
+    .row { display: flex; flex-wrap: wrap; gap: 14px; align-items: flex-end; margin-bottom: 12px; }
+    .fld { display: flex; flex-direction: column; gap: 4px; }
+    .fld label { font-size: 12px; color: #555; font-weight: 600; }
+    .fld label .req { color: #e53935; }
+    .fld .note { font-size: 11px; color: #888; }
+    input[type=text], input[type=number], select, textarea { padding: 6px 8px; border: 1px solid #bcc4cf; border-radius: 4px; font-size: 13px; min-width: 120px; }
+    input[type=checkbox] { transform: scale(1.15); }
+    .chk { display: flex; align-items: center; gap: 6px; }
+    .repeatable { border-left: 3px solid #3498db; padding-left: 12px; margin: 10px 0; }
+    .badge { display: inline-block; background: #eaf2fb; color: #2c6cb0; border-radius: 4px; padding: 1px 6px; font-size: 11px; margin-left: 6px; }
+    .badge.ai { background: #f3eafb; color: #7e3cb0; }
+    .hint { background: #fff8e1; border: 1px solid #ffe082; border-radius: 6px; padding: 8px 12px; font-size: 12px; margin: 8px 0; }
+    table.dict { width: 100%; border-collapse: collapse; background: #fff; font-size: 12.5px; }
+    table.dict th, table.dict td { border: 1px solid #d7dce3; padding: 6px 9px; text-align: left; vertical-align: top; }
+    table.dict th { background: #eef2f7; position: sticky; top: 0; }
+    code { background: #eef2f7; padding: 1px 5px; border-radius: 3px; font-size: 12px; }
+    .legend { font-size: 12px; color: #555; margin: 8px 0 18px; }
+    .legend span { margin-right: 14px; }
+  </style>
+</head>
+<body>
+<div class="form">
+
+  <h1>📦 Draft RFQ — แบบฟอร์มขอใบเสนอราคางานกล่องบรรจุภัณฑ์</h1>
+  <div class="legend">
+    <span><span class="badge">main</span> = path ใน est.mainData</span>
+    <span><span class="badge ai">ai</span> = field ใน AI parse-spec</span>
+    <span><span class="req" style="color:#e53935">*</span> = required</span>
+  </div>
+
+  <!-- ====================================================================== -->
+  <!-- SECTION 1 : ข้อมูล Job (Job Header)                                    -->
+  <!-- ====================================================================== -->
+  <section>
+    <header><h2>1. ข้อมูล Job (Job Header)</h2><span class="meta">est.mainData.job / .ae / .customer</span></header>
+    <div class="body">
+      <div class="row">
+        <div class="fld">
+          <label>วันที่ <span class="req">*</span></label>
+          <input type="text" placeholder="dd/mm/yyyy"
+                 data-field="date" data-main="job.create_date" data-req="1" />
+        </div>
+        <div class="fld">
+          <label>Document Status</label>
+          <select data-field="status_id" data-main="job.status_id" data-src="master">
+            <option>(โหลดจาก master: status list)</option>
+          </select>
+          <span class="note">Draft → Pending → Approved/Rejected</span>
+        </div>
+        <div class="fld">
+          <label>RFQ ID</label>
+          <input type="text" readonly data-field="rfq_id" data-main="job.job_id"
+                 placeholder="(auto / readonly)" />
+        </div>
+        <div class="fld">
+          <label>Ref Copy. ID</label>
+          <input type="text" readonly data-field="ref_copy_rfq" data-main="job.ref_copy_rfq" />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="fld">
+          <label>AE Name <span class="req">*</span></label>
+          <input type="text" data-field="aeName" data-main="ae.ae_name" data-ai="ae_name" data-req="1"
+                 placeholder="autocomplete employee" />
+          <span class="note">มี hidden: aeID → ae.ae_id</span>
+        </div>
+        <div class="fld">
+          <label>Estimator</label>
+          <input type="text" readonly data-field="estName" data-main="estimator.estimator_name" />
+        </div>
+        <div class="fld chk">
+          <input type="checkbox" data-field="request_for_approve" data-main="job.is_request_approve" />
+          <label>Request for approve</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="fld" style="flex:1">
+          <label>Job Name <span class="req">*</span></label>
+          <input type="text" style="width:100%" data-field="jobName" data-main="job.job_name"
+                 data-ai="job_name" data-req="1" />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="fld" style="flex:1">
+          <label>Customer <span class="req">*</span></label>
+          <input type="text" data-field="customerLabel" data-main="customer.customer_name"
+                 data-ai="customer_name" data-req="1" placeholder="autocomplete customer" />
+          <span class="note">hidden: custID → customer.customer_id ; credit_term_id/name แสดงอัตโนมัติ</span>
+        </div>
+        <div class="fld chk">
+          <input type="checkbox" data-field="is_newCustomer" data-ai="is_new_customer" />
+          <label>ลูกค้าใหม่</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="fld chk">
+          <input type="checkbox" data-field="is_multiple_f" data-main="job.is_multiple_f" data-ai="is_multiple_f" />
+          <label><b>งานมีหลาย F</b> (หลาย design code สเปกเดียวกัน)</label>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================== -->
+  <!-- SECTION 2 : จำนวน (Quantity)                                           -->
+  <!-- ====================================================================== -->
+  <section>
+    <header><h2>2. จำนวน (Quantity)</h2><span class="meta">est.mainData.qty</span></header>
+    <div class="body">
+      <div class="hint">เพิ่ม/ลด "ยอดจำนวน" ได้หลายระดับ (multi-qty) → ราคาออกเป็น array ต่อยอด. ปุ่ม: เพิ่ม/ลด จำนวนยอด</div>
+
+      <!-- โหมดปกติ -->
+      <div class="repeatable">
+        <b>โหมดปกติ (qtyInput)</b>
+        <div class="row">
+          <div class="fld">
+            <label>Quantity <span class="req">*</span></label>
+            <input type="number" data-field="quantity" data-main="qty.main[]" data-ai="quantities[]" data-req="1" />
+          </div>
+          <div class="fld">
+            <label>Run-On %</label>
+            <input type="number" data-field="runonPercent" data-main="qty.runon_percent" data-ai="runon_percent" />
+          </div>
+          <div class="fld">
+            <label>Run-On Qty</label>
+            <input type="number" data-field="runonQty" data-main="qty.runon[]" />
+          </div>
+          <div class="fld">
+            <label>AE Qty</label>
+            <input type="number" data-field="aeQty" data-main="qty.ae" />
+          </div>
+          <div class="fld">
+            <label>Customer Qty</label>
+            <input type="number" data-field="customerQty" data-main="qty.customer" />
+          </div>
+        </div>
+      </div>
+
+      <!-- โหมดหลาย F (แสดงเมื่อ is_multiple_f = true) -->
+      <div class="repeatable" style="border-color:#9b59b6">
+        <b>โหมดหลาย F (f_qtyInput) — แสดงเมื่อ "งานมีหลาย F"</b>
+        <span class="badge ai">f_codes[]</span>
+        <div class="row">
+          <div class="fld">
+            <label>F Code <span class="req">*</span></label>
+            <input type="text" data-field="f-code" data-main="component1[].f_detail.f_list[].f_code" data-ai="f_codes[].code" data-req="1" />
+          </div>
+          <div class="fld">
+            <label>Quantity <span class="req">*</span></label>
+            <input type="number" data-field="f-quantity" data-main="component1[].f_detail.f_list[].f_qty" data-ai="f_codes[].qty" data-req="1" />
+          </div>
+          <div class="fld">
+            <label>Run-On %</label>
+            <input type="number" data-field="f-runonPercent" />
+          </div>
+          <div class="fld">
+            <label>AE Qty</label>
+            <input type="number" data-field="f-aeQty" data-main="component1[].f_detail.f_list[].ae_qty" />
+          </div>
+          <div class="fld">
+            <label>Customer Qty</label>
+            <input type="number" data-field="f-customerQty" data-main="component1[].f_detail.f_list[].customer_qty" />
+          </div>
+          <div class="fld">
+            <label>Total Qty</label>
+            <input type="number" readonly data-field="f-totalQty" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="fld chk">
+            <input type="checkbox" data-field="chk_color_limit_f" />
+            <label>ลิมิตสี (เล่ม)</label>
+          </div>
+          <div class="fld">
+            <input type="number" data-field="color_limit_f" placeholder="เล่ม" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================== -->
+  <!-- SECTION 3 : รายละเอียดงาน (Job Detail)                                 -->
+  <!-- ====================================================================== -->
+  <section>
+    <header><h2>3. รายละเอียดงาน (Job Detail)</h2><span class="meta">est.mainData.job</span></header>
+    <div class="body">
+      <div class="row">
+        <div class="fld">
+          <label>ประเภทงาน</label>
+          <select data-field="is_reprinted" data-main="job.is_reprinted" data-ai="is_reprinted">
+            <option value="0">งานใหม่</option>
+            <option value="1">งาน Reprint</option>
+          </select>
+        </div>
+        <div class="fld">
+          <label>ประเภทหมึก</label>
+          <select data-field="ink_type" data-main="job.ink_type" data-ai="ink_type">
+            <option value="conventional">ธรรมดา (conventional)</option>
+            <option value="UV">UV</option>
+          </select>
+          <span class="note">UV ink → print cost ×2.5 (Offset)</span>
+        </div>
+        <div class="fld">
+          <label>ประเภทพิมพ์</label>
+          <select data-field="print_type" data-main="job.print_type" data-ai="print_type">
+            <option value="Offset">Offset</option>
+            <option value="Flexo">Flexo</option>
+            <option value="Jet Press">Jet Press</option>
+            <option value="Konica">Konica</option>
+          </select>
+        </div>
+        <div class="fld">
+          <label>Flexo Size (in²) <span class="note">(เฉพาะ Flexo)</span></label>
+          <span><input type="number" style="width:60px" data-field="flexo_w" data-ai="flexo_size.w" /> ×
+                <input type="number" style="width:60px" data-field="flexo_h" data-ai="flexo_size.h" /></span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="fld chk">
+          <input type="checkbox" data-field="chk_color_limit" />
+          <label>ลิมิตสี</label>
+        </div>
+        <div class="fld">
+          <label>เล่ม</label>
+          <input type="number" data-field="color_limit" data-main="job.color_limit" data-ai="color_limit_qty" />
+        </div>
+        <div class="fld chk">
+          <input type="checkbox" data-field="is_use_previous_plate" data-main="job.is_use_previous_plate" data-ai="use_previous_plate" />
+          <label>ใช้ Plate เก่า <span class="note">(เฉพาะ reprint → plate −50%)</span></label>
+        </div>
+        <div class="fld chk">
+          <input type="checkbox" data-field="chk_profit_sharing" data-main="job.is_profit_sharing" />
+          <label>Profit Sharing <span class="note">(markup สูงขึ้น: plate 1875, paper 18%, afterpress/packing/delivery)</span></label>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================== -->
+  <!-- SECTION 4 : Component (ชิ้นส่วน) — repeatable                          -->
+  <!-- ====================================================================== -->
+  <section>
+    <header><h2>4. Component (ชิ้นส่วนกล่อง)</h2><span class="meta">est.mainData.component1[] &nbsp;|&nbsp; ai: components[]</span></header>
+    <div class="body">
+      <div class="hint">เพิ่ม/ลด Component ได้หลายชิ้น (ปุ่ม: เพิ่ม/ลด ชิ้นส่วน). แต่ละ component มี: ชื่อ/ชนิด, สี+สีพิเศษ, กระดาษ, addon, และ box template</div>
+
+      <div class="repeatable">
+        <!-- 4.1 ชื่อ + ชนิด -->
+        <div class="row">
+          <div class="fld">
+            <label>Component name <span class="req">*</span></label>
+            <input type="text" data-field="nameComp" data-main="component1[].name" data-ai="components[].name" data-req="1" />
+          </div>
+          <div class="fld">
+            <label>ชนิด Component</label>
+            <select data-field="componentType" data-main="component1[].box_type.type" data-ai="components[].type">
+              <option value="1">1 — ไม่ประกบลูกฟูก (plain)</option>
+              <option value="2">2 — ประกบลูกฟูก (laminate)</option>
+              <option value="3">3 — เฉพาะลูกฟูก (corrugated only)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- 4.2 สี และสีพิเศษ -->
+        <div class="repeatable" style="border-color:#16a085">
+          <b>4.2 สี และสีพิเศษ</b>
+          <div class="row">
+            <div class="fld">
+              <label>Color Outside <span class="req">*</span></label>
+              <input type="number" data-field="colorOutside" data-main="component1[].color[].outside" data-ai="components[].color_outside" data-req="1" />
+            </div>
+            <div class="fld">
+              <label>Color Inside <span class="req">*</span></label>
+              <input type="number" data-field="colorInside" data-main="component1[].color[].inside" data-ai="components[].color_inside" data-req="1" />
+            </div>
+            <div class="fld chk">
+              <input type="checkbox" data-field="is_black_printing_out" />
+              <label>พิมพ์สีดำ (outside) <span class="note">on Konica</span></label>
+            </div>
+            <div class="fld chk">
+              <input type="checkbox" data-field="has_speInk" />
+              <label>มีสีพิเศษ</label>
+            </div>
+          </div>
+          <div class="row" style="border-top:1px dashed #ccc;padding-top:8px">
+            <span class="badge ai">special_inks[]</span>
+            <div class="fld">
+              <label>สี (special ink)</label>
+              <input type="text" data-field="speInk_color" data-main="component1[].special_ink[].color" data-ai="components[].special_inks[].name" />
+            </div>
+            <div class="fld">
+              <label>ชนิดหมึก</label>
+              <input type="text" data-field="speInk_type" data-ai="components[].special_inks[].ink_type" />
+            </div>
+            <div class="fld">
+              <label>ลักษณะการพิมพ์สี</label>
+              <input type="text" data-field="speInk_fill" data-ai="components[].special_inks[].filling_style" />
+            </div>
+            <div class="fld">
+              <label>F Code (โหมดหลาย F)</label>
+              <select data-field="specialInkFCode" data-src="master"><option>- F Code -</option></select>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4.3 กระดาษ -->
+        <div class="repeatable" style="border-color:#e67e22">
+          <b>4.3 ประเภทกระดาษ (Paper)</b>
+          <div class="row">
+            <div class="fld">
+              <label>Paper Type <span class="req">*</span></label>
+              <select data-field="paperType" data-main="component1[].paper.type" data-ai="components[].paper_type" data-req="1" data-src="master">
+                <option value="">- select type -</option>
+              </select>
+              <span class="note">master; เช่น A/C, A/M, Ivory, Duplex GBB, Kraft, FCY</span>
+            </div>
+            <div class="fld">
+              <label>Gsm <span class="req">*</span></label>
+              <select data-field="paperGram" data-main="component1[].paper.gram" data-ai="components[].paper_gram" data-req="1" data-src="master">
+                <option value="">-</option>
+              </select>
+            </div>
+            <div class="fld">
+              <label>กระดาษ (source) <span class="req">*</span></label>
+              <select data-field="select_paper_source" data-req="1">
+                <option value="">- select -</option>
+                <option value="1">ในประเทศ</option>
+                <option value="2">ต่างประเทศ</option>
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="fld">
+              <label>mark-up %</label>
+              <input type="number" value="7" data-field="paperMarkup" data-ai="paper_markup_percent" />
+            </div>
+            <div class="fld">
+              <label>ตัดม้วน (%)</label>
+              <input type="number" data-field="paperPercent" data-main="component1[].paper.percent" data-ai="components[].paper_percent" />
+            </div>
+            <div class="fld">
+              <label>Cost <span class="req">*</span></label>
+              <input type="number" data-field="paperCost" data-main="component1[].paper.cost" data-ai="components[].paper_cost" data-req="1" />
+            </div>
+            <div class="fld chk">
+              <input type="checkbox" data-field="sheet_unit_price" />
+              <label>ราคา/แผ่น <span class="note">(default: B/Kg)</span></label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="fld" style="flex:1">
+              <label>Remark (กระดาษ)</label>
+              <textarea rows="1" style="width:100%" data-field="remark-paper" data-ai="components[].remark_paper"></textarea>
+            </div>
+          </div>
+          <div class="hint">ชนิด=2/3 (ลูกฟูก) → เปิด popup Corrugated: layer, ลอน(flute), grade, ราคา → ai: components[].corrugated{grades,flute}</div>
+        </div>
+
+        <!-- 4.4 addon (coating/foil/emboss/deboss) -->
+        <div class="repeatable" style="border-color:#c0392b">
+          <b>4.4 ส่วนประกอบอื่นๆ (Addon)</b> — เลือก process แล้วกด "เพิ่ม": <code>coating | foilstamp | emboss | deboss</code>
+
+          <!-- coating -->
+          <div class="row" style="border-top:1px dashed #ccc;padding-top:8px">
+            <span class="badge ai">coatings[]</span>
+            <div class="fld">
+              <label>Coating Option</label>
+              <select data-field="coatingOption" data-main="component1[].coating[].option" data-ai="components[].coatings[].option">
+                <option value="">- select -</option>
+                <option value="Gloss">Gloss</option>
+                <option value="Matt">Matt</option>
+                <option value="Other">อื่นๆ</option>
+              </select>
+            </div>
+            <div class="fld">
+              <label>Coating Type</label>
+              <select data-field="coatingType" data-ai="components[].coatings[].type" data-src="master"><option>-</option></select>
+            </div>
+            <div class="fld">
+              <label>Size (in²)</label>
+              <span><input type="number" style="width:60px" data-ai="components[].coatings[].size_w_inch" /> ×
+                    <input type="number" style="width:60px" data-ai="components[].coatings[].size_h_inch" /></span>
+            </div>
+          </div>
+
+          <!-- foilstamp -->
+          <div class="row" style="border-top:1px dashed #ccc;padding-top:8px">
+            <span class="badge ai">foilstamps[]</span>
+            <div class="fld chk"><input type="checkbox" data-field="foilstampCheck" /><label>Foil stamp</label></div>
+            <div class="fld">
+              <label>Size (in²)</label>
+              <span><input type="number" style="width:60px" data-field="foilstampSize_w" data-ai="components[].foilstamps[].size_w_inch" /> ×
+                    <input type="number" style="width:60px" data-field="foilstampSize_h" data-ai="components[].foilstamps[].size_h_inch" /></span>
+            </div>
+            <div class="fld">
+              <label>สี (foil color)</label>
+              <select data-field="foilColor" data-ai="components[].foilstamps[].color" data-src="master"></select>
+            </div>
+            <div class="fld">
+              <label>Code</label>
+              <select data-field="foilCode" data-src="master"><option>-</option></select>
+            </div>
+            <div class="fld">
+              <label>F Code (หลาย F)</label>
+              <select data-field="foilstampFCode" data-src="master"><option>- F Code -</option></select>
+            </div>
+          </div>
+
+          <!-- emboss -->
+          <div class="row" style="border-top:1px dashed #ccc;padding-top:8px">
+            <span class="badge ai">embosses[]</span>
+            <div class="fld chk"><input type="checkbox" data-field="embossCheck" /><label>Emboss</label></div>
+            <div class="fld">
+              <label>Size (in²)</label>
+              <span><input type="number" style="width:60px" data-field="embossSize_w" data-ai="components[].embosses[].size_w_inch" /> ×
+                    <input type="number" style="width:60px" data-field="embossSize_h" data-ai="components[].embosses[].size_h_inch" /></span>
+            </div>
+            <div class="fld">
+              <label>ความนูน (depth)</label>
+              <select data-field="embossDepth" data-ai="components[].embosses[].depth">
+                <option value="1.25">1.25 mm</option>
+                <option value="1.65">1.65 mm</option>
+              </select>
+            </div>
+            <div class="fld">
+              <label>F Code (หลาย F)</label>
+              <select data-field="embossFCode" data-src="master"><option>- F Code -</option></select>
+            </div>
+          </div>
+
+          <!-- deboss -->
+          <div class="row" style="border-top:1px dashed #ccc;padding-top:8px">
+            <span class="badge ai">debosses[]</span>
+            <div class="fld chk"><input type="checkbox" data-field="debossCheck" /><label>Deboss</label></div>
+            <div class="fld">
+              <label>Size (in²)</label>
+              <span><input type="number" style="width:60px" data-field="debossSize_w" data-ai="components[].debosses[].size_w_inch" /> ×
+                    <input type="number" style="width:60px" data-field="debossSize_h" data-ai="components[].debosses[].size_h_inch" /></span>
+            </div>
+            <div class="fld">
+              <label>ความลึก (depth)</label>
+              <select data-field="debossDepth" data-ai="components[].debosses[].depth">
+                <option value="1.25">1.25 mm</option>
+                <option value="1.65">1.65 mm</option>
+              </select>
+            </div>
+            <div class="fld">
+              <label>F Code (หลาย F)</label>
+              <select data-field="debossFCode" data-src="master"><option>- F Code -</option></select>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4.5 box template + dimensions -->
+        <div class="repeatable" style="border-color:#2980b9">
+          <b>4.5 Box Template + ขนาด</b>
+          <div class="row">
+            <div class="fld">
+              <label>Box Template <span class="req">*</span></label>
+              <select data-field="boxType" data-main="component1[].box_type.type_id" data-ai="components[].box_template_id" data-req="1" data-src="master">
+                <option value="">- Select Template -</option>
+                <option value="1">1 — RTE (Reverse Tuck End)</option>
+                <option value="2">2 — STE (Straight Tuck End)</option>
+                <option value="3">3 — TTSLB</option>
+                <option value="4">4 — TTAB</option>
+                <option value="5">5 — DGWS</option>
+                <option value="6">6 — FVT</option>
+                <option value="7">7 — CBT</option>
+                <option value="8">8 — GTA (Gable)</option>
+                <option value="9">9 — Sleeve</option>
+                <option value="10">10 — Pillow</option>
+                <option value="11">11 — SE (Seal End)</option>
+                <option value="12">12 — Custom</option>
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="fld"><label>Width (mm)</label><input type="number" data-ai="components[].dimensions_mm.width" /></div>
+            <div class="fld"><label>Length (mm)</label><input type="number" data-ai="components[].dimensions_mm.length" /></div>
+            <div class="fld"><label>Height/Depth (mm)</label><input type="number" data-ai="components[].dimensions_mm.height" /></div>
+            <div class="fld"><label>Flap (mm)</label><input type="number" data-ai="components[].flap_mm" /></div>
+            <div class="fld"><label>Glue (mm)</label><input type="number" data-ai="components[].glue_mm" /></div>
+            <div class="fld"><label>Tuck (mm)</label><input type="number" data-ai="components[].tuck_mm" /></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================== -->
+  <!-- SECTION 5 : Process / Material / Other (job-level)                     -->
+  <!-- ====================================================================== -->
+  <section>
+    <header><h2>5. Process / Material / Other (ระดับงาน)</h2><span class="meta">est.mainData.process[] / material[] / otherCost[]</span></header>
+    <div class="body">
+      <div class="hint">แต่ละกลุ่มกดปุ่ม "เพิ่ม" เพื่อเพิ่มแถว (process_id + ราคา/หน่วย). กลุ่มมาตรฐาน (diecut/strip/inspection/gluing) ระบบจัดการเอง — AI จะ "ไม่" ใส่ในกลุ่มเหล่านี้</div>
+      <div class="row">
+        <div class="fld"><label>Other Process</label><input type="text" data-main="process[](type=other)" data-ai="other_processes[].name" placeholder="ชื่อ + ราคา/หน่วย" /></div>
+        <div class="fld"><label>Handwork Process</label><input type="text" data-main="process[](type=handwork)" data-ai="handwork_processes[].name" /></div>
+        <div class="fld"><label>จัดจ้าง (custom)</label><input type="text" data-main="process[](type=custom)" /></div>
+        <div class="fld"><label>Materials</label><input type="text" data-main="material[].name" data-ai="materials[].name" /></div>
+        <div class="fld"><label>Other (cost)</label><input type="text" data-main="otherCost[].name" /></div>
+      </div>
+      <div class="row">
+        <div class="fld"><label>Attach File</label><input type="file" data-main="fileUpload[]" /></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================== -->
+  <!-- SECTION 6 : Delivery                                                   -->
+  <!-- ====================================================================== -->
+  <section>
+    <header><h2>6. Delivery (การจัดส่ง)</h2><span class="meta">est.mainData.delivery[] &nbsp;|&nbsp; ai: deliveries[]</span></header>
+    <div class="body">
+      <div class="repeatable">
+        <div class="row">
+          <div class="fld">
+            <label>จังหวัด (destination) <span class="req">*</span></label>
+            <input type="text" data-field="deliveryDestinationName" data-main="delivery[].destination.destination_name" data-ai="deliveries[].destination" data-req="1" placeholder="ชื่อจังหวัดไทย" />
+          </div>
+          <div class="fld">
+            <label>วันที่ส่ง <span class="req">*</span></label>
+            <input type="text" data-field="deliveryDate" data-ai="deliveries[].delivery_date" data-req="1" placeholder="dd/mm/yyyy (BE)" />
+          </div>
+          <div class="fld">
+            <label>จำนวน <span class="note">(เมื่อแบ่งส่ง)</span></label>
+            <input type="number" data-field="deliveryQty" data-ai="deliveries[].qty" />
+          </div>
+          <div class="fld chk">
+            <input type="checkbox" data-field="chk_split_delivery" />
+            <label>แบ่งส่ง (split delivery)</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================== -->
+  <!-- SECTION 7 : Adjustments (ส่วนต่าง / ของขวัญ)                           -->
+  <!-- ====================================================================== -->
+  <section>
+    <header><h2>7. Adjustments</h2><span class="meta">est.mainData.priceDiff[] / customer_gift[]</span></header>
+    <div class="body">
+      <div class="row">
+        <div class="fld chk"><input type="checkbox" data-field="chk_price_difference" /><label>ส่วนต่างลูกค้า (บาท/หน่วย)</label></div>
+        <div class="fld"><input type="number" data-main="priceDiff[]" placeholder="บาท/หน่วย ต่อยอด" /></div>
+        <div class="fld chk"><input type="checkbox" data-field="chk_customer_gift" /><label>ของขวัญลูกค้า (บาท)</label></div>
+        <div class="fld"><input type="number" data-main="customer_gift[]" placeholder="บาท ต่อยอด" /></div>
+      </div>
+      <div class="hint">ปุ่มท้ายฟอร์ม: คำนวณ Layout → คำนวณ Price → Save RFQ (POST node_api /estimate/save_rfq ผ่าน prepareDatatoDB)</div>
+    </div>
+  </section>
+
+  <!-- ====================================================================== -->
+  <!-- DATA DICTIONARY                                                        -->
+  <!-- ====================================================================== -->
+  <section>
+    <header><h2>📚 DATA DICTIONARY — AI parse-spec schema + master data</h2><span class="meta">router/ai.js</span></header>
+    <div class="body">
+
+      <h3>7.1 โครงสร้าง JSON ที่ AI คืน (POST /ai/parse-spec → data)</h3>
+      <pre style="background:#1e272e;color:#dfe6e9;padding:14px;border-radius:6px;overflow:auto;font-size:12px">{
+  "job_name": "string",
+  "customer_name": "string",
+  "ae_name": "string",
+  "is_new_customer": true|false,
+  "is_reprinted": "0"|"1",
+  "is_multiple_f": true|false,
+  "f_codes": [ { "code": "string", "qty": number } ],
+  "use_previous_plate": true|false,
+  "ink_type": "conventional"|"UV",
+  "print_type": "Offset"|"Flexo"|"Jet Press"|"Konica",
+  "flexo_size": { "w": number, "h": number },
+  "quantities": [ number ],
+  "runon_percent": number,
+  "color_limit_qty": number,
+  "paper_markup_percent": number,
+  "components": [ {
+      "name": "string",
+      "type": "1"|"2"|"3",                       // 1 plain, 2 laminate, 3 corrugated only
+      "box_template_id": 1..12,
+      "dimensions_mm": { "width": n, "length": n, "height": n },
+      "flap_mm": n, "glue_mm": n, "tuck_mm": n,
+      "color_outside": n, "color_inside": n,
+      "special_inks": [ { "name": "", "ink_type": "", "filling_style": "" } ],
+      "paper_type": "A/C|A/M|Ivory|Duplex GBB|Kraft|FCY|...",
+      "paper_gram": n, "paper_cost": n, "paper_percent": n, "remark_paper": "",
+      "corrugated": { "grades": [ { "type": "", "gram": n } ], "flute": "E|B|C|EB|BC", "raw_grade_string": "" },
+      "coatings":   [ { "option": "Gloss|Matt|Other", "type": "", "size_w_inch": n, "size_h_inch": n } ],
+      "foilstamps": [ { "size_w_inch": n, "size_h_inch": n, "color": "" } ],
+      "embosses":   [ { "size_w_inch": n, "size_h_inch": n, "depth": "1.25"|"1.65" } ],
+      "debosses":   [ { "size_w_inch": n, "size_h_inch": n, "depth": "1.25"|"1.65" } ]
+  } ],
+  "other_processes":    [ { "name": "", "price_per_unit": n } ],
+  "handwork_processes": [ { "name": "", "price_per_unit": n } ],
+  "materials":          [ { "name": "", "price_per_unit": n, "qty": n } ],
+  "deliveries":         [ { "destination": "จังหวัดไทย", "qty": n, "delivery_date": "DD/MM/YYYY BE" } ],
+  "notes": "string"
+}</pre>
+
+      <h3>7.2 Enum / ตัวเลือกคงที่</h3>
+      <table class="dict">
+        <thead><tr><th>Field</th><th>ค่า (value = label)</th></tr></thead>
+        <tbody>
+          <tr><td>is_reprinted</td><td>0 = งานใหม่ ; 1 = งาน Reprint</td></tr>
+          <tr><td>ink_type</td><td>conventional = ธรรมดา ; UV</td></tr>
+          <tr><td>print_type</td><td>Offset ; Flexo ; Jet Press ; Konica</td></tr>
+          <tr><td>component type</td><td>1 = ไม่ประกบลูกฟูก ; 2 = ประกบลูกฟูก ; 3 = เฉพาะลูกฟูก</td></tr>
+          <tr><td>paper source</td><td>1 = ในประเทศ ; 2 = ต่างประเทศ</td></tr>
+          <tr><td>addon process</td><td>coating ; foilstamp ; emboss ; deboss</td></tr>
+          <tr><td>coatingOption</td><td>Gloss ; Matt ; Other (อื่นๆ)</td></tr>
+          <tr><td>emboss/deboss depth</td><td>1.25 mm ; 1.65 mm</td></tr>
+          <tr><td>box_template_id</td><td>1 RTE · 2 STE · 3 TTSLB · 4 TTAB · 5 DGWS · 6 FVT · 7 CBT · 8 GTA · 9 Sleeve · 10 Pillow · 11 SE · 12 Custom</td></tr>
+        </tbody>
+      </table>
+
+      <h3>7.3 Box Type — สูตร Open Size (mm)</h3>
+      <table class="dict">
+        <thead><tr><th>Type</th><th>ชื่อ</th><th>สูตร Width</th><th>สูตร Length</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>RTE</td><td>2(W+T)+D</td><td>2(W+L)+G</td></tr>
+          <tr><td>2</td><td>STE</td><td>2(W+T)+D</td><td>2(W+L)+G</td></tr>
+          <tr><td>3</td><td>TTSLB</td><td>T+W+D+W/2+OL</td><td>2(W+L)+G</td></tr>
+          <tr><td>4</td><td>TTAB</td><td>T+W+D+W/2+OL</td><td>2(W+L)+G</td></tr>
+          <tr><td>5</td><td>DGWS</td><td>W+4D</td><td>L+4D+2dust+2OL</td></tr>
+          <tr><td>6</td><td>FVT</td><td>W+4D+2dust+2OL</td><td>L+4D+2dust+2OL</td></tr>
+          <tr><td>7</td><td>CBT</td><td>2(L+dust)+W</td><td>2(L+D)+L</td></tr>
+          <tr><td>8</td><td>GTA</td><td>T+2D+W/2+OL</td><td>2(W+L)+G</td></tr>
+          <tr><td>9</td><td>Sleeve</td><td>D</td><td>2(W+L)+G</td></tr>
+          <tr><td>10</td><td>Pillow</td><td>L+D</td><td>2W+G</td></tr>
+          <tr><td>11</td><td>SE</td><td>2W+D</td><td>2(W+L)+G</td></tr>
+          <tr><td>12</td><td>Custom</td><td colspan="2">ผู้ใช้กำหนดเอง</td></tr>
+        </tbody>
+      </table>
+      <div class="note">ตัวแปร: W=กว้าง L=ยาว D=ลึก T=tuck G=glue flap OL=overlap dust=dust flap</div>
+
+      <h3>7.4 Master data (option โหลด runtime — data-src="master")</h3>
+      <table class="dict">
+        <thead><tr><th>Field</th><th>แหล่ง (master type)</th></tr></thead>
+        <tbody>
+          <tr><td>Document Status</td><td>quotations/status list</td></tr>
+          <tr><td>Box Template</td><td>boxtemplate_info</td></tr>
+          <tr><td>Paper Type / Gram</td><td>paper_info, paper_code_type</td></tr>
+          <tr><td>Coating Type</td><td>coating_info</td></tr>
+          <tr><td>Foil Color / Code</td><td>foilstamp_info, blockstamp_info</td></tr>
+          <tr><td>Corrugated layer/flute/grade</td><td>corrugated_info</td></tr>
+          <tr><td>Special Ink</td><td>specialink_info, specialink_factor_info</td></tr>
+          <tr><td>F Code dropdowns</td><td>จาก f_codes ที่กรอกใน section 2</td></tr>
+          <tr><td>Exchange rate</td><td>exchange_rate</td></tr>
+        </tbody>
+      </table>
+
+      <h3>7.5 กฎสกัดสำคัญ (AI) — กันการเดา (hallucination)</h3>
+      <ul style="font-size:13px;line-height:1.7">
+        <li><b>paper_type / paper_gram</b> : เติมเฉพาะเมื่อมีคำตรงตัว (อาร์ตการ์ด/Ivory/Kraft/Duplex/แกรม/gsm) — ห้ามเดาจากชนิดสินค้าหรือรหัส CAD เช่น "DP350"</li>
+        <li><b>corrugated</b> : ตั้ง type=2/3 เฉพาะเมื่อมี keyword ลูกฟูก ; label ว่าง "Flute:" ไม่นับเป็นหลักฐาน</li>
+        <li><b>box_template_id</b> : หลักฐานหลัก = รูป dieline ที่อัปโหลด ; Template 12 (Custom) เฉพาะเมื่อไม่มี template ตรง</li>
+        <li><b>colors</b> : นับเผื่อ CMYK=4, +white base +1, +metallic/special +1 ; "CMYK + ทนแดด" → +2 (special_inks M,Y)</li>
+        <li><b>ink_type vs coating</b> : UV ink = หมึกพิมพ์ ("พิมพ์ UV") ; UV coating (Spot UV/Drip off) = เคลือบ ≠ ink_type</li>
+        <li><b>quantities / deliveries</b> : เติมเฉพาะเมื่อมีตัวเลข/ชื่อจังหวัดไทยจริง ; label ฟอร์มเปล่าไม่นับ</li>
+        <li><b>is_multiple_f</b> : true เมื่อหลาย design code สเปกเดียวกัน → ใช้ f_codes[] แทน quantities[]</li>
+      </ul>
+
+    </div>
+  </section>
+
+  <p style="text-align:center;color:#999;font-size:12px;margin:24px 0">
+    ที่มา: public/estimate.ejs + router/ai.js + public/js/function_estimate_calculation.js<br/>
+    ดูรายละเอียดเพิ่ม: CLAUDE/context/03-FRONTEND.md (mainData), 04-AI-RFQ.md (AI schema), 02-CALCULATION-ENGINE.md
+  </p>
+
+</div>
+</body>
+</html>

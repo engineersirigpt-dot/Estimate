@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="th" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>บันทึกการทำงาน | ระบบบันทึกการทำงานรายวัน</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="topbar-main">
+        <div class="brand-cluster">
+          <button class="sidebar-toggle" type="button" data-sidebar-toggle aria-label="เปิดเมนู">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <a class="brand" href="index.html">
+            <img class="brand-mark" src="../logo.png" alt="Logo">
+            <div class="brand-copy">
+              <p class="brand-title">ระบบบันทึกการทำงานรายวัน</p>
+              <p class="brand-subtitle">บันทึกงานให้ครบในหน้าเดียว พร้อมสรุปรายวันด้านล่าง</p>
+            </div>
+          </a>
+        </div>
+        <div class="topbar-actions">
+          <button class="theme-toggle" type="button" data-theme-toggle aria-label="เปลี่ยนโหมดสี">
+            <i class="fa-solid fa-moon"></i>
+            <span class="theme-toggle-label">โหมดมืด</span>
+          </button>
+          <div class="profile-menu">
+            <button class="profile-chip" type="button" aria-haspopup="true" aria-expanded="false">
+              <span class="avatar">ธ</span>
+              <span class="profile-copy">
+                <span class="profile-name">คุณธนายุทธ ทองโคตร</span>
+                <span class="profile-role">ผู้บันทึก</span>
+              </span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="profile-dropdown">
+              <a class="dropdown-link" href="login.html">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>ออกจากระบบ</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <nav class="top-tabs" aria-label="เมนูหลัก">
+        <a class="top-tab active" href="entry.html">
+          <i class="fa-regular fa-pen-to-square"></i>
+          <span>บันทึกการทำงาน</span>
+        </a>
+        <a class="top-tab" href="reports.html">
+          <i class="fa-regular fa-chart-bar"></i>
+          <span>รายงาน</span>
+        </a>
+        <a class="top-tab" href="login.html">
+          <i class="fa-solid fa-right-from-bracket"></i>
+          <span>ออกจากระบบ</span>
+        </a>
+      </nav>
+    </header>
+
+    <div class="sidebar-backdrop" data-sidebar-close></div>
+
+    <div class="layout">
+      <aside class="sidebar">
+        <p class="sidebar-heading">
+          <i class="fa-solid fa-layer-group"></i>
+          <span>บันทึกการทำงาน</span>
+        </p>
+        <nav class="sidebar-nav">
+          <a class="sidebar-link active" href="entry.html">
+            <i class="fa-regular fa-pen-to-square"></i>
+            <span>บันทึกการทำงาน</span>
+          </a>
+          <a class="sidebar-link" href="list.html">
+            <i class="fa-solid fa-list-check"></i>
+            <span>รายการการทำงาน</span>
+          </a>
+        </nav>
+      </aside>
+
+      <main class="main-content">
+        <section class="page-intro">
+          <div>
+            <div class="breadcrumb">
+              <span>หน้าหลัก</span>
+              <i class="fa-solid fa-chevron-right"></i>
+              <span>บันทึกการทำงาน</span>
+            </div>
+            <h1 class="page-title">บันทึกการทำงาน</h1>
+            <p class="page-subtitle">โฟกัสที่งานของวันนี้ในหน้าเดียว จัดลำดับสายตาให้เริ่มจากวัน/เวลา ไปจนถึง scope และ validation ที่ชัดเจน</p>
+          </div>
+          <div class="pill-cluster">
+            <span class="chip primary"><i class="fa-regular fa-calendar"></i><span data-buddhist-date-helper>วันนี้</span></span>
+            <span class="chip danger"><i class="fa-solid fa-asterisk"></i>1 required field</span>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="card-header">
+            <div>
+              <h2 class="card-title">บันทึกการทำงาน</h2>
+              <p class="card-description">จัดฟอร์มให้อ่านง่ายขึ้นบน desktop และยังใช้งานง่ายบน tablet/mobile ด้วย top-label inputs และ spacing ที่โปร่งสบาย</p>
+            </div>
+          </div>
+          <div class="card-body">
+            <form class="form-grid">
+              <div class="field-group col-4">
+                <label class="field-label" for="work-date">วันที่ <span class="required">*</span></label>
+                <div class="input-shell">
+                  <i class="fa-regular fa-calendar"></i>
+                  <input id="work-date" type="text" data-buddhist-date value="">
+                </div>
+                <p class="field-hint">Date picker รองรับรูปแบบ พ.ศ. เช่น 04/06/2569</p>
+              </div>
+
+              <div class="field-group col-8">
+                <label class="field-label" for="scope-button">งาน <span class="required">*</span></label>
+                <button id="scope-button" class="scope-selector error" type="button">
+                  <span class="scope-copy">
+                    <span class="scope-title">เลือก Scope งานที่ทำ</span>
+                    <span class="scope-subtitle">กรุณาเลือก Scope งานที่ทำ</span>
+                  </span>
+                  <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <p class="field-error">กรุณาเลือก Scope งานที่ทำ</p>
+              </div>
+
+              <div class="field-group col-3">
+                <label class="field-label" for="time-start">ตั้งแต่</label>
+                <div class="input-shell">
+                  <i class="fa-regular fa-clock"></i>
+                  <input id="time-start" type="text" value="08:30">
+                </div>
+              </div>
+
+              <div class="field-group col-3">
+                <label class="field-label" for="time-end">ถึง</label>
+                <div class="input-shell">
+                  <i class="fa-regular fa-clock"></i>
+                  <input id="time-end" type="text" value="17:30">
+                </div>
+              </div>
+
+              <div class="field-group col-6">
+                <label class="field-label" for="work-note">หมายเหตุ</label>
+                <div class="input-shell">
+                  <i class="fa-regular fa-note-sticky"></i>
+                  <textarea id="work-note" placeholder="เพิ่มรายละเอียดงานที่ทำ หรือผลลัพธ์ที่ต้องการอ้างอิงภายหลัง"></textarea>
+                </div>
+                <p class="field-hint">รองรับหลายบรรทัด เพื่อใช้เป็น daily note หรือ handoff note</p>
+              </div>
+
+              <div class="field-group col-12">
+                <label class="field-label">กำลังตั้งครรภ์หรือไม่</label>
+                <div class="segmented" role="radiogroup" aria-label="กำลังตั้งครรภ์หรือไม่">
+                  <input id="pregnant-no" name="pregnant" type="radio" checked>
+                  <label for="pregnant-no">ไม่ใช่</label>
+                  <input id="pregnant-yes" name="pregnant" type="radio">
+                  <label for="pregnant-yes">ใช่</label>
+                </div>
+              </div>
+
+              <div class="col-12 actions-end">
+                <button class="btn btn-secondary" type="reset"><i class="fa-solid fa-rotate-left"></i>เคลียร์</button>
+                <button class="btn btn-primary" type="button" data-toast="บันทึกสำเร็จ" data-toast-type="success"><i class="fa-solid fa-floppy-disk"></i>บันทึก</button>
+              </div>
+            </form>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="card-header">
+            <div>
+              <h2 class="card-title">บันทึกการทำงานสำหรับวันนี้</h2>
+              <p class="card-description">เมื่อยังไม่มีรายการของวันนี้ ตารางจะยุบเป็น empty state ที่เบาและชัดเจน พร้อม summary chip คงที่</p>
+            </div>
+            <span class="chip primary"><i class="fa-regular fa-clock"></i>รวมวันนี้ 0.0 ชั่วโมง</span>
+          </div>
+          <div class="card-body">
+            <div class="table-wrapper">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>No.</th>
+                    <th>งานที่ทำ</th>
+                    <th>วันที่</th>
+                    <th>เวลาเริ่ม</th>
+                    <th>เวลาสิ้นสุด</th>
+                    <th>หมายเหตุ</th>
+                    <th>ผู้บันทึก</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="empty-cell" colspan="7">
+                      <div class="empty-state">
+                        <svg class="empty-illustration" viewBox="0 0 220 160" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                          <rect x="38" y="28" width="144" height="104" rx="22" fill="rgba(124,58,237,0.10)" stroke="rgba(124,58,237,0.22)" stroke-width="2"/>
+                          <rect x="58" y="52" width="104" height="14" rx="7" fill="rgba(124,58,237,0.20)"/>
+                          <rect x="58" y="78" width="74" height="10" rx="5" fill="rgba(148,163,184,0.22)"/>
+                          <rect x="58" y="96" width="94" height="10" rx="5" fill="rgba(148,163,184,0.18)"/>
+                          <circle cx="164" cy="54" r="20" fill="rgba(167,139,250,0.18)"/>
+                          <path d="M155 55L162 62L174 47" stroke="#7C3AED" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <div>
+                          <h3 class="empty-title">ยังไม่มีบันทึกวันนี้</h3>
+                          <p class="empty-copy">เริ่มต้นจากเลือก Scope งานที่ทำ แล้วกด บันทึก เพื่อให้รายการใหม่แสดงในตารางนี้ทันที พร้อมสรุปชั่วโมงรวมรายวัน</p>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

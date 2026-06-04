@@ -2509,6 +2509,13 @@ function renderForm() {
   <!-- Missing Fields Warning Banner -->
   ${renderMissingFieldsBanner()}
 
+  <!-- ===== SECTION 1: ข้อมูล Job (Job Header) ===== -->
+  <div class="form-section" id="secJobHeader">
+    <div class="form-section-header" onclick="toggleSection('secJobHeader')">
+      <span><i class="fas fa-id-card"></i> 1. ข้อมูล Job (Job Header)</span>
+      <i class="fas fa-chevron-down chevron"></i>
+    </div>
+    <div class="form-section-body">
   <!-- Info Bar -->
   <div style="font-size:12px;color:var(--text-muted);padding:4px 0">
     <div>Last Updated : ${esc(f.last_updated) || '-'}</div>
@@ -2555,7 +2562,16 @@ function renderForm() {
       <label class="checkbox-label" style="font-weight:500"><input type="checkbox" ${chk(f.has_multi_f)} onchange="App.setField('has_multi_f',this.checked)"> งานมีหลาย F</label>
     </div>
   </div>
+    </div>
+  </div>
 
+  <!-- ===== SECTION 2: จำนวน (Quantity) ===== -->
+  <div class="form-section" id="secQtySec">
+    <div class="form-section-header" onclick="toggleSection('secQtySec')">
+      <span><i class="fas fa-list-ol"></i> 2. จำนวน (Quantity)</span>
+      <i class="fas fa-chevron-down chevron"></i>
+    </div>
+    <div class="form-section-body">
   <!-- Quantity (flat - matching original) -->
   <div id="secQty" style="padding:4px 0">
       ${!f.has_multi_f ? `
@@ -2630,16 +2646,13 @@ function renderForm() {
       `}
     </div>
   </div>
-  <!-- 5. Buttons: เพิ่ม / ลด ชิ้นส่วน (Component) -->
-  <div style="display:flex;gap:8px;margin:8px 0">
-    <button class="btn btn-secondary" onclick="App.addComponent()" style="font-size:12px"><i class="fas fa-plus"></i> เพิ่ม ชิ้นส่วน (Component)</button>
-    ${f.components.length > 1 ? `<button class="btn btn-danger" onclick="App.removeComponent(${f.components.length - 1})" style="font-size:12px"><i class="fas fa-minus"></i> ลด ชิ้นส่วน (Component)</button>` : ''}
+    </div>
   </div>
 
-  <!-- 6. Section: ประเภทงาน / การพิมพ์ (Job Detail) -->
+  <!-- ===== SECTION 3: รายละเอียดงาน (Job Detail) ===== -->
   <div class="form-section" id="secSettings">
     <div class="form-section-header" onclick="toggleSection('secSettings')">
-      <span><i class="fas fa-sliders-h"></i> ประเภทการพิมพ์</span>
+      <span><i class="fas fa-sliders-h"></i> 3. รายละเอียดงาน (Job Detail)</span>
       <i class="fas fa-chevron-down chevron"></i>
     </div>
     <div class="form-section-body">
@@ -2708,7 +2721,20 @@ function renderForm() {
     </div>
   </div>
 
-  <!-- 7. Components (flat - matching original) -->
+  <!-- ===== SECTION 4: Component (ชิ้นส่วนกล่อง) ===== -->
+  <div class="form-section" id="secCompSec">
+    <div class="form-section-header" onclick="toggleSection('secCompSec')">
+      <span><i class="fas fa-cube"></i> 4. Component (ชิ้นส่วนกล่อง)</span>
+      <i class="fas fa-chevron-down chevron"></i>
+    </div>
+    <div class="form-section-body">
+  <!-- Buttons: เพิ่ม / ลด ชิ้นส่วน (Component) -->
+  <div style="display:flex;gap:8px;margin:8px 0">
+    <button class="btn btn-secondary" onclick="App.addComponent()" style="font-size:12px"><i class="fas fa-plus"></i> เพิ่ม ชิ้นส่วน (Component)</button>
+    ${f.components.length > 1 ? `<button class="btn btn-danger" onclick="App.removeComponent(${f.components.length - 1})" style="font-size:12px"><i class="fas fa-minus"></i> ลด ชิ้นส่วน (Component)</button>` : ''}
+  </div>
+
+  <!-- Components (flat - matching original) -->
   <div id="secComp">
     ${f.components.map((c,i) => renderComponentItem(c, i)).join('')}
   </div>
@@ -2734,7 +2760,17 @@ function renderForm() {
     </div>`;
   }).join('')}
 
-  <!-- 8. Other Process (flat row - matching original) -->
+    </div>
+  </div>
+
+  <!-- ===== SECTION 5: Process / Material / Other ===== -->
+  <div class="form-section" id="secProcSec">
+    <div class="form-section-header" onclick="toggleSection('secProcSec')">
+      <span><i class="fas fa-cogs"></i> 5. Process / Material / Other</span>
+      <i class="fas fa-chevron-down chevron"></i>
+    </div>
+    <div class="form-section-body">
+  <!-- Other Process (flat row - matching original) -->
   ${renderFlatProcessRow('Other Process:', 'other_process', f.other_process)}
   ${renderFlatProcessRow('Handwork Process:', 'handwork_process', f.handwork_process)}
   ${renderFlatProcessRow('จัดจ้าง :', 'outsource', f.outsource)}
@@ -2759,13 +2795,16 @@ function renderForm() {
     </div>`).join('')}
   </div>
 
-  <!-- 10. Delivery -->
+    </div>
+  </div>
+
+  <!-- ===== SECTION 6: Delivery ===== -->
   ${(() => {
     const dl0 = f.delivery[0] || {};
     return `
   <div class="form-section" style="border:1px solid var(--border-color);border-radius:8px;padding:12px 16px;margin-bottom:8px">
     <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
-      <h4 style="margin:0;font-size:14px;font-weight:700;color:var(--text-primary)"><i class="fas fa-truck" style="color:var(--accent);margin-right:6px"></i>Delivery</h4>
+      <h4 style="margin:0;font-size:14px;font-weight:700;color:var(--text-primary)"><i class="fas fa-truck" style="color:var(--accent);margin-right:6px"></i>6. Delivery</h4>
       <label class="checkbox-label" style="margin:0;font-size:12px"><input type="checkbox" ${chk(dl0.split_delivery)} onchange="App.toggleSplitDelivery(this.checked)"> <i class="fas fa-code-branch"></i> แบ่งส่ง</label>
     </div>
 
@@ -2811,7 +2850,14 @@ function renderForm() {
   </div>`;
   })()}
 
-  <!-- 11. ส่วนต่างลูกค้า -->
+  <!-- ===== SECTION 7: Adjustments (ส่วนต่าง / ของขวัญ) ===== -->
+  <div class="form-section" id="secAdjSec">
+    <div class="form-section-header" onclick="toggleSection('secAdjSec')">
+      <span><i class="fas fa-sliders-h"></i> 7. Adjustments (ส่วนต่าง / ของขวัญ)</span>
+      <i class="fas fa-chevron-down chevron"></i>
+    </div>
+    <div class="form-section-body">
+  <!-- ส่วนต่างลูกค้า -->
   <div style="display:flex;align-items:center;gap:8px;padding:6px 12px;margin-bottom:4px">
     <label class="checkbox-label" style="font-weight:600;white-space:nowrap"><input type="checkbox" ${chk(f.customer_margin)} onchange="App.setField('customer_margin',this.checked)"> ส่วนต่างลูกค้า(บาท/หน่วย) :</label>
     ${f.customer_margin ? `<input class="form-input" type="number" step="0.01" value="${esc(f.customer_margin_value)}" oninput="App.setField('customer_margin_value',this.value)" style="width:clamp(80px,15vw,120px)">` : ''}
@@ -2823,7 +2869,10 @@ function renderForm() {
     ${f.has_customer_gift ? `<input class="form-input" type="number" step="0.01" value="${esc(f.customer_gift_value)}" oninput="App.setField('customer_gift_value',this.value)" style="width:clamp(80px,15vw,120px)">` : ''}
   </div>
 
-  <!-- 14. Action buttons -->
+    </div>
+  </div>
+
+  <!-- Action buttons -->
   ${(() => {
     const ms = State._missingFields || [];
     const canCalc = State._formTouched && ms.length === 0;
@@ -3324,14 +3373,9 @@ function renderComponentItem(c, i) {
   </div>`;
 }
 
-// Helper: Render box template diagram + size fields (3-column layout matching original system)
-function renderBoxSizeSection(i, c) {
-  const sz = c.packaging_size || {};
-  const bt = c.box_type || {};
-  const typeId = parseInt(bt.type_id) || 0;
-  const mm2in = v => { const n = parseFloat(v); return n ? mm2inchLegacy(n) : ''; };
-
-  // Image from original system + ทิศทางลอน overlay (only for SVG/JPG mode, 3D handles its own)
+// Box viewer (3D / Dieline / JPG) — แสดงที่ "หน้าผลลัพธ์" (viewDetail) ไม่ใช่ในฟอร์มกรอกข้อมูล
+function buildBoxDiagram(i, c) {
+  const typeId = parseInt(c.box_type?.type_id) || 0;
   const fluteDir = c.corrugated?.flute_side || '';
   const isMode3D = State._boxViewMode?.[i] === '3d';
   const fluteOverlay = !isMode3D && fluteDir ? `
@@ -3344,7 +3388,7 @@ function renderBoxSizeSection(i, c) {
   const mbtnA = `${mbtn}background:#5b2d8e;color:#fff;`;
   const mbtnI = `${mbtn}background:var(--bg-tertiary);color:var(--text-secondary);border:1px solid var(--border);`;
   const boxViewId = `boxView_${i}`;
-  const diagram = typeId >= 1 && typeId <= 12
+  return typeId >= 1 && typeId <= 12
     ? `<div>
         <div id="boxBtns_${i}" style="display:flex;gap:3px;margin-bottom:4px;flex-wrap:wrap;align-items:center">
           <button onclick="App.switchBoxView(${i},${typeId},'3d')" style="${mbtnI}"><i class="fas fa-cube"></i> 3D</button>
@@ -3371,6 +3415,17 @@ function renderBoxSizeSection(i, c) {
         </div>
       </div>`
     : `<div style="padding:40px;color:#999;font-size:13px">เลือกรูปแบบกล่อง</div>`;
+}
+
+// Helper: Render box template diagram + size fields (3-column layout matching original system)
+function renderBoxSizeSection(i, c) {
+  const sz = c.packaging_size || {};
+  const bt = c.box_type || {};
+  const typeId = parseInt(bt.type_id) || 0;
+  const mm2in = v => { const n = parseFloat(v); return n ? mm2inchLegacy(n) : ''; };
+
+  // หมายเหตุ: รูป 3D/Dieline/JPG ของกล่อง ย้ายไปแสดงที่ "หน้าผลลัพธ์" (viewDetail) แล้ว
+  // ดู buildBoxDiagram() — ฟอร์มกรอกข้อมูลจะไม่แสดง viewer เพื่อให้โฟกัสที่การกรอก
 
   // Field visibility per box type (matching original setInputDimensionField)
   const hide = { glue: false, tuck: false, dust: false, ol: false, depth: false };
@@ -3455,10 +3510,7 @@ function renderBoxSizeSection(i, c) {
 
   return `<div style="border:1px solid var(--border-color);border-radius:8px;padding:10px;margin-top:8px;background:var(--section-bg, #fafbff);overflow-x:auto">
     <div style="display:flex;gap:10px;flex-wrap:wrap">
-      <!-- Col 1: Box Diagram Image -->
-      <div style="flex-shrink:0;text-align:center">
-        ${diagram}
-      </div>
+      <!-- Col 1 (Box Diagram 3D/Dieline/JPG) — ย้ายไปหน้าผลลัพธ์แล้ว -->
       <!-- Col 2: Size Inputs -->
       <div style="flex-shrink:0">
         <table cellpadding="0" style="font-size:13px">
@@ -13948,6 +14000,10 @@ function renderLayoutResults(results, printType) {
       <span style="background:var(--bg-primary);padding:2px 10px;border-radius:4px;border:1px solid var(--border)">${escapeHtml(compDisplayName)}</span>
       <span style="color:var(--text-muted)">${compTypeName}</span>
     </div>`;
+    // Box viewer 3D/Dieline/JPG (ย้ายมาจากฟอร์ม → แสดงที่หน้าผลลัพธ์)
+    if (comp?.box_type?.type_id) {
+      h += `<div style="margin-bottom:12px;display:flex;justify-content:center">${buildBoxDiagram(ri, comp)}</div>`;
+    }
     if (r.error) {
       h += `<p style="color:#f08080"><i class="fas fa-exclamation-triangle"></i> ${r.error}</p>`;
       if (r.unfolded) {

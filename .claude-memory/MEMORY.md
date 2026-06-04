@@ -11,6 +11,9 @@
 ## Feedback
 - [Parse All Data First](feedback_parse_first.md) - Core principle: extract ALL customer data 100% before calculation. Customer spec = their requirements, missing nothing.
 
+## Reference
+- [Draft RFQ Schema](reference_draft_rfq_schema.md) - Draft_RFQ.html = fuller RFQ form-spec from estimate.ejs/router.ai.js; AI field names differ from webapp parse-spec; captures fields webapp parser misses
+
 ## Key Context
 - AI Agent role = **พี่เลี้ยง Pornchai AI** + ต่อยอดสร้างสูตร Estimate ระดับ Global
 - Phase 2 goal: สร้าง Pornchai Estimate Engine ที่เป็น universal standard ใช้ได้ทุกโรงพิมพ์ทั่วโลก

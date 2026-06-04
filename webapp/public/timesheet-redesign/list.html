@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="th" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>รายการการทำงาน | ระบบบันทึกการทำงานรายวัน</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="topbar-main">
+        <div class="brand-cluster">
+          <button class="sidebar-toggle" type="button" data-sidebar-toggle aria-label="เปิดเมนู">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <a class="brand" href="index.html">
+            <img class="brand-mark" src="../logo.png" alt="Logo">
+            <div class="brand-copy">
+              <p class="brand-title">ระบบบันทึกการทำงานรายวัน</p>
+              <p class="brand-subtitle">ค้นหา ตรวจสอบ และส่งออกข้อมูลการทำงานรายวันได้จากหน้าเดียว</p>
+            </div>
+          </a>
+        </div>
+        <div class="topbar-actions">
+          <button class="theme-toggle" type="button" data-theme-toggle aria-label="เปลี่ยนโหมดสี">
+            <i class="fa-solid fa-moon"></i>
+            <span class="theme-toggle-label">โหมดมืด</span>
+          </button>
+          <div class="profile-menu">
+            <button class="profile-chip" type="button" aria-haspopup="true" aria-expanded="false">
+              <span class="avatar">ธ</span>
+              <span class="profile-copy">
+                <span class="profile-name">คุณธนายุทธ ทองโคตร</span>
+                <span class="profile-role">ผู้บันทึก</span>
+              </span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="profile-dropdown">
+              <a class="dropdown-link" href="login.html">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>ออกจากระบบ</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <nav class="top-tabs" aria-label="เมนูหลัก">
+        <a class="top-tab active" href="entry.html">
+          <i class="fa-regular fa-pen-to-square"></i>
+          <span>บันทึกการทำงาน</span>
+        </a>
+        <a class="top-tab" href="reports.html">
+          <i class="fa-regular fa-chart-bar"></i>
+          <span>รายงาน</span>
+        </a>
+        <a class="top-tab" href="login.html">
+          <i class="fa-solid fa-right-from-bracket"></i>
+          <span>ออกจากระบบ</span>
+        </a>
+      </nav>
+    </header>
+
+    <div class="sidebar-backdrop" data-sidebar-close></div>
+
+    <div class="layout">
+      <aside class="sidebar">
+        <p class="sidebar-heading">
+          <i class="fa-solid fa-layer-group"></i>
+          <span>บันทึกการทำงาน</span>
+        </p>
+        <nav class="sidebar-nav">
+          <a class="sidebar-link" href="entry.html">
+            <i class="fa-regular fa-pen-to-square"></i>
+            <span>บันทึกการทำงาน</span>
+          </a>
+          <a class="sidebar-link active" href="list.html">
+            <i class="fa-solid fa-list-check"></i>
+            <span>รายการการทำงาน</span>
+          </a>
+        </nav>
+      </aside>
+
+      <main class="main-content">
+        <section class="page-intro">
+          <div>
+            <div class="breadcrumb">
+              <span>หน้าหลัก</span>
+              <i class="fa-solid fa-chevron-right"></i>
+              <span>รายการการทำงาน</span>
+            </div>
+            <h1 class="page-title">รายการการทำงาน</h1>
+            <p class="page-subtitle">ตารางรายการถูกปรับให้เหมาะกับงานค้นหาและตรวจสอบย้อนหลัง ด้วย sticky header, sortable columns, filters และ export actions ที่วางใกล้กัน</p>
+          </div>
+          <div class="pill-cluster">
+            <span class="chip primary"><i class="fa-regular fa-clock"></i>รวมทั้งหมด 31.5 ชั่วโมง</span>
+            <span class="chip success"><i class="fa-solid fa-file-export"></i>พร้อมส่งออก</span>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="card-header">
+            <div>
+              <h2 class="card-title">ตัวกรองข้อมูล</h2>
+              <p class="card-description">จัดวาง filter bar ให้เริ่มจากช่วงวันที่ แล้วตามด้วยคำค้นและ dropdown filters เพื่อ scan ได้เร็วขึ้น</p>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="toolbar-grid">
+              <div class="field-group col-3">
+                <label class="field-label" for="list-date-start">วันที่เริ่ม</label>
+                <div class="input-shell">
+                  <i class="fa-regular fa-calendar"></i>
+                  <input id="list-date-start" type="text" value="01/06/2569">
+                </div>
+              </div>
+              <div class="field-group col-3">
+                <label class="field-label" for="list-date-end">วันที่สิ้นสุด</label>
+                <div class="input-shell">
+                  <i class="fa-regular fa-calendar"></i>
+                  <input id="list-date-end" type="text" value="04/06/2569">
+                </div>
+              </div>
+              <div class="field-group col-3">
+                <label class="field-label" for="search-work">ค้นหา งาน / ผู้บันทึก</label>
+                <div class="input-shell">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                  <input id="search-work" type="text" placeholder="พิมพ์คำค้น">
+                </div>
+              </div>
+              <div class="field-group col-3">
+                <label class="field-label" for="filter-scope">Scope งาน</label>
+                <div class="input-shell select-shell">
+                  <i class="fa-solid fa-briefcase"></i>
+                  <select id="filter-scope">
+                    <option>ทั้งหมด</option>
+                    <option>ประชุม</option>
+                    <option>พัฒนา</option>
+                    <option>ทดสอบ</option>
+                  </select>
+                </div>
+              </div>
+              <div class="field-group col-3">
+                <label class="field-label" for="filter-person">ผู้บันทึก</label>
+                <div class="input-shell select-shell">
+                  <i class="fa-regular fa-user"></i>
+                  <select id="filter-person">
+                    <option>ทั้งหมด</option>
+                    <option>คุณธนายุทธ ทองโคตร</option>
+                    <option>คุณศศิธร ใจดี</option>
+                  </select>
+                </div>
+              </div>
+              <div class="field-group col-9">
+                <label class="field-label">ส่งออกข้อมูล</label>
+                <div class="button-row">
+                  <button class="btn btn-secondary" type="button" data-toast="Export Excel สำเร็จ" data-toast-type="success"><i class="fa-regular fa-file-excel"></i>Excel</button>
+                  <button class="btn" type="button" data-toast="Export PDF สำเร็จ" data-toast-type="info"><i class="fa-regular fa-file-pdf"></i>PDF</button>
+                  <button class="btn btn-primary" type="button"><i class="fa-solid fa-filter"></i>ใช้ตัวกรอง</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="card-header">
+            <div>
+              <h2 class="card-title">รายการการทำงาน</h2>
+              <p class="card-description">ใช้ sticky header, zebra rows และ summary footer ช่วยให้ตรวจข้อมูลจำนวนมากได้แม่นขึ้น</p>
+            </div>
+            <span class="chip primary"><i class="fa-solid fa-table"></i>4 รายการ</span>
+          </div>
+          <div class="card-body">
+            <div class="table-wrapper">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th><span class="sortable">No.<i class="fa-solid fa-sort"></i></span></th>
+                    <th><span class="sortable">งานที่ทำ<i class="fa-solid fa-sort"></i></span></th>
+                    <th><span class="sortable">วันที่<i class="fa-solid fa-sort"></i></span></th>
+                    <th><span class="sortable">เวลาเริ่ม<i class="fa-solid fa-sort"></i></span></th>
+                    <th><span class="sortable">เวลาสิ้นสุด<i class="fa-solid fa-sort"></i></span></th>
+                    <th>หมายเหตุ</th>
+                    <th><span class="sortable">ผู้บันทึก<i class="fa-solid fa-sort"></i></span></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td data-label="No." class="table-number">01</td>
+                    <td data-label="งานที่ทำ">ประชุมวางแผน Sprint</td>
+                    <td data-label="วันที่" class="time">01/06/2569</td>
+                    <td data-label="เวลาเริ่ม" class="time">08:30</td>
+                    <td data-label="เวลาสิ้นสุด" class="time">10:00</td>
+                    <td data-label="หมายเหตุ">จัดลำดับเป้าหมายสัปดาห์</td>
+                    <td data-label="ผู้บันทึก">
+                      <div class="person-cell">
+                        <span>คุณธนายุทธ ทองโคตร</span>
+                        <span class="inline-actions">
+                          <button class="icon-btn edit" type="button" aria-label="แก้ไข"><i class="fa-regular fa-pen-to-square"></i></button>
+                          <button class="icon-btn delete" type="button" aria-label="ลบ" data-toast="ลบสำเร็จ" data-toast-type="danger"><i class="fa-regular fa-trash-can"></i></button>
+                        </span>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td data-label="No." class="table-number">02</td>
+                    <td data-label="งานที่ทำ">พัฒนา workflow บันทึกเวลา</td>
+                    <td data-label="วันที่" class="time">02/06/2569</td>
+                    <td data-label="เวลาเริ่ม" class="time">10:15</td>
+                    <td data-label="เวลาสิ้นสุด" class="time">13:00</td>
+                    <td data-label="หมายเหตุ">เพิ่ม validation และ mobile behavior</td>
+                    <td data-label="ผู้บันทึก">
+                      <div class="person-cell">
+                        <span>คุณธนายุทธ ทองโคตร</span>
+                        <span class="inline-actions">
+                          <button class="icon-btn edit" type="button" aria-label="แก้ไข"><i class="fa-regular fa-pen-to-square"></i></button>
+                          <button class="icon-btn delete" type="button" aria-label="ลบ"><i class="fa-regular fa-trash-can"></i></button>
+                        </span>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td data-label="No." class="table-number">03</td>
+                    <td data-label="งานที่ทำ">ทดสอบรายงานรายวัน</td>
+                    <td data-label="วันที่" class="time">03/06/2569</td>
+                    <td data-label="เวลาเริ่ม" class="time">14:00</td>
+                    <td data-label="เวลาสิ้นสุด" class="time">16:30</td>
+                    <td data-label="หมายเหตุ">ตรวจสอบ totals และ export flow</td>
+                    <td data-label="ผู้บันทึก">
+                      <div class="person-cell">
+                        <span>คุณศศิธร ใจดี</span>
+                        <span class="inline-actions">
+                          <button class="icon-btn edit" type="button" aria-label="แก้ไข"><i class="fa-regular fa-pen-to-square"></i></button>
+                          <button class="icon-btn delete" type="button" aria-label="ลบ"><i class="fa-regular fa-trash-can"></i></button>
+                        </span>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td data-label="No." class="table-number">04</td>
+                    <td data-label="งานที่ทำ">สรุปการทำงานและ handoff</td>
+                    <td data-label="วันที่" class="time">04/06/2569</td>
+                    <td data-label="เวลาเริ่ม" class="time">16:45</td>
+                    <td data-label="เวลาสิ้นสุด" class="time">18:00</td>
+                    <td data-label="หมายเหตุ">สรุปผลและเตรียมส่งทีมถัดไป</td>
+                    <td data-label="ผู้บันทึก">
+                      <div class="person-cell">
+                        <span>คุณธนายุทธ ทองโคตร</span>
+                        <span class="inline-actions">
+                          <button class="icon-btn edit" type="button" aria-label="แก้ไข"><i class="fa-regular fa-pen-to-square"></i></button>
+                          <button class="icon-btn delete" type="button" aria-label="ลบ"><i class="fa-regular fa-trash-can"></i></button>
+                        </span>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="summary-footer">
+              <div class="pill-cluster">
+                <span class="chip primary"><i class="fa-regular fa-clock"></i>รวมทั้งหมด 31.5 ชั่วโมง</span>
+              </div>
+              <div class="pagination" aria-label="pagination">
+                <button class="page-button" type="button"><i class="fa-solid fa-chevron-left"></i></button>
+                <button class="page-button active" type="button">1</button>
+                <button class="page-button" type="button">2</button>
+                <button class="page-button" type="button">3</button>
+                <button class="page-button" type="button"><i class="fa-solid fa-chevron-right"></i></button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

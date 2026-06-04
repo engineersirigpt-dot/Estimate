@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="th" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>เข้าสู่ระบบ | ระบบบันทึกการทำงานรายวัน</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="login-page">
+  <div class="floating-theme">
+    <button class="theme-toggle" type="button" data-theme-toggle aria-label="เปลี่ยนโหมดสี">
+      <i class="fa-solid fa-moon"></i>
+      <span class="theme-toggle-label">โหมดมืด</span>
+    </button>
+  </div>
+
+  <div class="login-shell">
+    <section class="login-panel">
+      <div class="hero-strip">
+        <span><i class="fa-solid fa-shield-heart"></i>เข้าใช้งานปลอดภัย</span>
+        <span><i class="fa-solid fa-layer-group"></i>ดีไซน์สอดคล้องทุกหน้า</span>
+      </div>
+      <div class="brand" style="margin-bottom: 26px;">
+        <img class="brand-mark" src="../logo.png" alt="Logo">
+        <div class="brand-copy">
+          <p class="brand-title">ระบบบันทึกการทำงานรายวัน</p>
+          <p class="brand-subtitle">Daily Work Log / Timesheet ที่ทันสมัย เรียบสะอาด และพร้อมใช้งานจริง</p>
+        </div>
+      </div>
+      <h1 class="hero-title">เริ่มต้นวันทำงานด้วยหน้าเข้าสู่ระบบที่เรียบง่าย แต่ยังคงความเป็น enterprise</h1>
+      <p class="hero-copy">ใช้ card กลางหน้า, glass surface, gradient background และฟอร์มแบบ top-label เพื่อให้ login เร็วขึ้น อ่านง่าย และยังคุมโทนเดียวกับทุกหน้าด้านใน</p>
+      <div class="login-highlight">
+        <div class="highlight-item">
+          <span class="metric-icon"><i class="fa-regular fa-clock"></i></span>
+          <div>
+            <strong>เข้าใช้งานเร็ว</strong>
+            <div class="type-caption">เข้าถึงการบันทึกเวลาในไม่กี่คลิก</div>
+          </div>
+        </div>
+        <div class="highlight-item">
+          <span class="metric-icon"><i class="fa-solid fa-moon"></i></span>
+          <div>
+            <strong>รองรับธีม</strong>
+            <div class="type-caption">รองรับทั้ง light mode และ dark mode ตั้งแต่หน้าแรก</div>
+          </div>
+        </div>
+        <div class="highlight-item">
+          <span class="metric-icon"><i class="fa-solid fa-mobile-screen-button"></i></span>
+          <div>
+            <strong>Responsive</strong>
+            <div class="type-caption">desktop-first และปรับตัวได้ดีบน tablet/mobile</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="login-card">
+      <div class="card-grid">
+        <div>
+          <span class="chip primary"><i class="fa-solid fa-user-lock"></i>หน้าเข้าสู่ระบบ</span>
+          <h2 class="page-title" style="margin-top: 14px;">เข้าสู่ระบบ</h2>
+          <p class="page-subtitle">ลงชื่อเข้าใช้เพื่อเข้าถึง บันทึกการทำงาน, รายการการทำงาน และ รายงาน</p>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label" for="username">ชื่อผู้ใช้ <span class="required">*</span></label>
+          <div class="input-shell">
+            <i class="fa-regular fa-user"></i>
+            <input id="username" type="text" placeholder="กรอกชื่อผู้ใช้">
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label" for="password">รหัสผ่าน <span class="required">*</span></label>
+          <div class="input-shell">
+            <i class="fa-solid fa-lock"></i>
+            <input id="password" type="password" placeholder="กรอกรหัสผ่าน">
+          </div>
+        </div>
+
+        <div class="remember-row">
+          <label class="checkbox">
+            <input type="checkbox" checked>
+            <span>จดจำฉัน</span>
+          </label>
+          <span class="type-caption">ใช้ typography และ spacing ชุดเดียวกับหน้าด้านใน</span>
+        </div>
+
+        <a class="btn btn-primary" href="entry.html" data-allow-navigation="true">
+          <i class="fa-solid fa-arrow-right-to-bracket"></i>
+          <span>เข้าสู่ระบบ</span>
+        </a>
+      </div>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

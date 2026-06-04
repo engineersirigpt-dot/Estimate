@@ -1848,6 +1848,20 @@ function postProcessParsedSpec(result, comp, fullText) {
     let pm = t.match(/\bPaper\s*:?\s*((?:Matt?\s*Art|MA|AC\s*C[12]s|Dup(?:lex)?\s*(?:GBB|WBB|BBB)?|SBS|CRB|IVR|KA|KI|Ivory|Art\s*Card|kraft|กระดาษ\S*)[^/\n]*?)\s*(\d{2,3})\s*(?:gsm|Gsm|แกรม|G\b)/i);
     if (pm) { comp.paper.paper_code = mapPaperCode(pm[1].trim()); comp.paper.paper_gram = pm[2]; found = true; }
 
+    // Pattern 1b: gram-BEFORE-code "Material: 400 gsm SBS C1S", "400 gsm Duplex GBB"
+    // (ลูกค้าต่างชาติมักเขียนแกรมนำหน้า + ใช้คำว่า Material/Board/Substrate)
+    if (!found) {
+      pm = t.match(/(?:Material|Paper|Board|Substrate)?\s*:?\s*(\d{2,3})\s*gsm\s+(SBS|CRB|IVR|AC|MA|GA|MCA|WC|FCY|KA|KI|Dup(?:lex)?|Art\s*Card|Ivory|Kraft)(?:\s*(GBB|WBB|BBB))?(?:\s*(C[12]S))?/i);
+      if (pm) {
+        let code = pm[2];
+        if (pm[3]) code += ' ' + pm[3].toUpperCase();   // Duplex GBB/WBB/BBB
+        else if (pm[4]) code += ' ' + pm[4];             // SBS C1S/C2S
+        comp.paper.paper_code = mapPaperCode(code.trim());
+        comp.paper.paper_gram = pm[1];
+        found = true;
+      }
+    }
+
     // Pattern 2: "XXX NNN gsm" without "Paper" prefix (e.g. "Matt Art 128 Gsm")
     if (!found) {
       pm = t.match(/\b(Matt?\s*Art|Gloss\s*Art|Duplex\s*(?:GBB|WBB|BBB)?|AC\s*C[12]s|Art\s*(?:Card|Board)|C[12]S\s*(?:Board)?|SBS|CRB|IVR|Ivory|Kraft)\s*(\d{2,3})\s*(?:gsm|Gsm|แกรม|G\b)/i);
@@ -2107,6 +2121,32 @@ function postProcessParsedSpec(result, comp, fullText) {
     if (nm) comp.component_name = nm[1].toLowerCase();
   }
 
+  // ===== SIZE (labeled box/carton/internal size — takes priority over generic e.g. "Bar Size") =====
+  // ลูกค้ามักระบุหลายขนาด (เช่น "Bar Size" + "Internal Carton Size") → ต้องเลือกขนาดกล่องที่ระบุชัด
+  // และอ่าน label ลำดับมิติ "(L x W x H)" / "(W x L x H)" ให้ map width/length/depth ถูก
+  {
+    const labeledRx = /\b(?:internal|finished|carton|box|product|overall|outer|outside|die\s*cut|dieline)\b[^\n]*?\bsize\b\s*[:\-]?\s*\n?\s*(\d+(?:\.\d+)?)\s*[x×]\s*(\d+(?:\.\d+)?)(?:\s*[x×]\s*(\d+(?:\.\d+)?))?/i;
+    const lm = t.match(labeledRx);
+    if (lm) {
+      const vals = [parseFloat(lm[1]), parseFloat(lm[2]), lm[3] != null ? parseFloat(lm[3]) : 0];
+      let width = vals[0], length = vals[1], depth = vals[2];
+      // ลำดับมิติจาก label เช่น "(L x W x H)", "(W x L x H)", "(W x D x H)"
+      const ordM = t.match(/\(\s*([LWDH])\s*[x×,\/]\s*([LWDH])\s*(?:[x×,\/]\s*([LWDH]))?\s*\)/i);
+      if (ordM) {
+        const order = [ordM[1], ordM[2], ordM[3]].filter(Boolean).map(s => s.toUpperCase());
+        const map = {};
+        order.forEach((ax, idx) => { if (vals[idx] != null) map[ax] = vals[idx]; });
+        if (map.W != null) width = map.W;
+        if (map.L != null) length = map.L;
+        if (map.H != null) depth = map.H;
+        else if (map.D != null) depth = map.D;
+      }
+      if (width < 2000 && length < 2000) {
+        comp.packaging_size = { width: Math.round(width), length: Math.round(length), depth: Math.round(depth) };
+      }
+    }
+  }
+
   // ===== SIZE =====
   if (!comp.packaging_size) {
     // Priority 1: "W 212\nL 271\nH 30" format (Dimension Score line)
@@ -2163,6 +2203,15 @@ function postProcessParsedSpec(result, comp, fullText) {
       comp.addon.push({ type: 'coating', detail, side: sideM ? parseInt(sideM[1]) : 1 });
     }
   }
+  // ===== FINISH / LAMINATION → coating (เช่น "Finish: Matte Lamination", "Gloss Laminate") =====
+  if (comp.addon.length === 0 || !comp.addon.some(a => a.type === 'coating')) {
+    const lamM = t.match(/(?:finish(?:ing)?\s*:?\s*)?(matte?|gloss|glossy|ด้าน|เงา)?\s*(lamination|laminate|laminated|laminat\w*)/i);
+    if (lamM) {
+      const opt = /matt|ด้าน/i.test(lamM[1] || '') ? 'Matt' : (/gloss|เงา/i.test(lamM[1] || '') ? 'Gloss' : '');
+      comp.addon = comp.addon || [];
+      comp.addon.push({ type: 'coating', detail: ('coating ' + (opt ? opt + ' ' : '') + 'lamination 1 s').trim(), coating_option: opt || '', side: 1 });
+    }
+  }
 
   // ===== PACKING (Fuzzy / Typo-tolerant) =====
   if (!comp.packing_detail) {
@@ -2212,6 +2261,13 @@ function postProcessParsedSpec(result, comp, fullText) {
     if (custm && !/ใหม่|new/i.test(custm[1])) {
       result.customer_search = custm[1].trim();
     }
+  }
+
+  // ===== JOB NAME cleanup: ตัด prefix label ที่ติดมา ("Product:", "Item:", "Project:") =====
+  if (result.job_name) {
+    result.job_name = result.job_name
+      .replace(/^\s*(?:product|item|project|job|title|description|desc|งาน|ชื่องาน)\s*[:：.\-]\s*/i, '')
+      .trim();
   }
 }
 

@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="th" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>รายงาน | ระบบบันทึกการทำงานรายวัน</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="topbar-main">
+        <div class="brand-cluster">
+          <button class="sidebar-toggle" type="button" data-sidebar-toggle aria-label="เปิดเมนู">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <a class="brand" href="index.html">
+            <img class="brand-mark" src="../logo.png" alt="Logo">
+            <div class="brand-copy">
+              <p class="brand-title">ระบบบันทึกการทำงานรายวัน</p>
+              <p class="brand-subtitle">แสดงสรุปชั่วโมงและแนวโน้มการทำงานด้วย dashboard cards และ charts</p>
+            </div>
+          </a>
+        </div>
+        <div class="topbar-actions">
+          <button class="theme-toggle" type="button" data-theme-toggle aria-label="เปลี่ยนโหมดสี">
+            <i class="fa-solid fa-moon"></i>
+            <span class="theme-toggle-label">โหมดมืด</span>
+          </button>
+          <div class="profile-menu">
+            <button class="profile-chip" type="button" aria-haspopup="true" aria-expanded="false">
+              <span class="avatar">ธ</span>
+              <span class="profile-copy">
+                <span class="profile-name">คุณธนายุทธ ทองโคตร</span>
+                <span class="profile-role">ผู้บันทึก</span>
+              </span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="profile-dropdown">
+              <a class="dropdown-link" href="login.html">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>ออกจากระบบ</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <nav class="top-tabs" aria-label="เมนูหลัก">
+        <a class="top-tab" href="entry.html">
+          <i class="fa-regular fa-pen-to-square"></i>
+          <span>บันทึกการทำงาน</span>
+        </a>
+        <a class="top-tab active" href="reports.html">
+          <i class="fa-regular fa-chart-bar"></i>
+          <span>รายงาน</span>
+        </a>
+        <a class="top-tab" href="login.html">
+          <i class="fa-solid fa-right-from-bracket"></i>
+          <span>ออกจากระบบ</span>
+        </a>
+      </nav>
+    </header>
+
+    <div class="sidebar-backdrop" data-sidebar-close></div>
+
+    <div class="layout">
+      <aside class="sidebar">
+        <p class="sidebar-heading">
+          <i class="fa-solid fa-layer-group"></i>
+          <span>บันทึกการทำงาน</span>
+        </p>
+        <nav class="sidebar-nav">
+          <a class="sidebar-link" href="entry.html">
+            <i class="fa-regular fa-pen-to-square"></i>
+            <span>บันทึกการทำงาน</span>
+          </a>
+          <a class="sidebar-link" href="list.html">
+            <i class="fa-solid fa-list-check"></i>
+            <span>รายการการทำงาน</span>
+          </a>
+        </nav>
+      </aside>
+
+      <main class="main-content">
+        <section class="page-intro">
+          <div>
+            <div class="breadcrumb">
+              <span>หน้าหลัก</span>
+              <i class="fa-solid fa-chevron-right"></i>
+              <span>รายงาน</span>
+            </div>
+            <h1 class="page-title">รายงาน</h1>
+            <p class="page-subtitle">Dashboard ถูกวางแบบ executive-friendly ให้เห็น hours trend, distribution by scope และ contributor highlights ภายในมุมมองเดียว</p>
+          </div>
+          <div class="pill-cluster">
+            <span class="chip primary"><i class="fa-regular fa-calendar"></i>01/06/2569 - 30/06/2569</span>
+            <span class="chip success"><i class="fa-solid fa-file-export"></i>Export enabled</span>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="card-header">
+            <div>
+              <h2 class="card-title">ตัวกรองรายงาน</h2>
+              <p class="card-description">สรุป filter หลักไว้บนสุด เพื่อให้ผู้ใช้สลับช่วงเวลาและผู้บันทึกได้รวดเร็วก่อนดูกราฟ</p>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="toolbar-grid">
+              <div class="field-group col-3">
+                <label class="field-label" for="report-date-start">วันที่เริ่ม</label>
+                <div class="input-shell">
+                  <i class="fa-regular fa-calendar"></i>
+                  <input id="report-date-start" type="text" value="01/06/2569">
+                </div>
+              </div>
+              <div class="field-group col-3">
+                <label class="field-label" for="report-date-end">วันที่สิ้นสุด</label>
+                <div class="input-shell">
+                  <i class="fa-regular fa-calendar"></i>
+                  <input id="report-date-end" type="text" value="30/06/2569">
+                </div>
+              </div>
+              <div class="field-group col-3">
+                <label class="field-label" for="report-person">ผู้บันทึก</label>
+                <div class="input-shell select-shell">
+                  <i class="fa-regular fa-user"></i>
+                  <select id="report-person">
+                    <option>ทั้งหมด</option>
+                    <option>คุณธนายุทธ ทองโคตร</option>
+                    <option>คุณศศิธร ใจดี</option>
+                  </select>
+                </div>
+              </div>
+              <div class="field-group col-3">
+                <label class="field-label">ส่งออกข้อมูล</label>
+                <div class="button-row">
+                  <button class="btn btn-secondary" type="button" data-toast="Export Excel สำเร็จ" data-toast-type="success"><i class="fa-regular fa-file-excel"></i>Excel</button>
+                  <button class="btn" type="button" data-toast="Export PDF สำเร็จ" data-toast-type="info"><i class="fa-regular fa-file-pdf"></i>PDF</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="card-grid four-up">
+          <article class="card metric-card">
+            <div class="card-body">
+              <div class="metric-icon"><i class="fa-regular fa-clock"></i></div>
+              <div class="metric-label">ชั่วโมงรวมสัปดาห์นี้</div>
+              <div class="metric-value">38.5h</div>
+              <div class="metric-meta"><span class="chip success">+6.4%</span><span>เทียบสัปดาห์ก่อน</span></div>
+            </div>
+          </article>
+          <article class="card metric-card">
+            <div class="card-body">
+              <div class="metric-icon"><i class="fa-regular fa-calendar"></i></div>
+              <div class="metric-label">ชั่วโมงรวมเดือนนี้</div>
+              <div class="metric-value">142.0h</div>
+              <div class="metric-meta"><span class="chip primary">22 วันทำงาน</span></div>
+            </div>
+          </article>
+          <article class="card metric-card">
+            <div class="card-body">
+              <div class="metric-icon"><i class="fa-regular fa-user"></i></div>
+              <div class="metric-label">ผู้บันทึกสูงสุด</div>
+              <div class="metric-value">ธนายุทธ</div>
+              <div class="metric-meta"><span>48.0 ชั่วโมง</span></div>
+            </div>
+          </article>
+          <article class="card metric-card">
+            <div class="card-body">
+              <div class="metric-icon"><i class="fa-solid fa-briefcase"></i></div>
+              <div class="metric-label">Scope งานสูงสุด</div>
+              <div class="metric-value">พัฒนา</div>
+              <div class="metric-meta"><span>34.0% ของทั้งหมด</span></div>
+            </div>
+          </article>
+        </section>
+
+        <section class="chart-grid">
+          <article class="card">
+            <div class="card-header">
+              <div>
+                <h2 class="card-title">ชั่วโมงต่อวัน</h2>
+                <p class="card-description">แสดงจำนวนชั่วโมงต่อวันด้วยแท่งสูงต่ำเพื่อให้เห็น peak load ได้เร็ว</p>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="bar-chart">
+                <div class="bar-chart-stage">
+                  <div class="bar-column">
+                    <span class="chart-value">6.5h</span>
+                    <div class="bar" style="height: 58%;"></div>
+                    <span class="bar-caption">จ.</span>
+                  </div>
+                  <div class="bar-column">
+                    <span class="chart-value">7.0h</span>
+                    <div class="bar" style="height: 64%;"></div>
+                    <span class="bar-caption">อ.</span>
+                  </div>
+                  <div class="bar-column">
+                    <span class="chart-value">8.2h</span>
+                    <div class="bar" style="height: 78%;"></div>
+                    <span class="bar-caption">พ.</span>
+                  </div>
+                  <div class="bar-column">
+                    <span class="chart-value">5.4h</span>
+                    <div class="bar" style="height: 50%;"></div>
+                    <span class="bar-caption">พฤ.</span>
+                  </div>
+                  <div class="bar-column">
+                    <span class="chart-value">9.1h</span>
+                    <div class="bar" style="height: 92%;"></div>
+                    <span class="bar-caption">ศ.</span>
+                  </div>
+                  <div class="bar-column">
+                    <span class="chart-value">1.2h</span>
+                    <div class="bar" style="height: 18%;"></div>
+                    <span class="bar-caption">ส.</span>
+                  </div>
+                  <div class="bar-column">
+                    <span class="chart-value">1.1h</span>
+                    <div class="bar" style="height: 16%;"></div>
+                    <span class="bar-caption">อา.</span>
+                  </div>
+                </div>
+                <div class="pill-cluster">
+                  <span class="chip primary"><i class="fa-solid fa-arrow-trend-up"></i>วันศุกร์สูงสุด 9.1 ชั่วโมง</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-header">
+              <div>
+                <h2 class="card-title">ชั่วโมงตาม scope / งาน</h2>
+                <p class="card-description">ใช้ donut chart แสดงสัดส่วนเวลาตามลักษณะงาน พร้อม legend ที่อ่านง่ายทั้ง desktop และ mobile</p>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="donut-layout">
+                <div class="donut-chart" aria-hidden="true">
+                  <svg viewBox="0 0 42 42">
+                    <circle cx="21" cy="21" r="15.915" fill="none" stroke="rgba(148,163,184,0.18)" stroke-width="6"></circle>
+                    <circle cx="21" cy="21" r="15.915" fill="none" stroke="#7C3AED" stroke-width="6" stroke-dasharray="34 66" stroke-linecap="round"></circle>
+                    <circle cx="21" cy="21" r="15.915" fill="none" stroke="#A78BFA" stroke-width="6" stroke-dasharray="24 76" stroke-dashoffset="-36" stroke-linecap="round"></circle>
+                    <circle cx="21" cy="21" r="15.915" fill="none" stroke="#10B981" stroke-width="6" stroke-dasharray="18 82" stroke-dashoffset="-62" stroke-linecap="round"></circle>
+                    <circle cx="21" cy="21" r="15.915" fill="none" stroke="#F59E0B" stroke-width="6" stroke-dasharray="12 88" stroke-dashoffset="-82" stroke-linecap="round"></circle>
+                  </svg>
+                  <div class="donut-center">
+                    <div>
+                      <strong>48h</strong>
+                      <span>รวมชั่วโมง</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="legend">
+                  <div class="legend-item">
+                    <div class="legend-copy"><span class="legend-dot" style="background:#7C3AED"></span><span>พัฒนา</span></div>
+                    <strong>34%</strong>
+                  </div>
+                  <div class="legend-item">
+                    <div class="legend-copy"><span class="legend-dot" style="background:#A78BFA"></span><span>ประชุม</span></div>
+                    <strong>24%</strong>
+                  </div>
+                  <div class="legend-item">
+                    <div class="legend-copy"><span class="legend-dot" style="background:#10B981"></span><span>ทดสอบ</span></div>
+                    <strong>18%</strong>
+                  </div>
+                  <div class="legend-item">
+                    <div class="legend-copy"><span class="legend-dot" style="background:#F59E0B"></span><span>เอกสาร / handoff</span></div>
+                    <strong>12%</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <section class="card-grid two-up">
+          <article class="card">
+            <div class="card-header">
+              <div>
+                <h2 class="card-title">ตามผู้บันทึก</h2>
+                <p class="card-description">ลิสต์สรุปตามผู้บันทึก พร้อม progress bar เพื่อเห็นสัดส่วน contribution</p>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="summary-list">
+                <div class="summary-item">
+                  <div class="summary-label"><strong>คุณธนายุทธ ทองโคตร</strong><span>48.0 ชั่วโมง</span></div>
+                  <div style="width: 38%;">
+                    <div class="progress"><span style="width: 88%;"></span></div>
+                  </div>
+                </div>
+                <div class="summary-item">
+                  <div class="summary-label"><strong>คุณศศิธร ใจดี</strong><span>32.5 ชั่วโมง</span></div>
+                  <div style="width: 38%;">
+                    <div class="progress"><span style="width: 62%;"></span></div>
+                  </div>
+                </div>
+                <div class="summary-item">
+                  <div class="summary-label"><strong>คุณชลิตา พูนทรัพย์</strong><span>21.0 ชั่วโมง</span></div>
+                  <div style="width: 38%;">
+                    <div class="progress"><span style="width: 42%;"></span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-header">
+              <div>
+                <h2 class="card-title">ตาม scope งาน</h2>
+                <p class="card-description">แสดง top scopes ที่ใช้เวลาเยอะที่สุด เพื่อช่วยวางแผนการจัดสรรงานรอบถัดไป</p>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="summary-list">
+                <div class="summary-item">
+                  <div class="summary-label"><strong>พัฒนา</strong><span>16.3 ชั่วโมง</span></div>
+                  <span class="chip primary">34%</span>
+                </div>
+                <div class="summary-item">
+                  <div class="summary-label"><strong>ประชุม</strong><span>11.5 ชั่วโมง</span></div>
+                  <span class="chip">24%</span>
+                </div>
+                <div class="summary-item">
+                  <div class="summary-label"><strong>ทดสอบ</strong><span>8.6 ชั่วโมง</span></div>
+                  <span class="chip success">18%</span>
+                </div>
+                <div class="summary-item">
+                  <div class="summary-label"><strong>เอกสาร / handoff</strong><span>5.8 ชั่วโมง</span></div>
+                  <span class="chip warning">12%</span>
+                </div>
+              </div>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

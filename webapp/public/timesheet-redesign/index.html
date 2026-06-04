@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="th" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>คลังองค์ประกอบ UI | ระบบบันทึกการทำงานรายวัน</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="topbar-main">
+        <div class="brand-cluster">
+          <button class="sidebar-toggle" type="button" data-sidebar-toggle aria-label="เปิดเมนู">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <a class="brand" href="index.html">
+            <img class="brand-mark" src="../logo.png" alt="Logo">
+            <div class="brand-copy">
+              <p class="brand-title">ระบบบันทึกการทำงานรายวัน</p>
+              <p class="brand-subtitle">คลังองค์ประกอบ UI สำหรับระบบ Daily Work Log / Timesheet</p>
+            </div>
+          </a>
+        </div>
+        <div class="topbar-actions">
+          <button class="theme-toggle" type="button" data-theme-toggle aria-label="เปลี่ยนโหมดสี">
+            <i class="fa-solid fa-moon"></i>
+            <span class="theme-toggle-label">โหมดมืด</span>
+          </button>
+          <div class="profile-menu">
+            <button class="profile-chip" type="button" aria-haspopup="true" aria-expanded="false">
+              <span class="avatar">ธ</span>
+              <span class="profile-copy">
+                <span class="profile-name">คุณธนายุทธ ทองโคตร</span>
+                <span class="profile-role">ผู้บันทึก</span>
+              </span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="profile-dropdown">
+              <a class="dropdown-link" href="login.html">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>ออกจากระบบ</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <nav class="top-tabs" aria-label="เมนูหลัก">
+        <a class="top-tab active" href="entry.html">
+          <i class="fa-regular fa-pen-to-square"></i>
+          <span>บันทึกการทำงาน</span>
+        </a>
+        <a class="top-tab" href="reports.html">
+          <i class="fa-regular fa-chart-bar"></i>
+          <span>รายงาน</span>
+        </a>
+        <a class="top-tab" href="login.html">
+          <i class="fa-solid fa-right-from-bracket"></i>
+          <span>ออกจากระบบ</span>
+        </a>
+      </nav>
+    </header>
+
+    <div class="sidebar-backdrop" data-sidebar-close></div>
+
+    <div class="layout">
+      <aside class="sidebar">
+        <p class="sidebar-heading">
+          <i class="fa-solid fa-layer-group"></i>
+          <span>บันทึกการทำงาน</span>
+        </p>
+        <nav class="sidebar-nav">
+          <a class="sidebar-link active" href="entry.html">
+            <i class="fa-regular fa-pen-to-square"></i>
+            <span>บันทึกการทำงาน</span>
+          </a>
+          <a class="sidebar-link" href="list.html">
+            <i class="fa-solid fa-list-check"></i>
+            <span>รายการการทำงาน</span>
+          </a>
+        </nav>
+      </aside>
+
+      <main class="main-content">
+        <section class="page-intro">
+          <div>
+            <div class="breadcrumb">
+              <span>หน้าหลัก</span>
+              <i class="fa-solid fa-chevron-right"></i>
+              <span>คลังองค์ประกอบ UI</span>
+            </div>
+            <h1 class="page-title">Design System เดียวกันสำหรับทุกหน้า</h1>
+            <p class="page-subtitle">รวม token, components, states และ page previews สำหรับระบบบันทึกการทำงานรายวัน โดยคง Thai labels สำคัญไว้ตามสเปกและรองรับทั้ง light/dark mode</p>
+          </div>
+          <div class="pill-cluster">
+            <span class="chip primary"><i class="fa-solid fa-layer-group"></i>Enterprise SaaS</span>
+            <span class="chip success"><i class="fa-solid fa-mobile-screen"></i>Responsive</span>
+            <span class="chip"><i class="fa-solid fa-moon"></i>Dark / Light</span>
+          </div>
+        </section>
+
+        <section class="hero-panel">
+          <article class="card hero-card">
+            <div class="card-body">
+              <div class="hero-strip">
+                <span><i class="fa-solid fa-sparkles"></i>Modern clean</span>
+                <span><i class="fa-solid fa-table-cells-large"></i>Card-based layout</span>
+                <span><i class="fa-solid fa-toggle-on"></i>Shared states</span>
+              </div>
+              <h2 class="hero-title">ระบบบันทึกการทำงานรายวัน ที่ดูมืออาชีพ ใช้ง่าย และพร้อมต่อยอดเป็น production</h2>
+              <p class="hero-copy">โครงนี้ออกแบบให้สอดคล้องกันทุกหน้า ตั้งแต่ login, form entry, data table จนถึง reports ด้วย spacing ที่โปร่งขึ้น ปุ่มแบบ pill, card radius 12px, inputs 8px, hover lift, sticky header และ sidebar ที่ยุบได้บน desktop หรือเป็น drawer บน mobile</p>
+              <div class="button-row">
+                <a class="btn btn-primary" href="entry.html"><i class="fa-regular fa-pen-to-square"></i>ดูหน้า บันทึกการทำงาน</a>
+                <a class="btn btn-secondary" href="list.html"><i class="fa-solid fa-list-check"></i>ดูหน้า รายการการทำงาน</a>
+                <a class="btn" href="reports.html"><i class="fa-regular fa-chart-bar"></i>ดูหน้า รายงาน</a>
+                <a class="btn btn-ghost" href="login.html"><i class="fa-solid fa-arrow-right-to-bracket"></i>ดูหน้า เข้าสู่ระบบ</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card metric-card">
+            <div class="card-body stat-stack">
+              <div>
+                <div class="metric-icon"><i class="fa-solid fa-shapes"></i></div>
+              <div class="metric-label">ครอบคลุมหน้าจอ</div>
+              <div class="metric-value">5 หน้า</div>
+                <div class="metric-meta"><span class="chip primary">component library</span><span class="chip">login</span><span class="chip">entry</span></div>
+              </div>
+              <div class="section-divider"></div>
+              <div>
+                <div class="metric-label">หลักการออกแบบ</div>
+                <div class="summary-list">
+                  <div class="summary-item">
+                    <div class="summary-label"><strong>ความสม่ำเสมอของภาพรวม</strong><span>ใช้ variables, elevation และ typography ramp ชุดเดียวกัน</span></div>
+                  </div>
+                  <div class="summary-item">
+                    <div class="summary-label"><strong>ความชัดเจนในการใช้งาน</strong><span>เน้น filters, summary chips, sticky tables และ inline validation</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <section class="card">
+          <div class="card-header">
+            <div>
+              <h2 class="card-title">ชุดสี</h2>
+              <p class="card-description">ใช้ violet เป็น primary accent และ slate neutral scale สำหรับเนื้อหาหลัก พร้อม semantic colors สำหรับ success, danger, warning</p>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="token-grid">
+              <div class="swatch primary">
+                <strong>Primary</strong>
+                <span>#7C3AED / #A78BFA</span>
+              </div>
+              <div class="swatch success">
+                <strong>Success</strong>
+                <span>#10B981</span>
+              </div>
+              <div class="swatch danger">
+                <strong>Danger</strong>
+                <span>#EF4444</span>
+              </div>
+              <div class="swatch warning">
+                <strong>Warning</strong>
+                <span>#F59E0B</span>
+              </div>
+              <div class="swatch neutral">
+                <strong>Text</strong>
+                <span>#0F172A</span>
+              </div>
+              <div class="swatch neutral">
+                <strong>Muted</strong>
+                <span>#64748B</span>
+              </div>
+              <div class="swatch neutral">
+                <strong>Border</strong>
+                <span>#E2E8F0</span>
+              </div>
+              <div class="swatch neutral">
+                <strong>Background</strong>
+                <span>#F8FAFC</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="card-grid two-up">
+          <article class="card">
+            <div class="card-header">
+              <div>
+              <h2 class="card-title">ตัวอักษร</h2>
+                <p class="card-description">Inter + IBM Plex Sans Thai / Noto Sans Thai พร้อม tabular numbers สำหรับเวลาและตัวเลขในตาราง</p>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="type-stack">
+                <div class="type-row">
+                  <div class="type-display-xl">ระบบบันทึกการทำงานรายวัน</div>
+                  <div class="type-meta">Heading / 700</div>
+                </div>
+                <div class="type-row">
+                  <div class="type-display-lg">บันทึกการทำงาน</div>
+                  <div class="type-meta">Page title / 700</div>
+                </div>
+                <div class="type-row">
+                  <div class="type-title">รายการการทำงาน</div>
+                  <div class="type-meta">Section title / 600</div>
+                </div>
+                <div class="type-row">
+                  <div class="type-body">รองรับ body text น้ำหนัก 400-500 และอธิบายข้อมูลได้อ่านง่าย</div>
+                  <div class="type-meta">Body / 500</div>
+                </div>
+                <div class="type-row">
+                  <div class="type-caption">04/06/2569 • 08:30 - 17:30</div>
+                  <div class="type-meta">Caption / tabular nums</div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-header">
+              <div>
+              <h2 class="card-title">ปุ่มและชิป</h2>
+                <p class="card-description">ปุ่ม pill, chip summary และ toast triggers ใช้ interaction เดียวกันทุกหน้า</p>
+              </div>
+            </div>
+            <div class="card-body card-grid">
+              <div class="button-row">
+                <button class="btn btn-primary" type="button" data-toast="บันทึกสำเร็จ" data-toast-type="success"><i class="fa-solid fa-floppy-disk"></i>บันทึก</button>
+                <button class="btn btn-secondary" type="button"><i class="fa-solid fa-filter"></i>ตัวกรอง</button>
+                <button class="btn btn-danger" type="button" data-toast="ลบสำเร็จ" data-toast-type="danger"><i class="fa-solid fa-trash"></i>ลบ</button>
+              </div>
+              <div class="pill-cluster">
+                <span class="chip primary"><i class="fa-regular fa-clock"></i>รวมวันนี้ 7.5 ชั่วโมง</span>
+                <span class="chip success"><i class="fa-solid fa-circle-check"></i>พร้อมส่งออก</span>
+                <span class="chip warning"><i class="fa-solid fa-triangle-exclamation"></i>รอตรวจสอบ</span>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <section class="card-grid two-up">
+          <article class="card state-card">
+            <div class="card-header">
+              <div>
+              <h2 class="card-title">สถานะของฟอร์ม</h2>
+                <p class="card-description">แสดง default, focus, error, disabled และ required field ด้วย red asterisk เท่านั้น</p>
+              </div>
+            </div>
+            <div class="card-body card-grid">
+              <div class="field-group">
+                <label class="field-label" for="state-date">วันที่ <span class="required">*</span></label>
+                <div class="input-shell">
+                  <i class="fa-regular fa-calendar"></i>
+                  <input id="state-date" type="text" data-buddhist-date>
+                </div>
+              </div>
+              <div class="field-group">
+                <label class="field-label" for="state-focus">ตั้งแต่</label>
+                <div class="input-shell is-focused">
+                  <i class="fa-regular fa-clock"></i>
+                  <input id="state-focus" type="text" value="08:30">
+                </div>
+                <p class="field-hint">ตัวอย่าง focus state</p>
+              </div>
+              <div class="field-group">
+                <label class="field-label" for="state-error">งาน <span class="required">*</span></label>
+                <button class="scope-selector error" type="button">
+                  <span class="scope-copy">
+                    <span class="scope-title">เลือก Scope งานที่ทำ</span>
+                    <span class="scope-subtitle">กรุณาเลือก Scope งานที่ทำ</span>
+                  </span>
+                  <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <p class="field-error">กรุณาเลือก Scope งานที่ทำ</p>
+              </div>
+              <div class="field-group">
+                <label class="field-label" for="state-disabled">หมายเหตุ</label>
+                <div class="input-shell disabled">
+                  <i class="fa-regular fa-note-sticky"></i>
+                  <input id="state-disabled" type="text" value="Disabled state preview" disabled>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="card state-card">
+            <div class="card-header">
+              <div>
+              <h2 class="card-title">Toggle และ Empty State</h2>
+                <p class="card-description">Segmented toggle แบบ modern และ empty state พร้อม illustration สำหรับตารางว่าง</p>
+              </div>
+            </div>
+            <div class="card-body card-grid">
+              <div class="field-group">
+                <label class="field-label">กำลังตั้งครรภ์หรือไม่</label>
+                <div class="segmented" role="radiogroup" aria-label="กำลังตั้งครรภ์หรือไม่">
+                  <input id="pregnant-no-preview" name="pregnant-preview" type="radio" checked>
+                  <label for="pregnant-no-preview">ไม่ใช่</label>
+                  <input id="pregnant-yes-preview" name="pregnant-preview" type="radio">
+                  <label for="pregnant-yes-preview">ใช่</label>
+                </div>
+              </div>
+              <div class="card">
+                <div class="empty-state">
+                  <svg class="empty-illustration" viewBox="0 0 220 160" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <rect x="38" y="28" width="144" height="104" rx="22" fill="rgba(124,58,237,0.10)" stroke="rgba(124,58,237,0.22)" stroke-width="2"/>
+                    <rect x="58" y="52" width="104" height="14" rx="7" fill="rgba(124,58,237,0.20)"/>
+                    <rect x="58" y="78" width="74" height="10" rx="5" fill="rgba(148,163,184,0.22)"/>
+                    <rect x="58" y="96" width="94" height="10" rx="5" fill="rgba(148,163,184,0.18)"/>
+                    <circle cx="164" cy="54" r="20" fill="rgba(167,139,250,0.18)"/>
+                    <path d="M155 55L162 62L174 47" stroke="#7C3AED" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <div>
+                    <h3 class="empty-title">ยังไม่มีบันทึกวันนี้</h3>
+                    <p class="empty-copy">ใช้ illustration ช่วยลดความแข็งของ empty state และคงโทนมืออาชีพด้วยข้อความที่สั้นชัดเจน</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <section class="card">
+          <div class="card-header">
+            <div>
+              <h2 class="card-title">รูปแบบ Data Table</h2>
+              <p class="card-description">ตารางเดียวกันใช้กับหน้า บันทึกการทำงาน และ รายการการทำงาน โดยมี zebra rows, hover, sticky header และ inline row actions</p>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="table-wrapper">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>No.</th>
+                    <th>งานที่ทำ</th>
+                    <th>วันที่</th>
+                    <th>เวลาเริ่ม</th>
+                    <th>เวลาสิ้นสุด</th>
+                    <th>หมายเหตุ</th>
+                    <th>ผู้บันทึก</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td data-label="No." class="table-number">01</td>
+                    <td data-label="งานที่ทำ">ประชุมวางแผน Sprint</td>
+                    <td data-label="วันที่" class="time">04/06/2569</td>
+                    <td data-label="เวลาเริ่ม" class="time">08:30</td>
+                    <td data-label="เวลาสิ้นสุด" class="time">10:00</td>
+                    <td data-label="หมายเหตุ">สรุป scope และจัดลำดับงานรายวัน</td>
+                    <td data-label="ผู้บันทึก">
+                      <div class="person-cell">
+                        <span>คุณธนายุทธ ทองโคตร</span>
+                        <span class="inline-actions">
+                          <button class="icon-btn edit" type="button" aria-label="แก้ไข"><i class="fa-regular fa-pen-to-square"></i></button>
+                          <button class="icon-btn delete" type="button" aria-label="ลบ" data-toast="ลบสำเร็จ" data-toast-type="danger"><i class="fa-regular fa-trash-can"></i></button>
+                        </span>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="summary-footer">
+              <div class="pill-cluster">
+                <span class="chip primary"><i class="fa-regular fa-clock"></i>รวมวันนี้ 7.5 ชั่วโมง</span>
+              </div>
+              <button class="btn" type="button" data-toast="บันทึกสำเร็จ" data-toast-type="success"><i class="fa-solid fa-bell"></i>ดู toast</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="card-header">
+            <div>
+              <h2 class="card-title">ตัวอย่างหน้าจอ</h2>
+              <p class="card-description">มองเห็นภาษาภาพรวมของแต่ละหน้าก่อนลงงานในระบบจริงหรือย้ายต่อเข้า Figma frames</p>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="preview-grid">
+              <article class="preview-card">
+                <a class="preview-surface" href="entry.html">
+                  <div class="mini-shell">
+                    <div class="mini-sidebar">
+                      <strong></strong>
+                      <span></span>
+                      <span></span>
+                    </div>
+                    <div class="mini-content">
+                      <div class="mini-topbar"></div>
+                      <div class="mini-card"><strong></strong><span></span><span></span></div>
+                      <div class="mini-table"><strong></strong><span></span><span></span><span></span></div>
+                    </div>
+                  </div>
+                </a>
+                <div>
+                  <strong>บันทึกการทำงาน</strong>
+                  <p class="field-hint">ฟอร์มหลัก, required scope, segmented toggle และ empty state table</p>
+                </div>
+              </article>
+              <article class="preview-card">
+                <a class="preview-surface" href="list.html">
+                  <div class="mini-shell">
+                    <div class="mini-sidebar">
+                      <strong></strong>
+                      <span></span>
+                      <span></span>
+                    </div>
+                    <div class="mini-content">
+                      <div class="mini-topbar"></div>
+                      <div class="mini-cards">
+                        <div class="mini-card"><strong></strong><span></span></div>
+                        <div class="mini-card"><strong></strong><span></span></div>
+                      </div>
+                      <div class="mini-table"><strong></strong><span></span><span></span><span></span></div>
+                    </div>
+                  </div>
+                </a>
+                <div>
+                  <strong>รายการการทำงาน</strong>
+                  <p class="field-hint">filter bar, sticky header, pagination และ export actions</p>
+                </div>
+              </article>
+              <article class="preview-card">
+                <a class="preview-surface" href="reports.html">
+                  <div class="mini-shell">
+                    <div class="mini-sidebar">
+                      <strong></strong>
+                      <span></span>
+                      <span></span>
+                    </div>
+                    <div class="mini-content">
+                      <div class="mini-topbar"></div>
+                      <div class="mini-cards">
+                        <div class="mini-card"><strong></strong><span></span></div>
+                        <div class="mini-card"><strong></strong><span></span></div>
+                      </div>
+                      <div class="mini-table"><strong></strong><span></span><span></span><span></span></div>
+                    </div>
+                  </div>
+                </a>
+                <div>
+                  <strong>รายงาน</strong>
+                  <p class="field-hint">dashboard cards, bar chart, donut chart และ summaries by person / งาน</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
